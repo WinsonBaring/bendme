@@ -1,0 +1,13 @@
+{
+  "checks" : [
+    "Silk: open-lid identity error 0.000",
+    "Silk: folded geometry contains 109076 lit pixels",
+    "Shade: open-lid identity error 0.000",
+    "Shade: folded geometry contains 108608 lit pixels",
+    "Frost: open-lid identity error 0.000",
+    "Frost: folded geometry contains 109090 lit pixels"
+  ],
+  "device" : "Apple M3 Pro",
+  "renders" : 15,
+  "result" : "PASS"
+}
