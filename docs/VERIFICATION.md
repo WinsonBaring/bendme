@@ -26,21 +26,28 @@
 
 These are the app's original procedural artwork rendered with the actual GPU pipeline. They are not captured desktop frames.
 
-## Still requires permission / physical acceptance
+## Activation follow-up — verified
 
-Screen Recording is **not granted** in the running app. The user was asked for confirmation before expanding screen access. No confirmation had arrived when this verification record was written. The computer-use tool requires confirmation before granting that permission; the app does not bypass it.
+The user requested enabling the app. System Settings showed BendMe permission enabled, but the current ad-hoc build still reported denied. Toggling and restarting did not repair it. Resetting only BendMe's ScreenCapture entry and re-adding the exact current app bundle in System Settings did. The native UI now shows **LIVE**, **Pause BendMe**, and **Follow lid: on**. Shade and the 100° clear angle were preserved. Observed lid: 112°.
 
-Consequently live desktop capture, recursive-overlay exclusion in an active stream, physical lid-to-desktop alignment, full-screen Spaces, global pause during an active effect, and sleep/wake recovery have **not** been verified end to end. Their code paths are implemented, but the GPU tests do not prove them.
+A LaunchServices smoke test returned:
 
-After granting BendMe Screen Recording and reopening if requested:
-
-```sh
-dist/BendMe.app/Contents/MacOS/BendMe --capture-test
+```text
+PASS: 3 complete live frames at 1512×982; overlay exclusion resolved; capture stopped. No desktop frames saved.
 ```
 
-Expected: `PASS` with complete frame count and dimensions, resolved overlay exclusion, and stopped capture. No frames are saved. macOS may attribute a CLI invocation to its launching terminal; use the in-app Enable control if CLI and app permission results differ.
+The test stream stopped; the main app remained LIVE. This confirms real desktop capture and successful exclusion lookup for the overlay window. No desktop frames were persisted. No app rebuild was performed during the permission repair.
 
-Then choose Enable BendMe, gently lower the lid below 100°, open it again, and test Control–Option–Command–B while another app is focused. Re-enable and check sleep/wake and display changes. Do not treat these physical acceptance checks as completed until observed.
+Reproduce in the GUI app's authorization context:
+
+```sh
+open -n -g -W --stdout /tmp/bendme-capture.out --stderr /tmp/bendme-capture.err dist/BendMe.app --args --capture-test
+cat /tmp/bendme-capture.out /tmp/bendme-capture.err
+```
+
+Direct execution from the automation terminal still reported permission denied, while the GUI and LaunchServices-launched test succeeded. This is a macOS launch-responsibility distinction; the direct CLI result is not evidence that the active GUI app cannot capture.
+
+Physical lid-to-desktop alignment, visual recursion under an actively folded overlay, full-screen Spaces, global pause during a visible effect, and sleep/wake recovery remain **unverified** end to end. Gently lower the lid below 100° to exercise the live fold. The effect intentionally clears above that angle.
 
 ## Delivery boundaries
 

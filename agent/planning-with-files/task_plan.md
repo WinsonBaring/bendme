@@ -18,7 +18,9 @@ Local scope below is the issue draft; do not invent a remote issue number.
 
 ## Phase 3: Delivery
 - [x] Run tests, GPU self-test, hardware diagnostics, release build, and native UI QA.
-- [ ] Live desktop / physical lid / sleep acceptance (blocked on Screen Recording permission).
+- [x] Refresh stale Screen Recording authorization and enable live desktop capture.
+- [x] LaunchServices capture smoke test: 3 complete frames at 1512×982, overlay exclusion resolved.
+- [ ] Physical lid / sleep / Spaces acceptance beyond live capture.
 - [x] Package locally signed .app, launch and verify running process.
 - [x] Update docs, changelog, and current state; commit implementation.
 - [ ] GitHub issue/remote delivery (blocked: no remote or GitHub MCP).

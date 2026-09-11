@@ -9,3 +9,8 @@
 - Screen Recording confirmation remains pending; General UI independently confirms permission absent. Live capture test exits cleanly with an explicit error. End-to-end physical tests are documented as unverified, not passed.
 - Updated setup, architecture, changelog, original reference preservation, GPU evidence, and current state. Preparing final local commit; no remote issue or push is possible.
 - Final delivery: locally signed app and ZIP created, latest bundle relaunched, and implementation staged for commit. Only permission-dependent acceptance and unavailable GitHub tracking remain outstanding.
+
+- Activation follow-up: user authorized enabling BendMe. System Settings already showed Screen Recording on, but the current app preflight remained false after toggle/restart. Reset only local.bendme.mac's ScreenCapture record and added the exact current app through the native file chooser; Quit & Reopen restored authorization.
+- Enabled app: native UI shows LIVE / Pause BendMe. Turned Follow lid on (112°), retaining Shade and clear angle 100°.
+- Live smoke test launched via `open` passed with 3 complete 1512×982 frames and valid overlay exclusion; test stream stopped and original app remained live. No desktop images saved. Direct CLI permission differs due to macOS launch responsibility.
+- Updated setup, verification, changelog, findings and state. No app rebuild, no new signature, no changes to other applications' permissions. GitHub remains unavailable.
