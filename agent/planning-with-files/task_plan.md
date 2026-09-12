@@ -120,3 +120,8 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 - [x] User resumed notarization/publication; align website and app guidance with visible pause controls.
 - [x] App/site checks passed; Apple accepted build 6 and mounted package validation passed.
 - [x] Published v0.1.5 downloads; all four public hashes match. Pages deployment succeeded and live HTTP 200 confirms v0.1.5 and corrected pause copy; shortcut failure tracked in #11.
+
+## Phase 24: [Issue #12] Local social launch kit
+- [x] Inspect source video and existing ignore rule; keep drafts private/local.
+- [x] Five concise platform drafts, local transcript review, selected stills and compatible full/short video exports prepared.
+- [x] Five tracker entries/media paths validated; videos decode and social-media is ignored/untracked. Repository metadata committed separately.

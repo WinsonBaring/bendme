@@ -27,3 +27,7 @@
 - User resumed direct notarization and website publication. Updated visible pause guidance and setup copy; bumped release to 0.1.5/build 6. Tracked un-reproduced shortcut failure in #11.
 - Swift 17 tests and website lint/3 tests/build passed. Apple accepted isolated archive; exported app passed strict signature, ticket and Gatekeeper checks. Signed-app GPU self-test passed with 15 renders. Packaging/public verification underway.
 - Published v0.1.5 after mounted-DMG verification; public DMG/ZIP/two checksum files match local hashes. Pushed source and deployed Pages (run 34673091473); live HTTP 200 confirms new version and visible pause instructions, with old global promise absent.
+
+## 2026-09-12 local social kit [Issue #12]
+- Prepared five platform drafts, tracker, source review, selected stills and compatible video exports locally. Preserved Bendy inspiration credit and avoided unverified claims.
+- Validated five caption/media mappings, decoded both videos, confirmed social-media is ignored with no tracked files. No posting or scheduling.

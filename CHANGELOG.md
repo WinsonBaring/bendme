@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Ignore the local social-media workspace for private launch drafts, tracking and media.
+
 ## 0.1.5
 
 - Published Apple-notarized direct downloads and updated the live landing page; mounted DMG and public file hashes verified.
