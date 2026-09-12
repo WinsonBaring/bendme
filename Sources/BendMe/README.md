@@ -7,3 +7,5 @@ Build and launch through [the root setup guide](../../SETUP.md); the app needs i
 The same files compile in the native Xcode target. Conditional BendCore imports avoid duplicating application logic, and resource lookup supports the Xcode app bundle and SwiftPM CLI.
 
 Normal launches now use regular AppKit activation so the app appears in the Dock. Reopening activates the settings window and restores it from minimization; capture diagnostics remain an accessory process.
+
+`SetupView.swift` provides the first-launch installation guide and floating permission companion. Buttons reveal the app in Finder, open Applications or Screen Recording settings, and reopen the installed app. `AppModel` polls setup facts while the guide is visible and resumes unfinished setup across restarts. Completion requires real frame delivery and effect presentation. Only Screen Recording consent is needed; the user controls macOS consent. The companion shows an explicitly labeled example switch rather than controlling System Settings. About reads the bundle version.

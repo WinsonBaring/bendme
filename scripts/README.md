@@ -15,3 +15,5 @@
 `finish-notarization.py` checks the existing submission once per minute for up to 24 hours, exports and verifies acceptance, then packages the app. `--publish` additionally verifies the mounted DMG, builds the updated website, replaces release assets and checks their public hashes, pushes the website, and verifies its live copy. Run publishing from an isolated clean checkout; it stops if remote source changed while waiting. State is recorded in `dist/DeveloperID/notarization-status.json`. It never resubmits or reads account credentials.
 
 Versioned notarization can use BENDME_NOTARIZATION_DIR to keep each archive/export separate. package-notarized.sh uses the same variable and BENDME_RELEASE_DIR for versioned output. Normal build-app.sh bundles are regular Dock applications.
+
+`render-setup-checks.sh` compiles `render-setup-checks.swift` against the actual app views and renders eight synthetic layout states into `dist/SetupVerification`. Hardware, capture, permission polling and shortcuts are disabled in this isolated model. These images verify layout, not real macOS consent or physical lid behavior. DMG notes now direct users to the interactive Setup guide.

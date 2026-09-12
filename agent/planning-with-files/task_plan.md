@@ -53,3 +53,9 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 - [x] Use regular activation and matching bundle flags; restore minimized settings on reopen.
 - [x] Verify regular Dock activation and visible settings for the built and installed apps; eight native tests passed.
 - [x] Publish approved version 0.1.1 with isolated archives; verify public artifacts and live website.
+
+## Phase 9: [Issue #7] Interactive setup guide
+- [x] Add installation, permission, first-effect and completion states with actual checks.
+- [x] Add settings navigation, a floating visual permission companion and restart recovery.
+- [x] Verify state transitions, native layout and failure recovery; document OS consent limits.
+- [ ] Sign/notarize version 0.1.2, install it, publish downloads and update website guidance.

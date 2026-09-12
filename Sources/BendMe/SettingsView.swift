@@ -19,7 +19,7 @@ struct SettingsView: View {
                     HStack(alignment: .top) {
                         VStack(alignment: .leading, spacing: 6) {
                             Text(page).font(.system(size: 25, weight: .semibold))
-                            Text(page == "Appearance" ? "A new angle on your everyday." : page == "General" ? "Quietly at home on your Mac." : "Made to change your perspective.")
+                            Text(page == "Setup" ? "Let's get you bending, one step at a time." : page == "Appearance" ? "A new angle on your everyday." : page == "General" ? "Quietly at home on your Mac." : "Made to change your perspective.")
                                 .foregroundStyle(.secondary).font(.system(size: 13))
                         }
                         Spacer()
@@ -28,7 +28,8 @@ struct SettingsView: View {
                             Text(model.enabled ? "LIVE" : "PREVIEW").font(.system(size: 10, weight: .semibold, design: .monospaced))
                         }.padding(.horizontal, 11).padding(.vertical, 7).background(.white.opacity(0.055), in: Capsule())
                     }
-                    if page == "Appearance" { appearance }
+                    if page == "Setup" { SetupView(model: model) }
+                    else if page == "Appearance" { appearance }
                     else if page == "General" { general }
                     else { about }
                     if let message = model.message {
@@ -46,6 +47,15 @@ struct SettingsView: View {
         .frame(minWidth: 860, idealWidth: 900, minHeight: 730, idealHeight: 780)
         .preferredColorScheme(.dark)
         .tint(accent)
+        .onAppear { if model.showSetup { page = "Setup" } }
+        .onChange(of: model.showSetup) { _, visible in
+            if visible { page = "Setup" }
+            else if page == "Setup" { page = "Appearance" }
+        }
+        .onChange(of: page) { _, value in
+            model.showSetup = value == "Setup"
+            if value != "Setup" { model.showPermissionGuide = false }
+        }
     }
 
     private var sidebar: some View {
@@ -58,8 +68,11 @@ struct SettingsView: View {
                 .tracking(2.4).foregroundStyle(.secondary).padding(.bottom, 42)
             Text("YOUR MAC").font(.system(size: 9, weight: .semibold)).tracking(1.4).foregroundStyle(.tertiary)
                 .padding(.leading, 10).padding(.bottom, 12)
-            ForEach([("Appearance", "circle.lefthalf.filled"), ("General", "slider.horizontal.3"), ("About", "info.circle")], id: \.0) { item in
-                Button { page = item.0 } label: {
+            ForEach([("Setup", "checklist"), ("Appearance", "circle.lefthalf.filled"), ("General", "slider.horizontal.3"), ("About", "info.circle")], id: \.0) { item in
+                Button {
+                    if item.0 == "Setup" { model.beginSetup() }
+                    page = item.0
+                } label: {
                     HStack(spacing: 11) {
                         Image(systemName: item.1).font(.system(size: 14)).frame(width: 20)
                             .foregroundStyle(page == item.0 ? accent : .secondary)
@@ -171,7 +184,7 @@ struct SettingsView: View {
                     Text(model.permissionGranted ? "Permission granted. Frames stay in memory on this Mac." : "BendMe needs permission to render your live desktop. Nothing is recorded or uploaded.")
                         .foregroundStyle(.secondary)
                     HStack {
-                        Button("Grant permission", action: model.requestPermission).disabled(model.permissionGranted)
+                        Button("Guide me through setup", action: model.beginSetup)
                         Button("Open System Settings", action: model.openPrivacySettings)
                     }
                 }.padding(12)
@@ -205,7 +218,7 @@ struct SettingsView: View {
             Divider()
             Label("Local by design. No accounts, analytics, or uploads.", systemImage: "lock.shield")
             Label("Built for macOS 14+ and compatible MacBook lid sensors.", systemImage: "macbook")
-            Text("BendMe 0.1.0  ·  \(model.bends) bends this session").font(.system(size: 11, design: .monospaced)).foregroundStyle(.tertiary)
+            Text("BendMe \(model.appVersion)  ·  \(model.bends) bends this session").font(.system(size: 11, design: .monospaced)).foregroundStyle(.tertiary)
         }.font(.system(size: 13))
     }
 

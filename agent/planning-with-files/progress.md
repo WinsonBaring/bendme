@@ -52,3 +52,9 @@ Issue #4 complete: Apple accepted the app; signature, ticket, Gatekeeper, mounte
 - Apple accepted the separate 0.1.1 archive; signature, ticket, Gatekeeper and mounted DMG checks passed. Replaced /Applications/BendMe-2.app with approved /Applications/BendMe.app and launched it, preserving settings and permissions. Public release publication follows.
 - Published v0.1.1 DMG/ZIP/checksums and verified public hashes. Pages deployment succeeded; live HTML contains the 0.1.1 download and Dock feature copy. Installed app reports regular activation, one visible settings window and hidden=false.
 - Remote Checks run 34667657103 passed. Issue #6 complete; committed and pushed final verification state.
+
+## 2026-09-12 interactive setup [Issue #7]
+- Added live installation/permission/effect stages, actual Finder/settings/reopen buttons, floating visual permission companion and persisted setup recovery. No Accessibility permission needed.
+- Added nine setup tests (17 total) and eight isolated native layout fixtures; all passed and layouts reviewed. Adjusted companion background and compact content after inspection. Website checks passed.
+- Version 0.1.2/build 3 accepted by Apple; app signature, stapled ticket and Gatekeeper passed. Packaged DMG/ZIP. Installation identity guard caught the known local preview copy; explicitly replaced that copy with the approved public app, preserving public preferences. Runtime verified regular Dock activation and one visible settings window.
+- Publishing verified downloads and website follows. OS consent and a complete physical-lid walkthrough remain manual acceptance checks.

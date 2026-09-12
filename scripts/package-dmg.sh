@@ -20,9 +20,12 @@ ln -s /Applications "$STAGING/volume/Applications"
 cat > "$STAGING/volume/Read Me.txt" <<'EOF'
 BendMe development preview
 
-Drag BendMe.app to Applications, eject this disk, then open BendMe
-from Applications. Enable BendMe and grant Screen Recording permission
-in System Settings when requested.
+Open BendMe to start its interactive Setup guide. It helps you place
+BendMe in Applications, open the correct Screen Recording settings,
+and try your first live effect. Follow the buttons in the app; a small
+companion guide stays visible while you use System Settings.
+
+Eject this disk after opening your installed copy from Applications.
 
 Requires Apple silicon and macOS 14 or later. The live effect requires
 a compatible MacBook lid sensor. Manual preview works without it.

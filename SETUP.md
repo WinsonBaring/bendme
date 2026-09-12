@@ -8,7 +8,7 @@
 
 ## Install the public preview
 
-Download the DMG from [GitHub Releases](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.1), open it, drag BendMe into Applications, and eject the disk. Launch BendMe from Applications, then follow the permission steps below. The public app is Developer ID signed and Apple-notarized. Re-download the current DMG if you have the earlier unsigned preview. Source builds remain available. The ZIP is retained as an alternative download.
+Download the DMG from [GitHub Releases](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.2), open it, and open BendMe to begin its interactive **Setup** guide. Follow its buttons to install in Applications, open the right permission settings, and try the first live effect. A floating companion points out the switch to use in System Settings. Eject the disk after the installed copy opens. The public app is Developer ID signed and Apple-notarized. Re-download the current DMG if you have the earlier unsigned preview. Source builds remain available. The ZIP is retained as an alternative download.
 
 ## Build and run
 
@@ -21,10 +21,7 @@ open dist/BendMe.app
 
 The script builds a release executable, bundles its Metal resource, and signs it locally. Launch the app bundle rather than `swift run` for a stable macOS permission identity. Keep the app in the same location when granting permissions.
 
-1. Try the angle slider in Appearance. Enable **Follow lid** to preview hardware movement.
-2. Choose **Enable BendMe**. macOS may request Screen Recording access.
-3. Allow **BendMe** in System Settings → Privacy & Security → Screen & System Audio Recording (called Screen Recording on some macOS versions). Quit and reopen BendMe if macOS requests it.
-4. Choose **Enable BendMe** again. Gently lower the lid below the clear angle, initially 100°. Reopen it to clear the effect.
+Open **Setup** in the sidebar (or **Setup Guide…** in the menu bar) for installation, Screen Recording permission, restart recovery, and first-effect checks. macOS consent remains your choice; BendMe opens the relevant settings and checks access automatically. You can choose **Explore the preview instead** without screen access.
 
 The app starts paused each time. Closing settings leaves the menu-bar app running. The overlay does not transform mouse coordinates; pause it before precision interaction. The menu bar stays accessible above the overlay.
 

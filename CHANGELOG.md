@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- BendMe 0.1.2 guides installation and Screen Recording setup inside the app, with working navigation buttons, a floating visual companion, automatic checks, restart recovery and a first-live-effect walkthrough. Manual preview remains available without permission.
+
 - BendMe 0.1.1 now appears in the Dock as a regular desktop application. Opening it restores its settings window, including when minimized; menu-bar controls remain available.
 
 - Recorded local uninstall and permission reset for a fresh manual test of the notarized DMG; source and release artifacts are preserved.

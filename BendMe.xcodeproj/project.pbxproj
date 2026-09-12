@@ -46,6 +46,24 @@
 			<key>fileRef</key>
 			<string>098B1739F8FB0B13160B14A1</string>
 		</dict>
+		<key>AB03FA7FC144778EE1524009</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Sources/BendCore/SetupProgress.swift</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>3988003BAF2D8EFB794C4ACA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>fileRef</key>
+			<string>AB03FA7FC144778EE1524009</string>
+		</dict>
 		<key>DEF8AAF95F6054D25910EF49</key>
 		<dict>
 			<key>isa</key>
@@ -172,6 +190,24 @@
 			<key>fileRef</key>
 			<string>8230F14DB840F178440DE143</string>
 		</dict>
+		<key>8308E729ECA2C36FCD2B87C8</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Sources/BendMe/SetupView.swift</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>9059AE2547B7BE1A70D8C8B9</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>fileRef</key>
+			<string>8308E729ECA2C36FCD2B87C8</string>
+		</dict>
 		<key>83C97E4D6289F467EFD2862B</key>
 		<dict>
 			<key>isa</key>
@@ -242,6 +278,7 @@
 			<array>
 				<string>794F1E9549776BAA3FFB3A11</string>
 				<string>098B1739F8FB0B13160B14A1</string>
+				<string>AB03FA7FC144778EE1524009</string>
 				<string>DEF8AAF95F6054D25910EF49</string>
 				<string>32DCA9BF4A01A12E82F5FDFD</string>
 				<string>F623D9BCDD7C035800EA6384</string>
@@ -249,6 +286,7 @@
 				<string>330ADBDAACA9ECAC8072390C</string>
 				<string>0C686C1BE31B08F7EF8B5513</string>
 				<string>8230F14DB840F178440DE143</string>
+				<string>8308E729ECA2C36FCD2B87C8</string>
 			</array>
 			<key>name</key>
 			<string>Sources</string>
@@ -292,6 +330,7 @@
 			<array>
 				<string>F20A9AE1269C7D4B9C57961F</string>
 				<string>60FB2EEBB7A115210876E94B</string>
+				<string>3988003BAF2D8EFB794C4ACA</string>
 				<string>3D3B57141F26EA3D2F734C1A</string>
 				<string>56F1A7E92C608ABDAC41C53E</string>
 				<string>496EC56761E9AAC01911C1C7</string>
@@ -299,6 +338,7 @@
 				<string>A3DFC2BB4DC7A89F466AFD24</string>
 				<string>B1EAA10A4B49495FE6CF1CDE</string>
 				<string>D1CF32B38F99AA8ACA97C90F</string>
+				<string>9059AE2547B7BE1A70D8C8B9</string>
 			</array>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
@@ -396,7 +436,7 @@ cp "${SRCROOT}/Sources/BendMe/Resources/Fold.metal" "$destination/Fold.metal"
 				<key>CODE_SIGN_STYLE</key>
 				<string>Automatic</string>
 				<key>CURRENT_PROJECT_VERSION</key>
-				<string>2</string>
+				<string>3</string>
 				<key>ENABLE_APP_SANDBOX</key>
 				<string>YES</string>
 				<key>ENABLE_HARDENED_RUNTIME</key>
@@ -408,7 +448,7 @@ cp "${SRCROOT}/Sources/BendMe/Resources/Fold.metal" "$destination/Fold.metal"
 				<key>INFOPLIST_FILE</key>
 				<string>distribution/Info.plist</string>
 				<key>MARKETING_VERSION</key>
-				<string>0.1.1</string>
+				<string>0.1.2</string>
 				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
 				<string>com.winsonbaring.bendme</string>
 				<key>PRODUCT_NAME</key>
@@ -469,7 +509,7 @@ cp "${SRCROOT}/Sources/BendMe/Resources/Fold.metal" "$destination/Fold.metal"
 				<key>CODE_SIGN_STYLE</key>
 				<string>Automatic</string>
 				<key>CURRENT_PROJECT_VERSION</key>
-				<string>2</string>
+				<string>3</string>
 				<key>ENABLE_APP_SANDBOX</key>
 				<string>YES</string>
 				<key>ENABLE_HARDENED_RUNTIME</key>
@@ -481,7 +521,7 @@ cp "${SRCROOT}/Sources/BendMe/Resources/Fold.metal" "$destination/Fold.metal"
 				<key>INFOPLIST_FILE</key>
 				<string>distribution/Info.plist</string>
 				<key>MARKETING_VERSION</key>
-				<string>0.1.1</string>
+				<string>0.1.2</string>
 				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
 				<string>com.winsonbaring.bendme</string>
 				<key>PRODUCT_NAME</key>

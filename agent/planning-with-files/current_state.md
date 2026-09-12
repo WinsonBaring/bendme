@@ -1,7 +1,7 @@
 # Current state
 
-BendMe 0.1.1/build 2 is installed and running at /Applications/BendMe.app as a regular Dock application. The old installed BendMe-2.app was replaced. Settings and privacy grants were preserved; the effect still starts paused. Menu-bar controls remain, and reopening brings settings forward with minimization restoration.
+BendMe 0.1.2/build 3 is installed and running at /Applications/BendMe.app with an interactive Setup guide, real navigation buttons, floating Screen Recording companion, restart recovery and live first-effect checks. Public preferences and privacy grants were preserved.
 
-Verified: eight Swift tests, website checks, runtime regular activation and visible settings window, Apple notarization, stapled app ticket, Gatekeeper acceptance, mounted DMG and installed signature. Separate minimized-window UI automation was not available. New DMG/ZIP artifacts are in dist/Release-0.1.1; archive/export in dist/DeveloperID-0.1.1. Version 0.1.1 is published; public DMG/ZIP/checksum hashes match local artifacts and the live website has the new download and Dock feature copy. Issue #6 is complete.
+Verified: 17 native tests, eight synthetic native layouts visually reviewed, website checks, Apple notarization, ticket/signature/Gatekeeper, mounted DMG and installed regular Dock activation with a visible window. OS consent and the complete physical-lid walkthrough were not automated. Release publication is in progress under Issue #7. Artifacts: dist/Release-0.1.2 and dist/DeveloperID-0.1.2.
 
-App Store submission remains separate under #2. Issue #5 retains two protected empty diagnostic metadata containers; these do not belong to the public app identifier or affect its settings. Source and previous release artifacts are preserved.
+App Store submission remains separate under #2. Issue #5 retains two protected empty diagnostic metadata containers unrelated to the public app.

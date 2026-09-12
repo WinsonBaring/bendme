@@ -23,8 +23,17 @@ final class AppModel: ObservableObject {
     @Published var bends = 0
     @Published var permissionGranted = CGPreflightScreenCaptureAccess()
     @Published var overlayVisible = false
+    @Published var showSetup = true { didSet { updateSetupPolling() } }
+    @Published var showPermissionGuide = false { didSet { updateSetupPolling() } }
+    @Published var installedInApplications = false
+    @Published var installedCopyURL: URL?
+    @Published var setupHasFrames = false
+    @Published var setupSawEffect = false
+    @Published var reopening = false
+    private var setupTimer: Timer?
     let sensor = LidSensor()
     private let defaults: UserDefaults
+    private let servicesEnabled: Bool
     private var capture: DesktopCapture?
     private var panel: NSPanel?
     private var metalView: MTKView?
@@ -43,11 +52,16 @@ final class AppModel: ObservableObject {
     private var hotkeyHandler: EventHandlerRef?
     private var resumeAfterWake = false
 
-    init(defaults: UserDefaults = .standard) {
+    init(defaults: UserDefaults = .standard, servicesEnabled: Bool = true) {
         self.defaults = defaults
+        self.servicesEnabled = servicesEnabled
         if let data = defaults.data(forKey: "appearance"), let value = try? JSONDecoder().decode(FoldSettings.self, from: data) {
             settings = value.validated()
         } else { settings = FoldSettings() }
+        showSetup = !defaults.bool(forKey: "setupCompleted") || defaults.bool(forKey: "setupInProgress")
+        // Isolated layout checks can render the real views without starting hardware,
+        // capture, permission polling or global shortcuts. Normal launches use services.
+        guard servicesEnabled else { return }
         sensor.onChange = { [weak self] value in
             guard let self else { return }
             self.angle = value
@@ -57,6 +71,96 @@ final class AppModel: ObservableObject {
         refreshSensor()
         observeLifecycle()
         installEmergencyShortcut()
+        refreshSetupStatus()
+        updateSetupPolling()
+    }
+
+    var setupProgress: SetupProgress {
+        SetupProgress(installed: installedInApplications, permissionGranted: permissionGranted,
+                      sensorAvailable: angle != nil, sawEffect: setupSawEffect)
+    }
+
+    var appVersion: String { Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "Development" }
+
+    func beginSetup() {
+        defaults.set(true, forKey: "setupInProgress")
+        showSetup = true
+        message = nil
+        refreshSetupStatus()
+    }
+
+    func finishSetup(previewOnly: Bool = false) {
+        guard previewOnly || setupProgress.step == .ready else { return }
+        if previewOnly { pause(); followLid = false }
+        defaults.set(true, forKey: "setupCompleted")
+        defaults.set(false, forKey: "setupInProgress")
+        showPermissionGuide = false
+        showSetup = false
+    }
+
+    func refreshSetupStatus() {
+        let granted = CGPreflightScreenCaptureAccess()
+        if permissionGranted != granted { permissionGranted = granted }
+        let installed = SetupProgress.isInstalled(appURL: Bundle.main.bundleURL,
+                                                  homeURL: FileManager.default.homeDirectoryForCurrentUser)
+        if installedInApplications != installed { installedInApplications = installed }
+        if installed {
+            if installedCopyURL != Bundle.main.bundleURL { installedCopyURL = Bundle.main.bundleURL }
+            return
+        }
+        let folders = [URL(fileURLWithPath: "/Applications"),
+                       FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Applications")]
+        // A downloaded ZIP can become BendMe-2.app. Match its identity/version,
+        // not just the filename, and read fresh metadata after a Finder copy.
+        guard let identifier = Bundle.main.bundleIdentifier,
+              let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String else { return }
+        let candidate = SetupProgress.installedCopy(in: folders, identifier: identifier, buildVersion: build)
+        if installedCopyURL != candidate { installedCopyURL = candidate }
+    }
+
+    private func updateSetupPolling() {
+        guard servicesEnabled else { return }
+        if showSetup || showPermissionGuide {
+            guard setupTimer == nil else { return }
+            let timer = Timer(timeInterval: 2, repeats: true) { [weak self] _ in
+                MainActor.assumeIsolated { self?.refreshSetupStatus() }
+            }
+            timer.tolerance = 0.5
+            RunLoop.main.add(timer, forMode: .common)
+            setupTimer = timer
+        } else { setupTimer?.invalidate(); setupTimer = nil }
+    }
+
+    func revealApplication() { NSWorkspace.shared.activateFileViewerSelecting([Bundle.main.bundleURL]) }
+
+    func openApplications() {
+        if !NSWorkspace.shared.open(URL(fileURLWithPath: "/Applications")) {
+            message = "Applications could not open. In Finder, choose Go → Applications."
+        }
+    }
+
+    func reopenApplication(at url: URL? = nil) {
+        guard !reopening else { return }
+        reopening = true
+        defaults.set(true, forKey: "setupInProgress")
+        pause()
+        let configuration = NSWorkspace.OpenConfiguration()
+        configuration.createsNewApplicationInstance = true
+        NSWorkspace.shared.openApplication(at: url ?? Bundle.main.bundleURL, configuration: configuration) { app, error in
+            Task { @MainActor [weak self] in
+                if app != nil { NSApp.terminate(nil) }
+                else {
+                    self?.reopening = false
+                    self?.message = error?.localizedDescription ?? "BendMe could not reopen. Quit and open it from Applications."
+                }
+            }
+        }
+    }
+
+    func startPermissionSetup() {
+        beginSetup()
+        requestPermission()
+        if !permissionGranted { openPrivacySettings() }
     }
 
     var effectivePreviewAngle: Double { followLid ? angle ?? 135 : previewAngle }
@@ -71,13 +175,18 @@ final class AppModel: ObservableObject {
     func requestPermission() {
         permissionGranted = CGRequestScreenCaptureAccess()
         if !permissionGranted {
-            message = "Allow BendMe in System Settings → Privacy & Security → Screen & System Audio Recording. Then reopen BendMe if macOS asks."
+            showSetup = true
+        } else {
+            message = nil
         }
     }
 
     func openPrivacySettings() {
+        showPermissionGuide = true
         if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture") {
-            NSWorkspace.shared.open(url)
+            if !NSWorkspace.shared.open(url) {
+                message = "System Settings could not open. Choose Privacy & Security → Screen & System Audio Recording in System Settings."
+            }
         }
     }
 
@@ -86,7 +195,7 @@ final class AppModel: ObservableObject {
     func enable() {
         guard !enabled, !starting else { return }
         permissionGranted = CGPreflightScreenCaptureAccess()
-        guard permissionGranted else { requestPermission(); return }
+        guard permissionGranted else { beginSetup(); return }
         if sensor.angle == nil { refreshSensor() }
         guard sensor.angle != nil else { message = sensor.status; return }
         guard let screen = NSScreen.screens.first(where: { CGDisplayIsBuiltin($0.displayID) != 0 }) else {
@@ -132,6 +241,7 @@ final class AppModel: ObservableObject {
             }
             capture.onFrame = { [weak self] frame in
                 guard let self, self.generation == session else { return }
+                if !self.firstFrame { self.setupHasFrames = true }
                 self.firstFrame = true
                 self.lastFrameTime = CACurrentMediaTime()
                 self.renderer?.setFrame(frame)
@@ -183,6 +293,7 @@ final class AppModel: ObservableObject {
                     guard let self, self.enabled, self.smoothedProgress > 0.002 else { return }
                     self.panel?.alphaValue = 1
                     self.overlayVisible = true
+                    self.setupSawEffect = true
                     self.renderer?.onPresented = nil
                 }
             }
@@ -205,6 +316,7 @@ final class AppModel: ObservableObject {
         renderer?.clearFrame(); renderer = nil
         overlayVisible = false
         firstFrame = false
+        setupHasFrames = false
         smoothedProgress = 0
         let previous = capture
         capture = nil
@@ -241,7 +353,7 @@ final class AppModel: ObservableObject {
             }
         })
         observers.append(NotificationCenter.default.addObserver(forName: NSApplication.didBecomeActiveNotification, object: nil, queue: .main) { [weak self] _ in
-            MainActor.assumeIsolated { self?.permissionGranted = CGPreflightScreenCaptureAccess() }
+            MainActor.assumeIsolated { self?.refreshSetupStatus() }
         })
         escapeMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
             if event.keyCode == 53 { MainActor.assumeIsolated { self?.pause() } }
@@ -266,6 +378,7 @@ final class AppModel: ObservableObject {
     }
 
     func shutdown() {
+        setupTimer?.invalidate(); setupTimer = nil
         pause()
         sensor.stop()
         if let escapeMonitor { NSEvent.removeMonitor(escapeMonitor) }

@@ -8,4 +8,6 @@ The primary download points directly to the versioned DMG asset on GitHub Releas
 
 The current direct download includes a Developer ID signed app with a validated Apple notarization ticket.
 
-The current v0.1.1 download includes a Dock icon and settings-window restoration, alongside menu-bar controls.
+The current v0.1.2 download includes a Dock icon and settings-window restoration, alongside menu-bar controls.
+
+The first-start FAQ directs users to the interactive Setup guide, with a floating permission companion and live checks in the app.

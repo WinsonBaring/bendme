@@ -87,3 +87,11 @@ Both packaging paths use LSUIElement=false and normal execution uses regular act
 
 Public v0.1.1 DMG, ZIP and checksum manifest matched local hashes. Pages run 34667657164 succeeded; live HTML contains the new versioned DMG and Dock feature copy.
 GitHub Checks run 34667657103 passed for the 0.1.1 implementation, including native tests/archive and website checks.
+
+## Guided setup 0.1.2/build 3 — Issue #7
+
+- `swift test -Xswiftc -warnings-as-errors`: 17 tests passed. Setup state transitions, permission revocation, renamed installations, fresh metadata and build matching are covered.
+- `./scripts/render-setup-checks.sh`: eight actual SwiftUI layouts rendered and visually reviewed: install, permission, first effect, unsupported hardware, ready, waiting/granted companion, and capture error. These use synthetic state and app-owned bitmap rendering; no desktop frames or OS consent controls were captured.
+- Website `npm run check` passed. Native managed archive and upload succeeded; Apple accepted version 0.1.2. Stapled ticket, strict signature and Gatekeeper assessment passed.
+- Mounted DMG validated the approved app, Applications shortcut and guide-first notes. Installed the approved public bundle over the isolated local setup-preview build, preserving public defaults and permissions. Runtime reports regular Dock activation, one visible settings window, and hidden=false.
+- Actual macOS consent switches and a complete physical-lid walkthrough were not automated. macOS retains control of consent; the companion is a labeled visual example, not an overlay attached to OS controls.
