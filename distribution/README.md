@@ -14,6 +14,6 @@ Direct GitHub notarization is separate from App Store submission. See the direct
 
 Direct distribution notarization completed through the configured paid Xcode team. Ticket, Gatekeeper, mounted DMG and public download checks passed. App Store submission is separate.
 
-Version 0.1.2 uses a regular Dock application configuration (LSUIElement false), retaining menu-bar controls. Both the Xcode and SwiftPM packaging paths agree.
+Version 0.1.3 uses a regular Dock application configuration (LSUIElement false), retaining menu-bar controls. Both the Xcode and SwiftPM packaging paths agree.
 
-Version 0.1.2/build 3 adds interactive setup and a floating Screen Recording guide. Direct distribution is Developer ID signed and Apple-notarized; no additional Accessibility permission is requested.
+Version 0.1.3/build 4 adds interactive setup and a floating Screen Recording guide. Direct distribution is Developer ID signed and Apple-notarized; no additional Accessibility permission is requested.

@@ -65,3 +65,7 @@ Issue #4 complete: Apple accepted the app; signature, ticket, Gatekeeper, mounte
 - User requested removal after guided-setup delivery. Stopped BendMe, removed installed app and three local development bundles; preserved source and release/archive artifacts. No BendMe installer volume was mounted.
 - Deleted public/setup-preview defaults. Initial privacy reset after unregistering could not resolve the app; temporarily registered the preserved approved public app, successfully reset all public approvals, then unregistered it. Diagnostic identity reset attempts still returned no-such-identifier; no successful reset claimed for them.
 - Verified no running process, no BendMe app in Applications/Downloads/Desktop, and no public/setup-preview defaults. Two protected empty diagnostic metadata folders remain with no Data directories. Latest DMG preserved; leave app uninstalled for manual testing.
+
+## 2026-09-12 missing permission row [Issue #8]
+- User's screenshot confirms no BendMe row in upper screen recording list. Added async ScreenCaptureKit consent request with duplicate-request guard and prominent missing-app instructions, illustrated upper +, actual app-path copy action, switch/reopen steps. No capture stream starts and no consent is bypassed.
+- Seventeen native tests passed. Added missing-app and requesting layout fixtures; reviewed main and companion and shortened missing-app copy after a clipping check. Preserve user's installed app and privacy state during release preparation.

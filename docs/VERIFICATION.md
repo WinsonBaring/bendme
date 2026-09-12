@@ -97,3 +97,11 @@ GitHub Checks run 34667657103 passed for the 0.1.1 implementation, including nat
 - Actual macOS consent switches and a complete physical-lid walkthrough were not automated. macOS retains control of consent; the companion is a labeled visual example, not an overlay attached to OS controls.
 - Public v0.1.2 DMG, ZIP and checksum files match local SHA-256 hashes. GitHub Pages deployment 34669038165 passed; live HTML contains the new DMG link and interactive Setup guidance.
 - GitHub Checks run 34669038183 passed: native tests, unsigned App Store archive, website checks and dependency audit. Issue #7 is complete.
+
+## Missing permission row 0.1.3/build 4 — Issue #8
+
+- User's fresh-install screenshot demonstrates BendMe absent from Screen & System Audio Recording. It does not establish the underlying macOS cause.
+- Replaced the synchronous Core Graphics request with a guarded asynchronous ScreenCaptureKit shareable-content request. No stream or desktop frames are created for this request. Settings opens after the request completes if access remains unconfirmed.
+- Added explicit missing-app guidance in both native views, the upper-list + illustration, installed-app path copy, chooser keyboard steps and restart recovery. Manual guide selection never marks permission granted.
+- `swift test -Xswiftc -warnings-as-errors`: 17 tests passed. `./scripts/render-setup-checks.sh`: eleven synthetic native fixtures rendered; reviewed the changed permission and companion layouts, including missing-app and in-flight-request states. These fixtures do not test macOS consent.
+- User's currently installed app and privacy state are preserved. Real first-use consent, row registration and a complete physical-lid flow have not been automated; automatic row appearance is not guaranteed.

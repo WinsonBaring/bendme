@@ -1,7 +1,7 @@
 # Current state
 
-BendMe is uninstalled locally for the user to manually test v0.1.2 onboarding. No running BendMe process or app in Applications, Downloads or Desktop remains. Removed local Dock/sandbox/smoke development bundles. Public and setup-preview defaults are absent; tccutil successfully reset All approvals for com.winsonbaring.bendme. Source, DMG/ZIP downloads and notarization/archive artifacts remain intact and were unregistered from Launch Services.
+Issue #8 addresses the user's v0.1.2 fresh-install screenshot with no BendMe permission row. Implemented asynchronous ScreenCaptureKit consent request and prominent missing-app guidance in both permission views, with upper-list + illustration, actual app-path copy and reopen steps. Seventeen native tests and website checks passed; eleven synthetic layouts rendered, changed views reviewed. Version 0.1.3/build 4 is uploaded to Apple; notarization is processing and publication is pending.
 
-Two empty diagnostic containers retain macOS-protected metadata; their Data folders are absent. Attempts to reset removed diagnostic bundle identifiers returned no-such-identifier, so no fresh reset is claimed for those separate identities. They do not affect the public app's fresh setup. Issue #5 stays open only for these diagnostic cleanup limits.
+User's current manual-test installation and privacy state are preserved; do not replace, launch or reset them automatically. Real first-use consent/registration and physical-lid acceptance are not verified by the fixtures. The guide handles absence of the row without assuming automatic registration succeeds.
 
-Version 0.1.2 is published and verified; issue #7 is complete. App Store submission remains separate under #2. Do not launch or reinstall automatically: the user will manually test the first-launch flow.
+App Store submission remains #2. Two empty protected diagnostic metadata folders remain under #5. Source and release artifacts are preserved.

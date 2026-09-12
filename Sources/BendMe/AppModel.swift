@@ -1,6 +1,7 @@
 import AppKit
 import Combine
 import MetalKit
+import ScreenCaptureKit
 #if canImport(BendCore)
 import BendCore
 #endif
@@ -30,6 +31,10 @@ final class AppModel: ObservableObject {
     @Published var setupHasFrames = false
     @Published var setupSawEffect = false
     @Published var reopening = false
+    @Published var requestingScreenAccess = false
+    @Published var showMissingAppHelp = false
+    @Published var copiedApplicationPath = false
+    private var permissionTask: Task<Void, Never>?
     private var setupTimer: Timer?
     let sensor = LidSensor()
     private let defaults: UserDefaults
@@ -159,8 +164,26 @@ final class AppModel: ObservableObject {
 
     func startPermissionSetup() {
         beginSetup()
-        requestPermission()
-        if !permissionGranted { openPrivacySettings() }
+        guard !requestingScreenAccess else { return }
+        showPermissionGuide = true
+        requestingScreenAccess = true
+        permissionTask = Task { [weak self] in
+            guard let self else { return }
+            defer { self.requestingScreenAccess = false; self.permissionTask = nil }
+            // Request through the framework that performs live capture. Merely
+            // opening System Settings does not register an app for permission.
+            // Discard metadata immediately; no stream or desktop frames are created.
+            do {
+                _ = try await SCShareableContent.excludingDesktopWindows(false, onScreenWindowsOnly: true)
+            } catch {
+                guard !Task.isCancelled else { return }
+                self.message = "Screen access is not confirmed. If BendMe is missing in Settings, choose ‘BendMe isn’t listed’ in the guide."
+            }
+            guard !Task.isCancelled else { return }
+            self.refreshSetupStatus()
+            if self.permissionGranted { self.message = nil }
+            else { self.openPrivacySettings() }
+        }
     }
 
     var effectivePreviewAngle: Double { followLid ? angle ?? 135 : previewAngle }
@@ -172,13 +195,12 @@ final class AppModel: ObservableObject {
         sensorStatus = sensor.status
     }
 
-    func requestPermission() {
-        permissionGranted = CGRequestScreenCaptureAccess()
-        if !permissionGranted {
-            showSetup = true
-        } else {
-            message = nil
-        }
+    var applicationPathForPermission: String { (installedCopyURL ?? Bundle.main.bundleURL).path }
+
+    func copyApplicationPath() {
+        NSPasteboard.general.clearContents()
+        copiedApplicationPath = NSPasteboard.general.setString(applicationPathForPermission, forType: .string)
+        if !copiedApplicationPath { message = "The app path could not be copied. Use Show BendMe in Finder to locate it." }
     }
 
     func openPrivacySettings() {
@@ -378,6 +400,7 @@ final class AppModel: ObservableObject {
     }
 
     func shutdown() {
+        permissionTask?.cancel(); permissionTask = nil
         setupTimer?.invalidate(); setupTimer = nil
         pause()
         sensor.stop()

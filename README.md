@@ -2,7 +2,7 @@
 
 **A little less flat.** A free, open-source MacBook utility by [Winson Baring](https://github.com/WinsonBaring).
 
-[Website](https://winsonbaring.github.io/bendme/) · [Download development preview](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.2) · [Report an issue](https://github.com/WinsonBaring/bendme/issues)
+[Website](https://winsonbaring.github.io/bendme/) · [Download development preview](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.3) · [Report an issue](https://github.com/WinsonBaring/bendme/issues)
 
 > The direct download now contains a Developer ID signed app notarized by Apple, with its approval ticket attached. It remains a development preview distributed through GitHub, not a Mac App Store release. Re-download the DMG if you previously downloaded the unsigned preview.
 

@@ -64,3 +64,7 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 - [x] Remove installed/development apps and preferences; reset public privacy approvals.
 - [x] Verify no running or installed copies; preserve source and release downloads.
 - [ ] Remove protected empty diagnostic metadata (macOS denies removal; unrelated to the public app's onboarding).
+
+## Phase 11: [Issue #8] Missing Screen Recording row
+- [x] Use ScreenCaptureKit permission request and explicit missing-app branch with upper-list + and copy-path assistance.
+- [ ] Validate native layouts/tests and publish notarized 0.1.3; preserve the user's manual-test installation.

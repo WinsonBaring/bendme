@@ -114,7 +114,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             return
         }
         guard permissionPanel == nil else { return }
-        let panel = SetupGuidePanel(contentRect: NSRect(x: 0, y: 0, width: 330, height: 520),
+        let panel = SetupGuidePanel(contentRect: NSRect(x: 0, y: 0, width: 330, height: 620),
                                    styleMask: [.titled, .closable, .utilityWindow, .nonactivatingPanel],
                                    backing: .buffered, defer: false)
         panel.title = "BendMe setup guide"

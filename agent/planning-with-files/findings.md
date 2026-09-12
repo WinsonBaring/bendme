@@ -19,3 +19,6 @@
 ## Public distribution update, 2026-09-12
 
 User declined plugins; authenticated gh CLI created WinsonBaring/bendme and issues #1/#2. Free v0.1.0 ad-hoc arm64 preview is public, with checksums; GitHub Pages hosts the maker site. Native and website CI passed. This supersedes earlier missing-remote notes. Store submission remains open under #2 because distribution credentials/account access and final signed sandbox acceptance are not available. Preserve dist/BendMe.app to retain its working capture authorization.
+
+## Missing Screen Recording row, 2026-09-12 [Issue #8]
+The user's fresh-install screenshot shows no BendMe row after the v0.1.2 button. Opening Settings alone cannot establish consent. Reviewed Apple's ScreenCaptureKit sample via its documentation JSON over HTTP (no browser): https://developer.apple.com/documentation/screencapturekit/capturing-screen-content-in-macos . It describes first-use Screen Recording consent and restarting after granting it. The revised button uses shareable-content enumeration without creating a stream, and manual + guidance remains necessary when no row appears. Exact cause of the user's missing row is not proven from the screenshot; do not claim the API change guarantees listing or permission.

@@ -16,4 +16,6 @@
 
 Versioned notarization can use BENDME_NOTARIZATION_DIR to keep each archive/export separate. package-notarized.sh uses the same variable and BENDME_RELEASE_DIR for versioned output. Normal build-app.sh bundles are regular Dock applications.
 
-`render-setup-checks.sh` compiles `render-setup-checks.swift` against the actual app views and renders eight synthetic layout states into `dist/SetupVerification`. Hardware, capture, permission polling and shortcuts are disabled in this isolated model. These images verify layout, not real macOS consent or physical lid behavior. DMG notes now direct users to the interactive Setup guide.
+`render-setup-checks.sh` compiles `render-setup-checks.swift` against the actual app views and renders eleven synthetic layout states into `dist/SetupVerification`. Hardware, capture, permission polling and shortcuts are disabled in this isolated model. These images verify layout, not real macOS consent or physical lid behavior. DMG notes now direct users to the interactive Setup guide.
+
+Setup fixtures include missing-app instructions in both windows and the in-flight permission-request state. No real OS consent or capture is performed by these fixtures.

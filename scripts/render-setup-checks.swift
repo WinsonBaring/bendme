@@ -9,17 +9,19 @@ struct RenderSetup {
         app.setActivationPolicy(.accessory)
         let output = URL(fileURLWithPath: CommandLine.arguments.count > 1 ? CommandLine.arguments[1] : "dist/SetupVerification")
         try FileManager.default.createDirectory(at: output, withIntermediateDirectories: true)
-        for name in ["install", "permission", "try-effect", "unsupported", "ready", "companion", "companion-granted", "capture-error"] {
+        for name in ["install", "permission", "try-effect", "unsupported", "ready", "companion", "companion-granted", "capture-error", "permission-missing", "companion-missing", "permission-requesting"] {
             let suite = "local.bendme.layout." + UUID().uuidString
             let defaults = UserDefaults(suiteName: suite)!
             let model = AppModel(defaults: defaults, servicesEnabled: false)
             model.installedInApplications = name != "install"
-            model.permissionGranted = !["install", "permission", "companion"].contains(name)
+            model.permissionGranted = !["install", "permission", "companion", "permission-missing", "companion-missing", "permission-requesting"].contains(name)
+            model.showMissingAppHelp = name.hasSuffix("-missing")
+            model.requestingScreenAccess = name == "permission-requesting"
             model.angle = name == "unsupported" ? nil : 113
             model.sensorStatus = name == "unsupported" ? "No compatible lid sensor found." : "Lid sensor connected"
             model.setupSawEffect = name == "ready"
             if name == "capture-error" { model.message = "Screen capture could not start. Review Screen Recording permission and try again." }
-            let size = name.hasPrefix("companion") ? NSSize(width: 330, height: 520) : NSSize(width: 900, height: 780)
+            let size = name.hasPrefix("companion") ? NSSize(width: 330, height: 620) : NSSize(width: 900, height: 780)
             let host: NSView
             if name.hasPrefix("companion") {
                 host = NSHostingView(rootView: PermissionCompanionView(model: model, returnToSetup: {}))
