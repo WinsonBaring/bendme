@@ -72,3 +72,5 @@ Public DMG and its checksum were downloaded from GitHub Releases and matched loc
 ## Developer ID submission
 
 Paid Xcode team verified. Automatic archive and Developer ID upload succeeded through the existing account session. Submitted app has hardened runtime and secure timestamp; all 15 GPU self-test renders passed on Apple M3 Pro. Invalid script commands fail, and notarized-mode packaging rejects the old ad-hoc app. Upload success is not Apple acceptance; approval/export and Gatekeeper checks are pending.
+
+Apple accepted the direct-distribution app. Xcode exported the approved app; strict signature, stapled ticket, Gatekeeper assessment and mounted DMG checks passed. Public release downloads were checked against local SHA-256 hashes before deployment.

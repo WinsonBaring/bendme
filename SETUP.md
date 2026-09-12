@@ -8,7 +8,7 @@
 
 ## Install the public preview
 
-Download the DMG from [GitHub Releases](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.0), open it, drag BendMe into Applications, and eject the disk. Launch BendMe from Applications, then follow the permission steps below. The preview is not Apple-notarized; macOS may block it. Source builds remain available. The ZIP is retained as an alternative download.
+Download the DMG from [GitHub Releases](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.0), open it, drag BendMe into Applications, and eject the disk. Launch BendMe from Applications, then follow the permission steps below. The public app is Developer ID signed and Apple-notarized. Re-download the current DMG if you have the earlier unsigned preview. Source builds remain available. The ZIP is retained as an alternative download.
 
 ## Build and run
 

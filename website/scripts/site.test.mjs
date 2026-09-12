@@ -22,7 +22,7 @@ test('all selectable effect frames are real PNG artifacts', async () => {
 
 test('public copy states release limitations and does not claim App Store availability', async () => {
   const source = await readFile(new URL('../src/App.tsx', import.meta.url), 'utf8');
-  assert.match(source, /not yet Apple-notarized/);
+  assert.match(source, /Developer ID signed and notarized by Apple/);
   assert.match(source, /Not yet\. An App Store release is being prepared/);
   assert.doesNotMatch(source, /[—–]/);
   assert.match(source, /id="privacy"/);

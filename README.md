@@ -4,7 +4,7 @@
 
 [Website](https://winsonbaring.github.io/bendme/) · [Download development preview](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.0) · [Report an issue](https://github.com/WinsonBaring/bendme/issues)
 
-> The direct download is an ad-hoc-signed development preview, not yet Apple-notarized or on the Mac App Store. macOS may block it. Build from source if you prefer; do not disable macOS security protections.
+> The direct download now contains a Developer ID signed app notarized by Apple, with its approval ticket attached. It remains a development preview distributed through GitHub, not a Mac App Store release. Re-download the DMG if you previously downloaded the unsigned preview.
 
 A native MacBook menu-bar app that bends your live desktop as you lower the lid. The image stays anchored at the hinge, tilts into perspective, and gains progressive blur and shadow.
 

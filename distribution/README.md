@@ -11,3 +11,5 @@ See [SETUP.md](SETUP.md) for archive commands and the exact remaining submission
 Direct preview packaging produces a DMG with an Applications shortcut and installation notes, plus a ZIP alternative. Both contain the same app; neither format changes signing or notarization status.
 
 Direct GitHub notarization is separate from App Store submission. See the direct-distribution workflow in [SETUP.md](SETUP.md); it supports Xcode-managed Developer ID signing and validates Apple's accepted artifact before packaging.
+
+Direct distribution notarization completed through the configured paid Xcode team. Ticket, Gatekeeper, mounted DMG and public download checks passed. App Store submission is separate.

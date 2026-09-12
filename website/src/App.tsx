@@ -108,7 +108,7 @@ export default function App() {
         <div className="download-panel">
           <div className="download-title"><Laptop size={28} strokeWidth={1.5} aria-hidden="true" /><div><h3>BendMe for Mac</h3><p>Apple silicon · macOS 14 or later</p></div></div>
           <a className="button primary full-width" href={release.download}>Download DMG <ArrowDownToLine size={18} aria-hidden="true" /></a>
-          <p className="release-notice">This is a development preview, not yet Apple-notarized. macOS may block it. Prefer a verified installation? Build it from source or wait for a signed release.</p>
+          <p className="release-notice">The included app is Developer ID signed and notarized by Apple. This is a free direct download; an App Store release is still being prepared.</p>
           <a className="text-link" href={`${release.repository}#build-from-source`}>Build from source <ArrowUpRight size={16} aria-hidden="true" /></a>
           <p className="requirements">The live effect requires a compatible MacBook lid sensor and Screen Recording permission. Manual preview works without either.</p>
         </div>
