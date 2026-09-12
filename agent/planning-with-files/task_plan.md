@@ -118,5 +118,5 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 
 ## Phase 23: [Issue #10] Resume direct release 0.1.5
 - [x] User resumed notarization/publication; align website and app guidance with visible pause controls.
-- [ ] Verify app/site, notarize isolated build 6, validate packages.
-- [ ] Publish versioned downloads and deploy/verify Pages. Global shortcut failure not yet reproduced.
+- [x] App/site checks passed; Apple accepted build 6 and mounted package validation passed.
+- [x] Published v0.1.5 downloads; all four public hashes match. Pages deployment succeeded and live HTTP 200 confirms v0.1.5 and corrected pause copy; shortcut failure tracked in #11.

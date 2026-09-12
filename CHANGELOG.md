@@ -4,6 +4,8 @@
 
 ## 0.1.5
 
+- Published Apple-notarized direct downloads and updated the live landing page; mounted DMG and public file hashes verified.
+
 - Refresh the light interface, branding and source links; simplify setup and open Appearance on Start.
 - Use visible pause controls in app and website guidance; global shortcut reliability remains unverified on affected configurations.
 

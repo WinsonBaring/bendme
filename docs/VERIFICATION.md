@@ -121,3 +121,5 @@ GitHub Checks run 34667657103 passed for the 0.1.1 implementation, including nat
 ## 0.1.5/build 6 release verification
 
 Swift 17 tests and website lint/3 tests/production build passed. Apple accepted the direct Developer ID archive; exported app passed strict signature, stapled-ticket and Gatekeeper checks. GPU self-test of that signed executable passed with 15 renders on Apple M3 Pro. No installed app or privacy grants were changed. Physical interaction and keyboard shortcut reliability were not verified; issue #11 tracks the reported shortcut failure. The site and native hints recommend visible pause controls.
+
+Public release v0.1.5: mounted DMG version/build and Applications link verified; app signature/ticket/Gatekeeper passed. Downloaded DMG, ZIP and both checksum files match local SHA-256 hashes. Pages run 34673091473 succeeded; live HTML returned HTTP 200 with v0.1.5 and corrected pause guidance.
