@@ -129,4 +129,4 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 ## Phase 25: Standalone portfolio [portfolio Issue #1]
 - [x] Created separate public WinsonBaring/winsonbaring.github.io repo in ignored portfolio/ child directory.
 - [x] Portfolio implementation and detailed tracking live in portfolio/agent/planning-with-files/.
-- [ ] Complete portfolio deployment and live verification in its own repository.
+- [x] Portfolio published at https://winsonbaring.github.io/; live routes and assets verified in its own repository.

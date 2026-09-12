@@ -8,4 +8,4 @@ Installed app and permission state remain untouched. User can manually install t
 
 Local social kit (#12): five platform drafts, posting tracker, source review and selected media prepared under ignored social-media/. Nothing posted or scheduled. Draft content and source media are not committed; only ignore and workflow metadata are tracked.
 
-Standalone portfolio is being built in ignored portfolio/, with its own Git repository and Issue #1 at WinsonBaring/winsonbaring.github.io. BendMe app/source remains unchanged.
+Standalone portfolio is published at https://winsonbaring.github.io/ from ignored portfolio/, with its own Git repository and Issue #1 at WinsonBaring/winsonbaring.github.io. BendMe app/source remains unchanged.
