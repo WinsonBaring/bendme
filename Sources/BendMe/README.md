@@ -15,3 +15,5 @@ Permission setup has one primary button: an asynchronous ScreenCaptureKit sharea
 After permission is confirmed, Setup shows a short Try BendMe card with one start/pause action. Starting, active-lid guidance, sensor recovery and capture errors appear only when relevant. The progress strip ends after installation/permission; completion is a compact All set action. Actual permission and rendered-effect completion checks are unchanged.
 
 `AppTheme.swift` shares the light palette across Setup and Settings. The AppKit window uses Aqua so native controls and title bar agree. Every sidebar row uses the same full-width selection and keyboard-focus treatment, replacing the label-sized system focus halo while preserving keyboard focus and selected accessibility state.
+
+A small sidebar and About credit links to Winson Baring’s GitHub profile. About also links to the public repository, website and issue tracker using native external links. No embedded browser or analytics is added.

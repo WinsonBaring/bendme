@@ -107,6 +107,7 @@ struct SettingsView: View {
                     .font(.system(size: 10, design: .monospaced)).foregroundStyle(.secondary)
                 Divider().padding(.vertical, 3)
                 Text("On your Mac. Only your Mac.").font(.system(size: 10)).foregroundStyle(.tertiary)
+                makerCredit
             }.padding(.bottom, 22)
         }.padding(.horizontal, 18).frame(width: 188)
             .background(AppTheme.sidebar)
@@ -226,6 +227,13 @@ struct SettingsView: View {
 
     private var about: some View {
         VStack(alignment: .leading, spacing: 24) {
+            HStack(spacing: 14) {
+                makerCredit
+                Spacer()
+                Link("GitHub", destination: URL(string: "https://github.com/WinsonBaring/bendme")!)
+                Link("Website", destination: URL(string: "https://winsonbaring.github.io/bendme/")!)
+                Link("Report an issue", destination: URL(string: "https://github.com/WinsonBaring/bendme/issues")!)
+            }.font(.system(size: 11))
             LaptopPreview(progress: 0.25, settings: model.settings).padding(35)
             Text("A familiar desktop.\nAn unexpected dimension.").font(.system(size: 28, weight: .medium)).lineSpacing(4)
             Text("BendMe uses your MacBook’s hinge sensor to tilt, soften, and shade your desktop as you close the lid. An independent implementation inspired by the Bendy effect.")
@@ -235,6 +243,12 @@ struct SettingsView: View {
             Label("Built for macOS 14+ and compatible MacBook lid sensors.", systemImage: "macbook")
             Text("BendMe \(model.appVersion)  ·  \(model.bends) bends this session").font(.system(size: 11, design: .monospaced)).foregroundStyle(.tertiary)
         }.font(.system(size: 13))
+    }
+
+    private var makerCredit: some View {
+        Link("Made by Winson Baring", destination: URL(string: "https://github.com/WinsonBaring")!)
+            .font(.system(size: 10)).foregroundStyle(.secondary)
+            .help("View Winson Baring on GitHub")
     }
 
     private func sectionLabel(_ title: String, trailing: String) -> some View {

@@ -95,3 +95,7 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 ## Phase 17: [Issue #10] Light theme and consistent sidebar
 - [x] Share light colors across Setup/Settings and Aqua window; use uniform full-row sidebar focus styling.
 - [x] 17 tests passed; compile/render eleven fixtures and inspect Setup/Appearance, including initial focus alignment. Installed app and release pause preserved.
+
+## Phase 18: [Issue #10] Subtle maker credit
+- [x] Add small linked developer credit in sidebar/About and project links in About.
+- [x] Local build and About layout render passed; links returned HTTP 200. No install or release changes.

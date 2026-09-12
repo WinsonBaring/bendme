@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add a subtle Winson Baring credit and GitHub/profile, website and issue links in the native app.
+
 - Use a white/light native theme with blue accents and consistent full-row sidebar selection/focus styling, including Setup.
 
 - Simplify setup after permission/reopen to a short Try BendMe card and one start/pause button; remove repeated instructions and diagnostic status copy.
