@@ -18,3 +18,7 @@
 ## 2026-09-12 public repository link [Issue #10]
 - Added subtle Source on GitHub beneath sidebar Made by credit; existing developer profile destination preserved. Updated source README and changelog.
 - Build passed with warnings-as-errors; eleven fixtures rendered and sidebar placement reviewed. No installed-app or release changes.
+
+## 2026-09-12 Start into Appearance [Issue #10]
+- Updated Try BendMe Start action to navigate through existing showSetup state after startup begins. Kept immediate failure recovery and Pause/Cancel behavior.
+- Build passed with warnings-as-errors and diff check passed. Reviewed existing page binding and shared error banner; no live app launch, install or release.

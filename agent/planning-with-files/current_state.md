@@ -1,5 +1,7 @@
 # Current state — local development only
 
+Latest start-navigation update (#10): Try BendMe Start now selects Appearance as soon as startup begins, using existing showSetup navigation. Immediate failed starts stay in Setup; Pause/Cancel do not navigate. Effect verification is unchanged. Build passed with warnings-as-errors; live click testing left to manual app review. No install or release.
+
 Latest source-link update (#10): added Source on GitHub beneath the sidebar developer credit, visible on every page and pointing to the public BendMe repository. Build passed with warnings-as-errors; eleven fixtures rendered and footer placement reviewed. Installed app untouched; local commit only.
 
 Latest header update (#10): replaced generic macbook SF Symbol with the existing full-color BendMe app logo at 32 points. Wordmark/tagline unchanged. Logo is byte-identical to the existing 128px app icon and bundled in both packaging paths. Local build with warnings-as-errors and eleven fixture renders passed; logo placement reviewed. No installed-app or release changes.

@@ -111,3 +111,7 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 ## Phase 21: [Issue #10] Discoverable public source
 - [x] Add a subtle public repository link below the sidebar developer credit.
 - [x] Build passed with warnings-as-errors; eleven fixtures rendered and sidebar reviewed. Release pause preserved.
+
+## Phase 22: [Issue #10] Start into Appearance
+- [x] Navigate to Appearance when Try BendMe starts; retain failed-start recovery and Pause/Cancel behavior.
+- [x] Build passed with warnings-as-errors; reviewed navigation and failure paths. No install or release.

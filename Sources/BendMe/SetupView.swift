@@ -94,7 +94,13 @@ struct SetupView: View {
                 Button("Try again", action: model.refreshSensor)
             } else {
                 heading("Try BendMe", detail: model.enabled ? "Gently lower your lid below \(Int(model.settings.clearAngle))°." : "Start, then gently lower your lid.")
-                Button(model.starting ? "Cancel" : model.enabled ? "Pause BendMe" : "Start BendMe", action: model.toggle)
+                Button(model.starting ? "Cancel" : model.enabled ? "Pause BendMe" : "Start BendMe") {
+                    let isStarting = !model.enabled && !model.starting
+                    model.toggle()
+                    if isStarting && (model.starting || model.enabled) {
+                        model.showSetup = false
+                    }
+                }
                     .buttonStyle(.borderedProminent).controlSize(.large)
                     .help("Pause anytime with Control + Option + Command + B")
                 if model.starting {
