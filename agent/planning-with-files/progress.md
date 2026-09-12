@@ -35,3 +35,5 @@
 - Development archive succeeded; automatic Developer ID export with destination upload succeeded using Xcode-managed signing. Submitted app has secure timestamp, paid team identifier and hardened runtime.
 - Apple reports processing. Added submit/export script and notarized-app packaging guard; approval and public replacement still pending.
 - Apple remained processing after repeated checks; added a bounded resumable finisher. Publication mode verifies artifacts, checks remote source consistency, builds and publishes the updated website, validates public hashes/live copy, then records completion. It stops on rejection or any verification failure.
+
+Issue #4 complete: Apple accepted the app; signature, ticket, Gatekeeper, mounted DMG and public checksum checks passed. DMG/ZIP replaced and live Pages copy verified. App Store release remains separate under #2.

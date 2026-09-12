@@ -40,5 +40,5 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 ## Phase 6: [Issue #4] Developer ID notarization
 - [x] Confirm Xcode has a paid individual team configured.
 - [x] Obtain Developer ID signing through Xcode-managed signing with the configured paid team.
-- [ ] Sign with hardened runtime, submit to Apple, staple and assess the accepted artifact.
-- [ ] Publish only verified notarized downloads and update public disclosures.
+- [x] Sign with hardened runtime, submit to Apple, staple and assess the accepted artifact.
+- [x] Publish only verified notarized downloads and update public disclosures.
