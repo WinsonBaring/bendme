@@ -83,3 +83,7 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 - [x] Remove installed/extracted apps, eject installer, reset public permission and clear preferences.
 - [x] Verify no running app and document manual build/open in user Applications.
 - [ ] User manually builds and reviews the development app; releases remain paused.
+
+## Phase 15: [Issue #10] Respect native permission dialog
+- [x] Remove app-initiated Settings redirect after the request; keep manual Settings action.
+- [x] Compile/test locally (17 tests passed), then leave rebuilding/launching the installed development app to the user.

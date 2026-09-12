@@ -178,7 +178,9 @@ final class AppModel: ObservableObject {
             guard !Task.isCancelled else { return }
             self.refreshSetupStatus()
             if self.permissionGranted { self.message = nil; self.needsScreenSettings = false }
-            else { self.openPrivacySettings() }
+            // Let the user choose Open System Settings in Apple's dialog.
+            // Denial must not cause a second, app-initiated Settings redirect.
+            else { self.needsScreenSettings = true }
         }
     }
 

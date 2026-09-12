@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Stop automatically opening System Settings after requesting Screen Recording. Let the user respond to Apple’s permission dialog; retain a manual Settings button.
+
 - Document manual local development startup in the user Applications folder after clearing installed app copies and state.
 
 - Pause version upgrades, Apple submissions and public releases while the app interface is reviewed locally.

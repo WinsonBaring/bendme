@@ -1,7 +1,7 @@
 # Current state — local development only
 
-User requested complete local app removal and will build/open the development app manually. Removed /Applications/BendMe.app and all extracted BendMe.app bundles outside xcarchives, ejected BendMe installer, reset public app privacy approvals, and cleared public/development preferences. Verified no installed/running app. Source, DMG/ZIP release packages, build caches and xcarchives are preserved. Two known protected empty diagnostic metadata folders remain, with no app data.
+Issue #10: removed automatic System Settings navigation after ScreenCaptureKit consent request. If access remains unavailable, only needsScreenSettings state changes; the user chooses Apple's Open System Settings button or the app's manual button. Denial no longer triggers an app-initiated redirect. Native permission dialog remains owned by macOS.
 
-SETUP.md now gives manual commands using BENDME_OUTPUT_DIR="$HOME/Applications" so the development app opens from a stable recognized location. No build or launch performed for the user. Script syntax checked; prior source build/test evidence remains unchanged.
+All 17 tests passed with warnings-as-errors, compiling the current source. User's installed app and privacy state are untouched; no app bundle rebuild/install/launch performed. User should quit their current app and run the manual build/open commands in SETUP.md to try this change. Live OS consent was not automated.
 
-Releases remain paused: no version bumps, Apple submissions/notarization, tags, public releases or website deployment until explicitly resumed. Issue #10 tracks local review; #5 retains diagnostic cleanup limitations; #2 App Store remains separate.
+Releases remain paused: no version bumps, Apple submissions/notarization, tags, public releases or website deployment until explicitly resumed. Commit locally only. Issue #10 tracks ongoing review; #5 retains protected empty diagnostic metadata; #2 App Store remains separate. Release/archive packages and source are preserved.
