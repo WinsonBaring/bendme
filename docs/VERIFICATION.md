@@ -105,3 +105,6 @@ GitHub Checks run 34667657103 passed for the 0.1.1 implementation, including nat
 - Added explicit missing-app guidance in both native views, the upper-list + illustration, installed-app path copy, chooser keyboard steps and restart recovery. Manual guide selection never marks permission granted.
 - `swift test -Xswiftc -warnings-as-errors`: 17 tests passed. `./scripts/render-setup-checks.sh`: eleven synthetic native fixtures rendered; reviewed the changed permission and companion layouts, including missing-app and in-flight-request states. These fixtures do not test macOS consent.
 - User's currently installed app and privacy state are preserved. Real first-use consent, row registration and a complete physical-lid flow have not been automated; automatic row appearance is not guaranteed.
+- Apple accepted 0.1.3/build 4. Signature, ticket, Gatekeeper and mounted DMG checks passed; mounted volume ejected without launching the app. Public DMG/ZIP/checksums match local hashes.
+- Pages run 34669618518 passed; live HTML contains the versioned v0.1.3 download and missing-app FAQ.
+- GitHub Checks 34669618513 passed (native tests/archive, website checks/audit). Issue #8 implementation and release complete; automatic first-use permission registration remains unverified.

@@ -69,3 +69,6 @@ Issue #4 complete: Apple accepted the app; signature, ticket, Gatekeeper, mounte
 ## 2026-09-12 missing permission row [Issue #8]
 - User's screenshot confirms no BendMe row in upper screen recording list. Added async ScreenCaptureKit consent request with duplicate-request guard and prominent missing-app instructions, illustrated upper +, actual app-path copy action, switch/reopen steps. No capture stream starts and no consent is bypassed.
 - Seventeen native tests passed. Added missing-app and requesting layout fixtures; reviewed main and companion and shortened missing-app copy after a clipping check. Preserve user's installed app and privacy state during release preparation.
+- Apple accepted 0.1.3/build 4; signature, stapled ticket, Gatekeeper and mounted DMG passed. Published v0.1.3 and verified all four public asset hashes. No installed app or user permission state changed.
+- Pages run 34669618518 passed; live HTML contains the v0.1.3 DMG URL and missing-app guidance.
+- GitHub Checks 34669618513 passed (native tests/archive, website checks/audit). Issue #8 implementation and release complete; automatic first-use permission registration remains unverified.
