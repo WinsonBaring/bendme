@@ -125,3 +125,8 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 - [x] Inspect source video and existing ignore rule; keep drafts private/local.
 - [x] Five concise platform drafts, local transcript review, selected stills and compatible full/short video exports prepared.
 - [x] Five tracker entries/media paths validated; videos decode and social-media is ignored/untracked. Repository metadata committed separately.
+
+## Phase 25: Standalone portfolio [portfolio Issue #1]
+- [x] Created separate public WinsonBaring/winsonbaring.github.io repo in ignored portfolio/ child directory.
+- [x] Portfolio implementation and detailed tracking live in portfolio/agent/planning-with-files/.
+- [ ] Complete portfolio deployment and live verification in its own repository.

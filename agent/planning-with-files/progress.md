@@ -31,3 +31,6 @@
 ## 2026-09-12 local social kit [Issue #12]
 - Prepared five platform drafts, tracker, source review, selected stills and compatible video exports locally. Preserved Bendy inspiration credit and avoided unverified claims.
 - Validated five caption/media mappings, decoded both videos, confirmed social-media is ignored with no tracked files. No posting or scheduling.
+
+## Standalone portfolio
+- Added /portfolio/ ignore rule to keep the separately versioned personal portfolio out of BendMe. Implementation and deployment tracked in the child repository.

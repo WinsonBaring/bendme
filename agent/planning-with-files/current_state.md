@@ -7,3 +7,5 @@ The release includes the light interface, branded header, subtle developer/profi
 Installed app and permission state remain untouched. User can manually install the new download for live GUI and physical-lid review. #5 retains previously noted protected empty diagnostic metadata.
 
 Local social kit (#12): five platform drafts, posting tracker, source review and selected media prepared under ignored social-media/. Nothing posted or scheduled. Draft content and source media are not committed; only ignore and workflow metadata are tracked.
+
+Standalone portfolio is being built in ignored portfolio/, with its own Git repository and Issue #1 at WinsonBaring/winsonbaring.github.io. BendMe app/source remains unchanged.

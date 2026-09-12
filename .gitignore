@@ -5,3 +5,5 @@ dist
 .swiftpm/
 *.xcuserstate
 xcuserdata/
+
+/portfolio/
