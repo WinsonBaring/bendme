@@ -34,3 +34,5 @@ The coordinator serializes start/stop generations so late asynchronous capture s
 The original wallpaper is drawn with Core Graphics; all preview and live effects use the same Metal shader. No downloaded product art ships in the app. The user-supplied references are documentation only.
 
 Exact physical perspective depends on viewer position; this is a configurable visual illusion, not camera-based head tracking. Input coordinates are not remapped. Screen Recording permission, compatible hardware, and an open built-in display are required for the live effect. OS sleep and protected content restrictions remain in place.
+
+Direct desktop distribution supports DMG and ZIP. The DMG wraps the same app with an Applications shortcut; see [packaging scripts](scripts/README.md).

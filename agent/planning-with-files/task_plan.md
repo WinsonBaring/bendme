@@ -33,6 +33,6 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 - [ ] [Issue #2] Submit to App Store when distribution signing, membership, app record, final signed sandbox capture, physical acceptance and screenshots are available.
 
 ## Phase 5: [Issue #3] DMG download
-- [ ] Package the existing verified preview as a compressed DMG with Applications shortcut.
-- [ ] Verify mounted contents/signature, publish DMG/checksum, and update website/docs.
-- [ ] Verify deployed download, update issue/state and commit.
+- [x] Package the existing verified preview as a compressed DMG with Applications shortcut.
+- [x] Verify mounted contents/signature, publish DMG/checksum, and update website/docs.
+- [x] Verify deployed download, update issue/state and commit.

@@ -27,3 +27,4 @@
 - Added repeatable compressed DMG packaging with Applications shortcut, installation notes, strict app-signature verification and dedicated checksum.
 - Mounted the DMG read-only, verified its app signature and shortcut, and compared app contents with the existing release ZIP: identical. Ejected cleanly.
 - Website lint/tests/typecheck/build passed with the DMG URL and installation copy; retained preview signing disclosures and ZIP alternative.
+- Published the DMG and dedicated checksum to v0.1.0. Public download byte comparison and hdiutil verification passed. Live GitHub Pages HTML contains the direct DMG link. Issue #3 complete.

@@ -66,3 +66,5 @@ Public verification: Pages run 34662530449 and Checks run 34662530463 succeeded.
 ## DMG packaging
 
 `./scripts/package-dmg.sh` produces a compressed disk image from the existing release app. Verified read-only mount, strict embedded app signature, Applications symlink, installation notes, and identical app contents against the v0.1.0 ZIP. Disk ejected cleanly. Website checks passed after switching the primary download to DMG. Packaging does not change ad-hoc signing or notarization status.
+
+Public DMG and its checksum were downloaded from GitHub Releases and matched local artifacts byte for byte. The downloaded disk image passed `hdiutil verify`. Live Pages HTML contains the versioned DMG URL and installation instructions.
