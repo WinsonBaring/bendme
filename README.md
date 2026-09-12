@@ -2,7 +2,7 @@
 
 **A little less flat.** A free, open-source MacBook utility by [Winson Baring](https://github.com/WinsonBaring).
 
-[Website](https://winsonbaring.github.io/bendme/) · [Download development preview](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.0) · [Report an issue](https://github.com/WinsonBaring/bendme/issues)
+[Website](https://winsonbaring.github.io/bendme/) · [Download development preview](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.1) · [Report an issue](https://github.com/WinsonBaring/bendme/issues)
 
 > The direct download now contains a Developer ID signed app notarized by Apple, with its approval ticket attached. It remains a development preview distributed through GitHub, not a Mac App Store release. Re-download the DMG if you previously downloaded the unsigned preview.
 
@@ -47,3 +47,5 @@ Local planning and issue status: [agent/planning-with-files/task_plan.md](agent/
 BendMe is an independent implementation inspired by [Bendy](https://trybendy.app). It does not contain Bendy's code, branding, wallpapers, or audio. No affiliation is implied.
 
 The download button serves a DMG from GitHub Releases. Open it, drag BendMe to Applications, and eject the disk. The ZIP remains available as an alternative.
+
+BendMe appears in the Dock. Click its Dock icon to open or restore settings; the menu-bar controls remain available.

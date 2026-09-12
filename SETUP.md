@@ -8,7 +8,7 @@
 
 ## Install the public preview
 
-Download the DMG from [GitHub Releases](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.0), open it, drag BendMe into Applications, and eject the disk. Launch BendMe from Applications, then follow the permission steps below. The public app is Developer ID signed and Apple-notarized. Re-download the current DMG if you have the earlier unsigned preview. Source builds remain available. The ZIP is retained as an alternative download.
+Download the DMG from [GitHub Releases](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.1), open it, drag BendMe into Applications, and eject the disk. Launch BendMe from Applications, then follow the permission steps below. The public app is Developer ID signed and Apple-notarized. Re-download the current DMG if you have the earlier unsigned preview. Source builds remain available. The ZIP is retained as an alternative download.
 
 ## Build and run
 
@@ -84,3 +84,5 @@ Notarization, hardened-runtime release configuration, and a distribution account
 ## Fresh-install testing after uninstall
 
 Quit BendMe, remove its installed app and eject any mounted installer disks before testing a freshly downloaded DMG. The public app identifier is `com.winsonbaring.bendme`; the original source-build identifier is `local.bendme.mac`. Resetting BendMe-only privacy grants and preferences causes the next installation to request permission and use default settings again. Release archives and source files can be retained independently of the installed app. The local uninstall verification and any remaining OS-protected test metadata are recorded in [docs/VERIFICATION.md](docs/VERIFICATION.md).
+
+BendMe 0.1.1 appears in the Dock and opens its settings window. Clicking its Dock icon restores the settings window if hidden or minimized. Closing settings leaves BendMe running; use Quit to exit.

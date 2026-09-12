@@ -86,7 +86,7 @@ export default function App() {
         <h2 id="principles-title">A small app.<br />Nothing extra.</h2>
         <div className="principles-list">
           <article><LockKeyhole size={25} strokeWidth={1.5} aria-hidden="true" /><div><h3>Your screen stays yours.</h3><p>Frames stay in memory on your Mac. No recordings, accounts, analytics, or uploads.</p></div></article>
-          <article><Laptop size={25} strokeWidth={1.5} aria-hidden="true" /><div><h3>At home in your menu bar.</h3><p>Native Swift and Metal. Tune the perspective, blur, and shadow. Pause whenever you like.</p></div></article>
+          <article><Laptop size={25} strokeWidth={1.5} aria-hidden="true" /><div><h3>On your Dock. In your menu bar.</h3><p>Open settings from the Dock, with quick controls in the menu bar. Native Swift and Metal power the effect. Pause whenever you like.</p></div></article>
           <article><Code2 size={25} strokeWidth={1.5} aria-hidden="true" /><div><h3>Free to use. Free to make yours.</h3><p>The original code is MIT-licensed. Read it, change it, or build something of your own.</p></div></article>
         </div>
       </section>

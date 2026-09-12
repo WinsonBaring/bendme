@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- BendMe 0.1.1 now appears in the Dock as a regular desktop application. Opening it restores its settings window, including when minimized; menu-bar controls remain available.
+
 - Recorded local uninstall and permission reset for a fresh manual test of the notarized DMG; source and release artifacts are preserved.
 
 - Published Developer ID signed, Apple-notarized app downloads with attached approval tickets; replaced the earlier unsigned preview packages.

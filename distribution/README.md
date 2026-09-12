@@ -13,3 +13,5 @@ Direct preview packaging produces a DMG with an Applications shortcut and instal
 Direct GitHub notarization is separate from App Store submission. See the direct-distribution workflow in [SETUP.md](SETUP.md); it supports Xcode-managed Developer ID signing and validates Apple's accepted artifact before packaging.
 
 Direct distribution notarization completed through the configured paid Xcode team. Ticket, Gatekeeper, mounted DMG and public download checks passed. App Store submission is separate.
+
+Version 0.1.1 uses a regular Dock application configuration (LSUIElement false), retaining menu-bar controls. Both the Xcode and SwiftPM packaging paths agree.

@@ -38,3 +38,5 @@ Exact physical perspective depends on viewer position; this is a configurable vi
 Direct desktop distribution supports DMG and ZIP. The DMG wraps the same app with an Applications shortcut; see [packaging scripts](scripts/README.md).
 
 Developer ID notarization uses the configured paid Xcode team through [distribution setup](distribution/SETUP.md), with a separate direct-distribution archive and guarded packaging.
+
+Version 0.1.1 uses regular AppKit activation and LSUIElement=false in both build paths, showing a Dock icon while retaining menu-bar controls. Reopening restores the settings window.

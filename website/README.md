@@ -7,3 +7,5 @@ See [SETUP.md](SETUP.md) for commands, [PROJECT.md](PROJECT.md) for architecture
 The primary download points directly to the versioned DMG asset on GitHub Releases; binaries are not stored in GitHub Pages.
 
 The current direct download includes a Developer ID signed app with a validated Apple notarization ticket.
+
+The current v0.1.1 download includes a Dock icon and settings-window restoration, alongside menu-bar controls.

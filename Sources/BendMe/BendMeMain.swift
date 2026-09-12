@@ -36,7 +36,7 @@ enum BendMeMain {
         let app = NSApplication.shared
         let delegate = AppDelegate()
         app.delegate = delegate
-        app.setActivationPolicy(.accessory)
+        app.setActivationPolicy(.regular)
         withExtendedLifetime(delegate) { app.run() }
     }
 }
@@ -121,6 +121,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             self.window = window
         }
         NSApp.activate(ignoringOtherApps: true)
+        if window?.isMiniaturized == true { window?.deminiaturize(nil) }
         window?.makeKeyAndOrderFront(nil)
     }
     @objc private func toggle() { model?.toggle() }

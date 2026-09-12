@@ -3,7 +3,7 @@
   "name": "BendMe",
   "subtitle": "A little less flat",
   "bundleId": "com.winsonbaring.bendme",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "primaryCategory": "UTILITIES",
   "price": "FREE",
   "copyright": "2026 Winson Baring",
@@ -13,8 +13,11 @@
   "supportUrl": "https://winsonbaring.github.io/bendme/#help",
   "privacyPolicyUrl": "https://winsonbaring.github.io/bendme/#privacy",
   "promotionalText": "A playful new angle on your MacBook. BendMe tilts, blurs, and shades your desktop as you lower the lid. Free and open source.",
-  "description": "Give your desktop a little perspective. BendMe uses a compatible MacBook's lid-angle sensor to tilt, soften, and shade the live desktop as you lower the lid.\n\nChoose Silk, Shade, or Frost. Tune perspective, blur, shadow, and the angle at which the effect clears. Preview the effect manually or follow the actual lid. BendMe lives in the menu bar and can be paused at any time.\n\nYour screen stays on your Mac. Screen frames are processed in memory, never recorded or uploaded. No accounts, subscriptions, advertisements, or telemetry.\n\nThe live effect requires a supported lid-angle sensor and Screen Recording permission. Sensor availability varies by Mac model. Manual preview remains available without sensor access. Only the built-in display is affected; normal closed-lid sleep is preserved.\n\nBendMe is a free, independent, open-source app by Winson Baring.",
-  "privacy": { "dataCollected": false, "tracking": false },
+  "description": "Give your desktop a little perspective. BendMe uses a compatible MacBook's lid-angle sensor to tilt, soften, and shade the live desktop as you lower the lid.\n\nChoose Silk, Shade, or Frost. Tune perspective, blur, shadow, and the angle at which the effect clears. Preview the effect manually or follow the actual lid. BendMe opens as a desktop app with a Dock icon, with menu-bar controls for quick access and pause.\n\nYour screen stays on your Mac. Screen frames are processed in memory, never recorded or uploaded. No accounts, subscriptions, advertisements, or telemetry.\n\nThe live effect requires a supported lid-angle sensor and Screen Recording permission. Sensor availability varies by Mac model. Manual preview remains available without sensor access. Only the built-in display is affected; normal closed-lid sleep is preserved.\n\nBendMe is a free, independent, open-source app by Winson Baring.",
+  "privacy": {
+    "dataCollected": false,
+    "tracking": false
+  },
   "submissionStatus": "NOT_SUBMITTED",
   "reviewNotes": "This is a menu-bar utility. It opens a settings window on first launch. Choose Enable BendMe and grant Screen Recording. On compatible MacBook hardware, lower the lid below 100 degrees to activate the effect. Open the lid to clear it. The manual preview works without recording permission or a lid sensor. Control-Option-Command-B pauses from other apps; Escape pauses while BendMe is focused. Public IOKit APIs access the HID sensor; the USB device entitlement enables hardware access under App Sandbox. No private API calls, drivers, login items, accessibility permission, or root access are used. The app never prevents lid sleep. No account or review login is required."
 }

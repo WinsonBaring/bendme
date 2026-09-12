@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 cd "$(dirname "$0")/.."
-APP="$PWD/dist/DeveloperID/Notarized/BendMe.app"
-RELEASE_DIR="$PWD/dist/NotarizedRelease"
+APP="${BENDME_NOTARIZATION_DIR:-$PWD/dist/DeveloperID}/Notarized/BendMe.app"
+RELEASE_DIR="${BENDME_RELEASE_DIR:-$PWD/dist/NotarizedRelease}"
 [[ -d "$APP" ]] || { echo 'Run scripts/notarize-direct.sh export after Apple acceptance.' >&2; exit 1; }
 codesign --verify --deep --strict "$APP"
 xcrun stapler validate "$APP"

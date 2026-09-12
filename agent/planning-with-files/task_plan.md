@@ -48,3 +48,8 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 - [x] Remove installed and local development app bundles, defaults and privacy grants.
 - [ ] Remove two remaining protected diagnostic metadata files (macOS denied command-line removal; Finder timed out). All diagnostic app data is removed.
 - [x] Record verified cleanup and remaining protected metadata; commit.
+
+## Phase 8: [Issue #6] Dock application behavior
+- [x] Use regular activation and matching bundle flags; restore minimized settings on reopen.
+- [x] Verify regular Dock activation and visible settings for the built and installed apps; eight native tests passed.
+- [ ] Prepare version 0.1.1 with separate notarization artifacts and publish after approval.

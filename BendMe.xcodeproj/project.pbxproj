@@ -396,7 +396,7 @@ cp "${SRCROOT}/Sources/BendMe/Resources/Fold.metal" "$destination/Fold.metal"
 				<key>CODE_SIGN_STYLE</key>
 				<string>Automatic</string>
 				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
+				<string>2</string>
 				<key>ENABLE_APP_SANDBOX</key>
 				<string>YES</string>
 				<key>ENABLE_HARDENED_RUNTIME</key>
@@ -408,7 +408,7 @@ cp "${SRCROOT}/Sources/BendMe/Resources/Fold.metal" "$destination/Fold.metal"
 				<key>INFOPLIST_FILE</key>
 				<string>distribution/Info.plist</string>
 				<key>MARKETING_VERSION</key>
-				<string>0.1.0</string>
+				<string>0.1.1</string>
 				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
 				<string>com.winsonbaring.bendme</string>
 				<key>PRODUCT_NAME</key>
@@ -469,7 +469,7 @@ cp "${SRCROOT}/Sources/BendMe/Resources/Fold.metal" "$destination/Fold.metal"
 				<key>CODE_SIGN_STYLE</key>
 				<string>Automatic</string>
 				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
+				<string>2</string>
 				<key>ENABLE_APP_SANDBOX</key>
 				<string>YES</string>
 				<key>ENABLE_HARDENED_RUNTIME</key>
@@ -481,7 +481,7 @@ cp "${SRCROOT}/Sources/BendMe/Resources/Fold.metal" "$destination/Fold.metal"
 				<key>INFOPLIST_FILE</key>
 				<string>distribution/Info.plist</string>
 				<key>MARKETING_VERSION</key>
-				<string>0.1.0</string>
+				<string>0.1.1</string>
 				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
 				<string>com.winsonbaring.bendme</string>
 				<key>PRODUCT_NAME</key>

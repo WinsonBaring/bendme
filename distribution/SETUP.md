@@ -64,3 +64,5 @@ After successful export, copy the complete approved app without modification to 
 For the standard release paths, run `./scripts/package-notarized.sh` after successful export. Verified DMG, ZIP and checksums are written to `dist/NotarizedRelease`; uploading remains a separate action after inspecting the mounted DMG.
 
 For an existing pending submission, `python3 scripts/finish-notarization.py` waits up to 24 hours, verifies acceptance and packages automatically. Publishing mode (`--publish`) must run in a dedicated clean checkout at the current remote main with access to the submitted archive in `dist/DeveloperID`. It checks remote source consistency, mounted artifacts, public hashes and live website copy before marking issue #4 complete. Progress and failures are recorded in `dist/DeveloperID/notarization-status.json`; no failure is treated as approval.
+
+Use BENDME_NOTARIZATION_DIR=/absolute/versioned/path for submit/export to preserve earlier accepted archives. Use that same value with package-notarized.sh and a separate BENDME_RELEASE_DIR when packaging the new version.

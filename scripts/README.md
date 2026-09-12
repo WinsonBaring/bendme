@@ -13,3 +13,5 @@
 `package-notarized.sh` packages the accepted app into DMG/ZIP with fresh checksums under `dist/NotarizedRelease`, preserving the original installation and preview artifacts. It refuses to proceed without a valid stapled ticket and Gatekeeper acceptance.
 
 `finish-notarization.py` checks the existing submission once per minute for up to 24 hours, exports and verifies acceptance, then packages the app. `--publish` additionally verifies the mounted DMG, builds the updated website, replaces release assets and checks their public hashes, pushes the website, and verifies its live copy. Run publishing from an isolated clean checkout; it stops if remote source changed while waiting. State is recorded in `dist/DeveloperID/notarization-status.json`. It never resubmits or reads account credentials.
+
+Versioned notarization can use BENDME_NOTARIZATION_DIR to keep each archive/export separate. package-notarized.sh uses the same variable and BENDME_RELEASE_DIR for versioned output. Normal build-app.sh bundles are regular Dock applications.

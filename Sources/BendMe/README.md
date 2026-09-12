@@ -5,3 +5,5 @@
 Build and launch through [the root setup guide](../../SETUP.md); the app needs its bundled shader resource.
 
 The same files compile in the native Xcode target. Conditional BendCore imports avoid duplicating application logic, and resource lookup supports the Xcode app bundle and SwiftPM CLI.
+
+Normal launches now use regular AppKit activation so the app appears in the Dock. Reopening activates the settings window and restores it from minimization; capture diagnostics remain an accessory process.

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 cd "$(dirname "$0")/.."
-ROOT="$PWD/dist/DeveloperID"
+ROOT="${BENDME_NOTARIZATION_DIR:-$PWD/dist/DeveloperID}"
 ARCHIVE="$ROOT/BendMe.xcarchive"
 case "${1:-}" in
   submit)

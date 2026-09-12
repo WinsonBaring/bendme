@@ -45,3 +45,8 @@ Issue #4 complete: Apple accepted the app; signature, ticket, Gatekeeper, mounte
 - Removed /Applications/BendMe.app and dist/BendMe.app while preserving source and release artifacts.
 - Two diagnostic sandbox containers have protected macOS metadata; Finder removal is pending local OS approval. Main app and preferences are already absent.
 - Removed both diagnostic Data directories; only the protected container metadata remains. Finder deletion timed out. Full diagnostic-container removal remains unresolved, but installed app, processes, preferences, permissions and mounted installers are absent.
+
+## 2026-09-12 Dock application [Issue #6]
+- Normal app activation is regular; both packaging paths set LSUIElement=false. Settings reopening restores minimization; menu-bar controls remain. Version 0.1.1/build 2.
+- Eight native tests and website checks passed. Initial window probe ran before launch completed; subsequent runtime checks confirmed regular activation and one visible settings window. Reopening existing app retained one visible window. Hidden/minimized automation was unavailable; minimization restoration is implemented but not separately UI-automated.
+- Apple accepted the separate 0.1.1 archive; signature, ticket, Gatekeeper and mounted DMG checks passed. Replaced /Applications/BendMe-2.app with approved /Applications/BendMe.app and launched it, preserving settings and permissions. Public release publication follows.
