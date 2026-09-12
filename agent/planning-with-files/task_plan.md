@@ -28,6 +28,6 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 - [x] Create public GitHub repository and release issues using CLI (user explicitly declined plugins).
 - [x] Add open-source license, contribution/security guidance, clean release archives and downloadable desktop app.
 - [x] Build responsive landing page, interactive effect preview, maker profile, installation and privacy information.
-- [ ] Deploy publicly through GitHub Pages and verify website and release downloads.
+- [x] [Issue #1] Deploy publicly through GitHub Pages and verify website and release downloads.
 - [x] Test App Sandbox hardware compatibility and prepare App Store submission assets/configuration.
-- [ ] Submit to App Store only when signing, membership, app record and compatibility are verified.
+- [ ] [Issue #2] Submit to App Store when distribution signing, membership, app record, final signed sandbox capture, physical acceptance and screenshots are available.

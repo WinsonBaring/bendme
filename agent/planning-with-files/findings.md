@@ -15,3 +15,7 @@
 - Ad-hoc signing uses a cdhash-based designated requirement, so rebuilding can leave a stale macOS Screen Recording entry. Off/on and restart were insufficient here; scoped reset plus adding the exact final app through System Settings worked.
 - Direct execution of the bundle binary from the automation shell did not share the GUI app's permission attribution. LaunchServices (`open -n -g -W --stdout ... --stderr ... dist/BendMe.app --args --capture-test`) did and captured real frames successfully.
 - Do not rebuild after permission repair unless code changes are actually needed; re-authorize the final artifact after future builds.
+
+## Public distribution update, 2026-09-12
+
+User declined plugins; authenticated gh CLI created WinsonBaring/bendme and issues #1/#2. Free v0.1.0 ad-hoc arm64 preview is public, with checksums; GitHub Pages hosts the maker site. Native and website CI passed. This supersedes earlier missing-remote notes. Store submission remains open under #2 because distribution credentials/account access and final signed sandbox acceptance are not available. Preserve dist/BendMe.app to retain its working capture authorization.

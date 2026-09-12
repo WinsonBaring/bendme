@@ -60,3 +60,5 @@ Eight Swift tests with warnings as errors passed after supporting Xcode's app ta
 Website: lint, three Node tests, strict TypeScript, client/server build and HTML prerender passed. Local HTTP returned 200. Built anchors and static asset paths resolve. npm audit reported zero advisories. No browser visual, responsive or accessibility session was performed because the user prohibited browser tools.
 
 Release commands: `./scripts/package-preview.sh`; `./scripts/archive-app-store.sh --unsigned`; `cd website && npm ci && npm run check`. See distribution/SETUP.md for remaining store gates. Existing authorized dist/BendMe.app was preserved.
+
+Public verification: Pages run 34662530449 and Checks run 34662530463 succeeded. The live page and all six initial HTML assets returned HTTP 200. The public v0.1.0 desktop ZIP matched the local build byte for byte and passed ZIP integrity testing. SHA-256: `873619610df1bf05a5a83e7a343110b5d0de04f25a4d9225166ff3899db97076`.

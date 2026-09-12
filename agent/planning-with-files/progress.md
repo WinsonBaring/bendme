@@ -20,3 +20,5 @@
 - Added MIT release, standalone maker landing page with actual GPU previews, GitHub Pages workflow, isolated desktop packaging, and Xcode App Store configuration.
 - Verified eight Swift tests, 15 GPU renders, website lint/three tests/typecheck/prerender, zero npm advisories, strict ad-hoc signature, and unsigned Xcode archive.
 - Sandboxed Xcode diagnostic copy read the physical lid sensor. Final signed sandbox capture, physical acceptance, credentials and App Store submission remain pending under #2.
+
+- Published main, v0.1.0 prerelease ZIP/checksum, and GitHub Pages. Live HTML/initial assets HTTP 200; downloaded ZIP byte equality and integrity passed. Remote website/native CI and Pages deployment succeeded. Issue #1 complete; #2 remains open for Apple account and final signed acceptance.
