@@ -67,3 +67,10 @@ BENDME_SIGNING_IDENTITY='Developer ID Application: Your Name (TEAMID)' ./scripts
 ```
 
 Notarization, hardened-runtime release configuration, and a distribution account are separate release work. No credentials are included. Do not ship the local ad-hoc build as a notarized release.
+
+## Public distribution and website
+
+- Free preview packaging without replacing the running local app: `./scripts/package-preview.sh`.
+- `BENDME_OUTPUT_DIR` and `BENDME_BUNDLE_ID` select a separate output directory and bundle identity for `build-app.sh`. Defaults preserve the original local development identity.
+- Website commands, public URLs and Pages setup: [website/SETUP.md](website/SETUP.md).
+- App Store archive and account requirements: [distribution/SETUP.md](distribution/SETUP.md).

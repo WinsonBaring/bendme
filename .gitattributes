@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+# Exclude historical references and private working notes from source archives.
+image/** export-ignore
+agent/** export-ignore
+docs/ORIGINAL_BRIEF.md export-ignore

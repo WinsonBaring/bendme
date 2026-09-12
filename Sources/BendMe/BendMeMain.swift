@@ -1,7 +1,9 @@
 import AppKit
 import SwiftUI
 import Combine
+#if canImport(BendCore)
 import BendCore
+#endif
 
 @main
 enum BendMeMain {

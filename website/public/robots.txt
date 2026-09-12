@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://winsonbaring.github.io/bendme/sitemap.xml

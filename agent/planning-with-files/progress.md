@@ -14,3 +14,9 @@
 - Enabled app: native UI shows LIVE / Pause BendMe. Turned Follow lid on (112°), retaining Shade and clear angle 100°.
 - Live smoke test launched via `open` passed with 3 complete 1512×982 frames and valid overlay exclusion; test stream stopped and original app remained live. No desktop images saved. Direct CLI permission differs due to macOS launch responsibility.
 - Updated setup, verification, changelog, findings and state. No app rebuild, no new signature, no changes to other applications' permissions. GitHub remains unavailable.
+
+## 2026-09-12 public release preparation
+- Created public WinsonBaring/bendme repository and issues #1/#2 using GitHub CLI after user declined plugins.
+- Added MIT release, standalone maker landing page with actual GPU previews, GitHub Pages workflow, isolated desktop packaging, and Xcode App Store configuration.
+- Verified eight Swift tests, 15 GPU renders, website lint/three tests/typecheck/prerender, zero npm advisories, strict ad-hoc signature, and unsigned Xcode archive.
+- Sandboxed Xcode diagnostic copy read the physical lid sensor. Final signed sandbox capture, physical acceptance, credentials and App Store submission remain pending under #2.

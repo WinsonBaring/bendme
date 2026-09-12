@@ -1,6 +1,8 @@
 import AppKit
 import Metal
+#if canImport(BendCore)
 import BendCore
+#endif
 
 enum Diagnostics {
     @MainActor static func captureTest() async throws {

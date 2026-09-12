@@ -1,6 +1,8 @@
 import SwiftUI
 import MetalKit
+#if canImport(BendCore)
 import BendCore
+#endif
 
 private let accent = Color(red: 0.92, green: 0.61, blue: 0.36)
 

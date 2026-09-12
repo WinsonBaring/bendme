@@ -1,7 +1,6 @@
 # BendMe implementation
 
-GitHub issue: unavailable — repository has no remote and no GitHub MCP is exposed.
-Local scope below is the issue draft; do not invent a remote issue number.
+Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public release and website; [Issue #2](https://github.com/WinsonBaring/bendme/issues/2) App Store. User declined plugins; use authenticated GitHub CLI.
 
 ## Phase 1: Research and design
 - [x] Read complete brief and four reference images.
@@ -23,4 +22,12 @@ Local scope below is the issue draft; do not invent a remote issue number.
 - [ ] Physical lid / sleep / Spaces acceptance beyond live capture.
 - [x] Package locally signed .app, launch and verify running process.
 - [x] Update docs, changelog, and current state; commit implementation.
-- [ ] GitHub issue/remote delivery (blocked: no remote or GitHub MCP).
+- [x] GitHub repository and release issues created through CLI.
+
+## Phase 4: Free public release and maker website
+- [x] Create public GitHub repository and release issues using CLI (user explicitly declined plugins).
+- [x] Add open-source license, contribution/security guidance, clean release archives and downloadable desktop app.
+- [x] Build responsive landing page, interactive effect preview, maker profile, installation and privacy information.
+- [ ] Deploy publicly through GitHub Pages and verify website and release downloads.
+- [x] Test App Sandbox hardware compatibility and prepare App Store submission assets/configuration.
+- [ ] Submit to App Store only when signing, membership, app record and compatibility are verified.

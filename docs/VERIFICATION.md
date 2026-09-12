@@ -52,3 +52,11 @@ Physical lid-to-desktop alignment, visual recursion under an actively folded ove
 ## Delivery boundaries
 
 The application is a local arm64 build for this Mac, not a notarized public release. It has no remote repository or available GitHub MCP, so no GitHub issue was created or closed and no commit was pushed. Local planning and commit preserve the implementation for follow-up.
+
+## Public release preparation (2026-09-12)
+
+Eight Swift tests with warnings as errors passed after supporting Xcode's app target. The isolated public arm64 preview passed 15 Metal renders across all three styles with exact open-lid identity. Strict code-signature verification passed (ad-hoc signing, not notarization). The unsigned Xcode archive succeeded; a sandboxed copy read the physical lid sensor on Apple M3 Pro. Final signed sandbox capture and broader physical acceptance remain pending.
+
+Website: lint, three Node tests, strict TypeScript, client/server build and HTML prerender passed. Local HTTP returned 200. Built anchors and static asset paths resolve. npm audit reported zero advisories. No browser visual, responsive or accessibility session was performed because the user prohibited browser tools.
+
+Release commands: `./scripts/package-preview.sh`; `./scripts/archive-app-store.sh --unsigned`; `cd website && npm ci && npm run check`. See distribution/SETUP.md for remaining store gates. Existing authorized dist/BendMe.app was preserved.

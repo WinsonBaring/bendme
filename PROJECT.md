@@ -2,6 +2,10 @@
 
 ## Package layout
 
+- [website/PROJECT.md](website/PROJECT.md): prerendered React/Vite marketing site, GitHub Pages, release links, and maker profile.
+- [distribution/PROJECT.md](distribution/PROJECT.md): Xcode app target, sandbox, privacy manifests and App Store metadata.
+
+
 - [Sources/BendCore/README.md](Sources/BendCore/README.md): validated settings, fold math, packet decoder, HID sensor.
 - [Sources/BendMe/README.md](Sources/BendMe/README.md): menu-bar app, SwiftUI UI, lifecycle, screen capture, GPU rendering, diagnostics.
 - [Tests/BendCoreTests/README.md](Tests/BendCoreTests/README.md): deterministic unit tests.
@@ -17,7 +21,7 @@ Runtime dependencies: Apple system frameworks only. SwiftPM is the build system.
 
 `ScreenCaptureKit → CVPixelBuffer → CVMetalTextureCache → MetalRenderer → nonactivating NSPanel`
 
-HID input values update the lid angle. A bounded 30 Hz feature-report read supports firmware that does not send input notifications and detects repeated read failures. Data is validated before use. A time-based filter smooths geometry at 60 Hz. The shader inversely maps a hinge-anchored perspective plane and applies a three Gaussian blur scales blended progressively, style-dependent shading, and edge feathering. Metal Performance Shaders creates the Gaussian levels without sparse-sampling ghosting.
+HID input values update the lid angle. A bounded 30 Hz feature-report read supports firmware that does not send input notifications and detects repeated read failures. Data is validated before use. A time-based filter smooths geometry at 60 Hz. The shader inversely maps a hinge-anchored perspective plane and applies three Gaussian blur scales blended progressively, style-dependent shading, and edge feathering. Metal Performance Shaders creates the Gaussian levels without sparse-sampling ghosting.
 
 ScreenCaptureKit captures only the built-in display, explicitly excluding the overlay window to prevent recursive capture. The overlay is nonactivating and click-through, below the system menu bar. The cursor remains the actual macOS pointer and is excluded from captured frames. Capture is capped at 2304 pixels wide with 30/60 fps settings and a queue depth of three.
 

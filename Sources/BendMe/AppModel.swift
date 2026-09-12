@@ -1,7 +1,9 @@
 import AppKit
 import Combine
 import MetalKit
+#if canImport(BendCore)
 import BendCore
+#endif
 import Carbon.HIToolbox
 
 @MainActor

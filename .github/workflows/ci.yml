@@ -1,0 +1,29 @@
+name: Checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  website:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: website
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+      - run: npm ci
+      - run: npm run check
+      - run: npm audit --audit-level=high
+  native:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - run: swift test -Xswiftc -warnings-as-errors
+      - run: ./scripts/archive-app-store.sh --unsigned

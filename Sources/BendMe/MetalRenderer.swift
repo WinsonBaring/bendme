@@ -1,7 +1,9 @@
 import AppKit
 import MetalKit
 import MetalPerformanceShaders
+#if canImport(BendCore)
 import BendCore
+#endif
 
 struct ShaderParameters {
     var progress: Float
@@ -54,7 +56,13 @@ final class MetalRenderer: NSObject, MTKViewDelegate {
                 throw BendError.unavailable("The app resource bundle is missing. Rebuild BendMe.")
             }
             resources = bundle
-        } else { resources = Bundle.module }
+        } else {
+            #if SWIFT_PACKAGE
+            resources = Bundle.module
+            #else
+            resources = Bundle.main
+            #endif
+        }
         guard let url = resources.url(forResource: "Fold", withExtension: "metal", subdirectory: "Resources") else {
             throw BendError.unavailable("The Fold shader is missing. Rebuild the app bundle.")
         }
