@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Simplify setup after permission/reopen to a short Try BendMe card and one start/pause button; remove repeated instructions and diagnostic status copy.
+
 - Stop automatically opening System Settings after requesting Screen Recording. Let the user respond to Apple’s permission dialog; retain a manual Settings button.
 
 - Document manual local development startup in the user Applications folder after clearing installed app copies and state.

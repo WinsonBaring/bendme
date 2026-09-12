@@ -19,8 +19,10 @@ struct SettingsView: View {
                     HStack(alignment: .top) {
                         VStack(alignment: .leading, spacing: 6) {
                             Text(page).font(.system(size: 25, weight: .semibold))
-                            Text(page == "Setup" ? "Let's get you bending, one step at a time." : page == "Appearance" ? "A new angle on your everyday." : page == "General" ? "Quietly at home on your Mac." : "Made to change your perspective.")
-                                .foregroundStyle(.secondary).font(.system(size: 13))
+                            if page != "Setup" {
+                                Text(page == "Appearance" ? "A new angle on your everyday." : page == "General" ? "Quietly at home on your Mac." : "Made to change your perspective.")
+                                    .foregroundStyle(.secondary).font(.system(size: 13))
+                            }
                         }
                         Spacer()
                         HStack(spacing: 6) {

@@ -87,3 +87,7 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 ## Phase 15: [Issue #10] Respect native permission dialog
 - [x] Remove app-initiated Settings redirect after the request; keep manual Settings action.
 - [x] Compile/test locally (17 tests passed), then leave rebuilding/launching the installed development app to the user.
+
+## Phase 16: [Issue #10] Compact post-permission setup
+- [x] Simplify first-effect and completion views; show only relevant progress/error recovery.
+- [x] Compile and render ten local fixtures; review compact layouts; leave installed-app rebuild/launch to user.

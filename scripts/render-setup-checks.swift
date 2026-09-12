@@ -9,7 +9,7 @@ struct RenderSetup {
         app.setActivationPolicy(.accessory)
         let output = URL(fileURLWithPath: CommandLine.arguments.count > 1 ? CommandLine.arguments[1] : "dist/SetupVerification")
         try FileManager.default.createDirectory(at: output, withIntermediateDirectories: true)
-        for name in ["install", "permission", "try-effect", "unsupported", "ready", "capture-error", "permission-settings", "permission-requesting"] {
+        for name in ["install", "permission", "try-effect", "unsupported", "ready", "capture-error", "permission-settings", "permission-requesting", "try-starting", "try-enabled"] {
             let suite = "local.bendme.layout." + UUID().uuidString
             let defaults = UserDefaults(suiteName: suite)!
             let model = AppModel(defaults: defaults, servicesEnabled: false)
@@ -19,6 +19,8 @@ struct RenderSetup {
             model.requestingScreenAccess = name == "permission-requesting"
             model.angle = name == "unsupported" ? nil : 113
             model.sensorStatus = name == "unsupported" ? "No compatible lid sensor found." : "Lid sensor connected"
+            model.starting = name == "try-starting"
+            model.enabled = name == "try-enabled"
             model.setupSawEffect = name == "ready"
             if name == "capture-error" { model.message = "Screen capture could not start. Review Screen Recording permission and try again." }
             let size = NSSize(width: 900, height: 780)

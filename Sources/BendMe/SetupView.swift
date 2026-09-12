@@ -10,16 +10,18 @@ struct SetupView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 22) {
-            HStack(spacing: 12) {
-                ForEach(SetupStep.allCases, id: \.rawValue) { step in
-                    HStack(spacing: 6) {
-                        Image(systemName: step.rawValue < model.setupProgress.step.rawValue ? "checkmark.circle.fill" : "\(step.rawValue + 1).circle.fill")
-                        Text(step.title)
+            if model.setupProgress.step == .install || model.setupProgress.step == .permission {
+                HStack(spacing: 12) {
+                    ForEach(SetupStep.allCases, id: \.rawValue) { step in
+                        HStack(spacing: 6) {
+                            Image(systemName: step.rawValue < model.setupProgress.step.rawValue ? "checkmark.circle.fill" : "\(step.rawValue + 1).circle.fill")
+                            Text(step.title)
+                        }
+                        .font(.system(size: 11, weight: .medium))
+                        .foregroundStyle(step.rawValue <= model.setupProgress.step.rawValue ? setupAccent : .secondary)
+                        .accessibilityLabel("Step \(step.rawValue + 1), \(step.title)\(step == model.setupProgress.step ? ", current step" : "")")
+                        if step != .ready { Spacer(minLength: 0) }
                     }
-                    .font(.system(size: 11, weight: .medium))
-                    .foregroundStyle(step.rawValue <= model.setupProgress.step.rawValue ? setupAccent : .secondary)
-                    .accessibilityLabel("Step \(step.rawValue + 1), \(step.title)\(step == model.setupProgress.step ? ", current step" : "")")
-                    if step != .ready { Spacer(minLength: 0) }
                 }
             }
             VStack(alignment: .leading, spacing: 20) {
@@ -36,10 +38,8 @@ struct SetupView: View {
             .overlay(RoundedRectangle(cornerRadius: 16).stroke(.white.opacity(0.07)))
 
             if model.setupProgress.step != .ready {
-                Button("Explore the preview instead") { model.finishSetup(previewOnly: true) }
+                Button("Use preview") { model.finishSetup(previewOnly: true) }
                     .buttonStyle(.plain).font(.system(size: 12)).foregroundStyle(.secondary)
-                Text("You can return to Setup any time. The preview does not need screen access.")
-                    .font(.system(size: 11)).foregroundStyle(.tertiary)
             }
         }
     }
@@ -89,53 +89,33 @@ struct SetupView: View {
 
     private var tryEffect: some View {
         Group {
-            heading("Let's try your first bend.", detail: "Screen access is confirmed. Now we'll check the real desktop effect together.")
-            Label("Screen Recording allowed", systemImage: "checkmark.circle.fill").foregroundStyle(.green)
             if model.angle == nil {
-                Label("No compatible lid sensor detected", systemImage: "macbook.trianglebadge.exclamationmark")
-                Text(model.sensorStatus).font(.system(size: 12)).foregroundStyle(.secondary)
-                Text("Open the built-in MacBook display and check again. If this Mac has no compatible sensor, you can still explore the manual preview.")
-                    .font(.system(size: 12)).foregroundStyle(.secondary)
-                Button("Check lid sensor", action: model.refreshSensor)
+                heading("Lid sensor unavailable", detail: "Open your MacBook display, then try again.")
+                Button("Try again", action: model.refreshSensor)
             } else {
-                instruction(1, "Start the live effect", "Click Start BendMe. We'll confirm that desktop frames are arriving before marking this step ready.")
-                Button(model.starting ? "Cancel starting" : model.enabled ? "Pause BendMe" : "Start BendMe", action: model.toggle)
+                heading("Try BendMe", detail: model.enabled ? "Gently lower your lid below \(Int(model.settings.clearAngle))°." : "Start, then gently lower your lid.")
+                Button(model.starting ? "Cancel" : model.enabled ? "Pause BendMe" : "Start BendMe", action: model.toggle)
                     .buttonStyle(.borderedProminent).controlSize(.large)
-                if let message = model.message {
-                    Label(message, systemImage: "exclamationmark.triangle").font(.system(size: 12)).foregroundStyle(.orange)
+                    .help("Pause anytime with Control + Option + Command + B")
+                if model.starting {
+                    ProgressView("Starting…").controlSize(.small)
+                } else if model.enabled {
+                    Text("Open your lid to clear the effect.")
+                        .font(.system(size: 12)).foregroundStyle(.secondary)
+                }
+                if model.message != nil {
                     Button("Review screen access", action: model.openPrivacySettings)
                 }
-                Label(model.setupHasFrames ? "Live desktop frames received" : model.starting || model.enabled ? "Waiting for the first desktop frame…" : "The effect is paused", systemImage: model.setupHasFrames ? "checkmark.circle.fill" : "circle.dashed")
-                    .font(.system(size: 12)).foregroundStyle(model.setupHasFrames ? .green : .secondary)
-                instruction(2, "Gently lower your lid", "The effect appears below \(Int(model.settings.clearAngle))°. Keep the lid partly open; closing it normally can put your Mac to sleep.")
-                HStack {
-                    Image(systemName: "angle").foregroundStyle(setupAccent)
-                    Text("Your lid: \(Int(model.angle ?? 0))°").font(.system(size: 24, weight: .medium, design: .rounded)).monospacedDigit()
-                    Spacer()
-                    Text("Effect below \(Int(model.settings.clearAngle))°").font(.caption).foregroundStyle(.secondary)
-                }.padding(16).background(.white.opacity(0.035), in: RoundedRectangle(cornerRadius: 12))
-                Text(model.enabled && (model.angle ?? 0) >= model.settings.clearAngle ? "Your lid is above the clear angle, so a normal-looking desktop is expected right now." : "We'll mark this step complete when BendMe presents the live effect.")
-                    .font(.system(size: 12)).foregroundStyle(.secondary)
-                instruction(3, "Open your lid to clear it", "You can pause any time with Control + Option + Command + B, or Pause in the menu bar.")
-            }
-            if !model.setupHasFrames && model.enabled {
-                Button("Review screen access", action: model.openPrivacySettings)
             }
         }
     }
 
     private var ready: some View {
         Group {
-            Image(systemName: "checkmark.circle.fill").font(.system(size: 44)).foregroundStyle(.green)
-            heading("You made your first bend.", detail: "BendMe received your desktop frames and presented the effect. You're ready to make it your own.")
-            Label("Installed in Applications", systemImage: "checkmark")
-            Label("Screen access confirmed", systemImage: "checkmark")
-            Label("Live effect displayed", systemImage: "checkmark")
-            Text(model.enabled ? "The effect is enabled. Opening your lid above \(Int(model.settings.clearAngle))° clears it." : "The effect is paused. Enable it from Appearance when you're ready.")
-                .font(.system(size: 12)).foregroundStyle(.secondary)
-            Button("Choose my style") { model.finishSetup() }.buttonStyle(.borderedProminent).controlSize(.large)
-            Text("BendMe starts paused each time you launch it. Click its Dock icon for settings; use the menu bar for quick controls.")
-                .font(.system(size: 12)).foregroundStyle(.secondary)
+            Label("All set", systemImage: "checkmark.circle.fill")
+                .font(.system(size: 23, weight: .semibold)).foregroundStyle(.green)
+            Button("Choose my style") { model.finishSetup() }
+                .buttonStyle(.borderedProminent).controlSize(.large)
         }
     }
 

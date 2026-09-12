@@ -92,3 +92,7 @@ Issue #4 complete: Apple accepted the app; signature, ticket, Gatekeeper, mounte
 ## 2026-09-12 native dialog behavior [Issue #10]
 - User observed Apple's Screen Recording dialog and requested that it handle Settings navigation. Replaced automatic openPrivacySettings call after the request with state-only recovery. The manual button remains; denial no longer triggers app-initiated navigation. No version/release changes.
 - All 17 tests passed with warnings-as-errors. Source inspection confirms Settings launch is now only reached from explicit UI actions. No live consent test, installed-app change, permission reset, version bump or release performed.
+
+## 2026-09-12 compact post-permission setup [Issue #10]
+- Replaced the long first-effect screen with Try BendMe, Start/Pause, short conditional lid guidance and error recovery. Removed repeated progress/status/angle/footer copy; condensed completion. Model logic unchanged.
+- Real-view harness compiled and rendered ten fixtures; reviewed paused/enabled/error/completion. No release/install/launch or privacy change. User rebuilds manually.

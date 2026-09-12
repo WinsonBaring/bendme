@@ -24,7 +24,7 @@ This builds from the current source with local signing and opens the development
 
 The script builds a release executable, bundles its Metal resource, and signs it locally. Launch the app bundle rather than `swift run` for a stable macOS permission identity. Keep the app in the same location when granting permissions.
 
-Open **Setup** in the sidebar (or **Setup Guide…** in the menu bar) for installation, Screen Recording permission, restart recovery, and first-effect checks. macOS consent remains your choice; BendMe opens the relevant settings and checks access automatically. You can choose **Explore the preview instead** without screen access.
+Open **Setup** in the sidebar (or **Setup Guide…** in the menu bar) for installation, Screen Recording permission, restart recovery, and first-effect checks. macOS consent remains your choice; BendMe checks access automatically; Settings opens only when you choose it. You can choose **Use preview** without screen access.
 
 The app starts paused each time. Closing settings leaves the menu-bar app running. The overlay does not transform mouse coordinates; pause it before precision interaction. The menu bar stays accessible above the overlay.
 
