@@ -80,3 +80,7 @@ Issue #4 complete: Apple accepted the app; signature, ticket, Gatekeeper, mounte
 - Apple accepted 0.1.4/build 5; signature, ticket, Gatekeeper and mounted DMG passed. Published v0.1.4; release and website verification in progress. User installation was not changed.
 - Verified all public artifact hashes and live v0.1.4 download/short consent copy. Pages run 34669954828 passed.
 - GitHub Checks 34669954841 passed (native tests/archive and website checks/audit). Issue #9 implementation/release complete; real first-use consent remains manual acceptance.
+
+## 2026-09-12 local review pause
+- User paused upgrades and Apple/public releases to review the app first. Confirmed no notarization/submission worker is running. Displayed the current app-owned setup fixture; preserving installation and permissions.
+- [Issue #10] Rendered current Appearance layout using a temporary isolated harness in dist/UIReview. Bitmap rendering omits Metal surfaces, so preview areas are black in this snapshot; do not report an app rendering failure. No product code, version, installation or permission state changed.

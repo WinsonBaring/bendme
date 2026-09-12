@@ -72,3 +72,9 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 ## Phase 12: [Issue #9] Simple native consent
 - [x] Remove floating guide and verbose permission instructions; use one native consent button with short conditional recovery.
 - [x] Validate, notarize and publish 0.1.4 without altering the user's installed app or permissions.
+
+## Phase 13: [Issue #10] Local UI review — releases paused
+- [x] Show current native setup preview.
+- [x] Render the main Appearance layout locally (GPU surfaces are not included in the bitmap snapshot).
+- [ ] Iterate locally from user feedback.
+- Release gate: no version bump, Apple submission or publishing until explicitly resumed.
