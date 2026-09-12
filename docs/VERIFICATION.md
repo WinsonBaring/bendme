@@ -95,3 +95,5 @@ GitHub Checks run 34667657103 passed for the 0.1.1 implementation, including nat
 - Website `npm run check` passed. Native managed archive and upload succeeded; Apple accepted version 0.1.2. Stapled ticket, strict signature and Gatekeeper assessment passed.
 - Mounted DMG validated the approved app, Applications shortcut and guide-first notes. Installed the approved public bundle over the isolated local setup-preview build, preserving public defaults and permissions. Runtime reports regular Dock activation, one visible settings window, and hidden=false.
 - Actual macOS consent switches and a complete physical-lid walkthrough were not automated. macOS retains control of consent; the companion is a labeled visual example, not an overlay attached to OS controls.
+- Public v0.1.2 DMG, ZIP and checksum files match local SHA-256 hashes. GitHub Pages deployment 34669038165 passed; live HTML contains the new DMG link and interactive Setup guidance.
+- GitHub Checks run 34669038183 passed: native tests, unsigned App Store archive, website checks and dependency audit. Issue #7 is complete.

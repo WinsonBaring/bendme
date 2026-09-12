@@ -58,4 +58,4 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 - [x] Add installation, permission, first-effect and completion states with actual checks.
 - [x] Add settings navigation, a floating visual permission companion and restart recovery.
 - [x] Verify state transitions, native layout and failure recovery; document OS consent limits.
-- [ ] Sign/notarize version 0.1.2, install it, publish downloads and update website guidance.
+- [x] Sign/notarize version 0.1.2, install it, publish downloads and update website guidance.

@@ -58,3 +58,5 @@ Issue #4 complete: Apple accepted the app; signature, ticket, Gatekeeper, mounte
 - Added nine setup tests (17 total) and eight isolated native layout fixtures; all passed and layouts reviewed. Adjusted companion background and compact content after inspection. Website checks passed.
 - Version 0.1.2/build 3 accepted by Apple; app signature, stapled ticket and Gatekeeper passed. Packaged DMG/ZIP. Installation identity guard caught the known local preview copy; explicitly replaced that copy with the approved public app, preserving public preferences. Runtime verified regular Dock activation and one visible settings window.
 - Publishing verified downloads and website follows. OS consent and a complete physical-lid walkthrough remain manual acceptance checks.
+- Published v0.1.2 and verified all four public artifact hashes. Pages run 34669038165 passed; live HTML contains the new DMG URL and interactive Setup guidance.
+- GitHub Checks run 34669038183 passed: native tests, unsigned App Store archive, website checks and dependency audit. Issue #7 is complete.
