@@ -6,6 +6,10 @@
 - Live lid tracking needs a compatible MacBook sensor (HID sensor page `0x20`, usage `0x8A`). The settings preview works without one.
 - Screen Recording permission for the **live desktop** only. No Accessibility permission is needed.
 
+## Install the public preview
+
+Download the DMG from [GitHub Releases](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.0), open it, drag BendMe into Applications, and eject the disk. Launch BendMe from Applications, then follow the permission steps below. The preview is not Apple-notarized; macOS may block it. Source builds remain available. The ZIP is retained as an alternative download.
+
 ## Build and run
 
 From this directory:

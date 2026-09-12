@@ -107,7 +107,7 @@ export default function App() {
         <div className="download-heading"><h2 id="download-title">Make your Mac<br />a little more playful.</h2><p>Free for everyone. No subscription. No license key.</p></div>
         <div className="download-panel">
           <div className="download-title"><Laptop size={28} strokeWidth={1.5} aria-hidden="true" /><div><h3>BendMe for Mac</h3><p>Apple silicon · macOS 14 or later</p></div></div>
-          <a className="button primary full-width" href={release.download}>Download preview <ArrowDownToLine size={18} aria-hidden="true" /></a>
+          <a className="button primary full-width" href={release.download}>Download DMG <ArrowDownToLine size={18} aria-hidden="true" /></a>
           <p className="release-notice">This is a development preview, not yet Apple-notarized. macOS may block it. Prefer a verified installation? Build it from source or wait for a signed release.</p>
           <a className="text-link" href={`${release.repository}#build-from-source`}>Build from source <ArrowUpRight size={16} aria-hidden="true" /></a>
           <p className="requirements">The live effect requires a compatible MacBook lid sensor and Screen Recording permission. Manual preview works without either.</p>
@@ -117,7 +117,7 @@ export default function App() {
       <section className="help section wrap" id="help" aria-labelledby="help-title">
         <h2 id="help-title">A few things to know.</h2>
         <div className="questions">
-          <details><summary>How do I start the effect?<ChevronDown size={18} aria-hidden="true" /></summary><p>Open BendMe, choose Enable BendMe, and allow Screen Recording in macOS System Settings. Reopen the app if macOS asks. Gently lower your lid below the clear angle, initially 100°. The effect clears when you open it again.</p></details>
+          <details><summary>How do I start the effect?<ChevronDown size={18} aria-hidden="true" /></summary><p>Open the downloaded DMG, drag BendMe to Applications, and eject the disk. Open BendMe from Applications, choose Enable BendMe, and allow Screen Recording in macOS System Settings. Reopen the app if macOS asks. Gently lower your lid below the clear angle, initially 100°. The effect clears when you open it again.</p></details>
           <details><summary>Will it work with my MacBook?<ChevronDown size={18} aria-hidden="true" /></summary><p>The download supports Apple silicon and macOS 14 or later. The live effect needs a compatible lid-angle sensor; it has been verified on an M3 Pro MacBook. Sensor availability varies by model. The manual preview remains available on unsupported hardware.</p></details>
           <details><summary>How do I pause it?<ChevronDown size={18} aria-hidden="true" /></summary><p>Choose Pause BendMe from the menu bar, or press Control + Option + Command + B from any app. Escape pauses it while BendMe is focused. Closing the lid normally can still put your Mac to sleep.</p></details>
           <details><summary>Is it on the Mac App Store?<ChevronDown size={18} aria-hidden="true" /></summary><p>Not yet. An App Store release is being prepared and must pass Apple’s signing and review requirements. The development preview and source code are available here for free.</p></details>

@@ -22,3 +22,8 @@
 - Sandboxed Xcode diagnostic copy read the physical lid sensor. Final signed sandbox capture, physical acceptance, credentials and App Store submission remain pending under #2.
 
 - Published main, v0.1.0 prerelease ZIP/checksum, and GitHub Pages. Live HTML/initial assets HTTP 200; downloaded ZIP byte equality and integrity passed. Remote website/native CI and Pages deployment succeeded. Issue #1 complete; #2 remains open for Apple account and final signed acceptance.
+
+## 2026-09-12 DMG delivery [Issue #3]
+- Added repeatable compressed DMG packaging with Applications shortcut, installation notes, strict app-signature verification and dedicated checksum.
+- Mounted the DMG read-only, verified its app signature and shortcut, and compared app contents with the existing release ZIP: identical. Ejected cleanly.
+- Website lint/tests/typecheck/build passed with the DMG URL and installation copy; retained preview signing disclosures and ZIP alternative.

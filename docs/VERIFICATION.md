@@ -62,3 +62,7 @@ Website: lint, three Node tests, strict TypeScript, client/server build and HTML
 Release commands: `./scripts/package-preview.sh`; `./scripts/archive-app-store.sh --unsigned`; `cd website && npm ci && npm run check`. See distribution/SETUP.md for remaining store gates. Existing authorized dist/BendMe.app was preserved.
 
 Public verification: Pages run 34662530449 and Checks run 34662530463 succeeded. The live page and all six initial HTML assets returned HTTP 200. The public v0.1.0 desktop ZIP matched the local build byte for byte and passed ZIP integrity testing. SHA-256: `873619610df1bf05a5a83e7a343110b5d0de04f25a4d9225166ff3899db97076`.
+
+## DMG packaging
+
+`./scripts/package-dmg.sh` produces a compressed disk image from the existing release app. Verified read-only mount, strict embedded app signature, Applications symlink, installation notes, and identical app contents against the v0.1.0 ZIP. Disk ejected cleanly. Website checks passed after switching the primary download to DMG. Packaging does not change ad-hoc signing or notarization status.

@@ -45,3 +45,5 @@ Original source is [MIT-licensed](LICENSE); see [third-party notices](THIRD_PART
 Local planning and issue status: [agent/planning-with-files/task_plan.md](agent/planning-with-files/task_plan.md).
 
 BendMe is an independent implementation inspired by [Bendy](https://trybendy.app). It does not contain Bendy's code, branding, wallpapers, or audio. No affiliation is implied.
+
+The download button serves a DMG from GitHub Releases. Open it, drag BendMe to Applications, and eject the disk. The ZIP remains available as an alternative.

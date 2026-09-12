@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Added a verified DMG download with Applications shortcut and installation notes; website now downloads the DMG from GitHub Releases.
+
 - Publish a free MIT-licensed development preview and maker landing page for Winson Baring, with GitHub Pages automation.
 - Add downloadable arm64 app packaging and SHA-256 checksums without replacing the working local app.
 - Add native Xcode archive target, sandbox entitlements, privacy manifest, icon catalog and draft App Store metadata. App Store submission remains pending distribution credentials and account details.
