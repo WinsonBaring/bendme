@@ -59,3 +59,8 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 - [x] Add settings navigation, a floating visual permission companion and restart recovery.
 - [x] Verify state transitions, native layout and failure recovery; document OS consent limits.
 - [x] Sign/notarize version 0.1.2, install it, publish downloads and update website guidance.
+
+## Phase 10: [Issue #5] Repeat clean install test for v0.1.2
+- [x] Remove installed/development apps and preferences; reset public privacy approvals.
+- [x] Verify no running or installed copies; preserve source and release downloads.
+- [ ] Remove protected empty diagnostic metadata (macOS denies removal; unrelated to the public app's onboarding).

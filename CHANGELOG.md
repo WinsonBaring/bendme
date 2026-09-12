@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Removed local BendMe installation and reset public setup/privacy state for manual testing of v0.1.2 onboarding; published downloads and source are preserved.
+
 - BendMe 0.1.2 guides installation and Screen Recording setup inside the app, with working navigation buttons, a floating visual companion, automatic checks, restart recovery and a first-live-effect walkthrough. Manual preview remains available without permission.
 
 - BendMe 0.1.1 now appears in the Dock as a regular desktop application. Opening it restores its settings window, including when minimized; menu-bar controls remain available.

@@ -1,9 +1,7 @@
 # Current state
 
-BendMe 0.1.2/build 3 is installed and running at /Applications/BendMe.app with an interactive Setup guide, real navigation buttons, floating Screen Recording companion, restart recovery and live first-effect checks. Public preferences and privacy grants were preserved.
+BendMe is uninstalled locally for the user to manually test v0.1.2 onboarding. No running BendMe process or app in Applications, Downloads or Desktop remains. Removed local Dock/sandbox/smoke development bundles. Public and setup-preview defaults are absent; tccutil successfully reset All approvals for com.winsonbaring.bendme. Source, DMG/ZIP downloads and notarization/archive artifacts remain intact and were unregistered from Launch Services.
 
-Verified: 17 native tests, eight synthetic native layouts visually reviewed, website checks, Apple notarization, ticket/signature/Gatekeeper, mounted DMG and installed regular Dock activation with a visible window. OS consent and the complete physical-lid walkthrough were not automated. Release v0.1.2 is published under Issue #7. Public DMG, ZIP and both checksum files match local SHA-256 hashes. Pages deployment succeeded and the live HTML contains the new download and interactive Setup guidance. Artifacts: dist/Release-0.1.2 and dist/DeveloperID-0.1.2.
+Two empty diagnostic containers retain macOS-protected metadata; their Data folders are absent. Attempts to reset removed diagnostic bundle identifiers returned no-such-identifier, so no fresh reset is claimed for those separate identities. They do not affect the public app's fresh setup. Issue #5 stays open only for these diagnostic cleanup limits.
 
-App Store submission remains separate under #2. Issue #5 retains two protected empty diagnostic metadata containers unrelated to the public app.
-
-GitHub Checks run 34669038183 passed (native tests/archive and website checks/audit). Issue #7 is complete.
+Version 0.1.2 is published and verified; issue #7 is complete. App Store submission remains separate under #2. Do not launch or reinstall automatically: the user will manually test the first-launch flow.

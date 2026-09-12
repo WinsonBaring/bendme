@@ -60,3 +60,8 @@ Issue #4 complete: Apple accepted the app; signature, ticket, Gatekeeper, mounte
 - Publishing verified downloads and website follows. OS consent and a complete physical-lid walkthrough remain manual acceptance checks.
 - Published v0.1.2 and verified all four public artifact hashes. Pages run 34669038165 passed; live HTML contains the new DMG URL and interactive Setup guidance.
 - GitHub Checks run 34669038183 passed: native tests, unsigned App Store archive, website checks and dependency audit. Issue #7 is complete.
+
+## 2026-09-12 repeat fresh-install cleanup [Issue #5]
+- User requested removal after guided-setup delivery. Stopped BendMe, removed installed app and three local development bundles; preserved source and release/archive artifacts. No BendMe installer volume was mounted.
+- Deleted public/setup-preview defaults. Initial privacy reset after unregistering could not resolve the app; temporarily registered the preserved approved public app, successfully reset all public approvals, then unregistered it. Diagnostic identity reset attempts still returned no-such-identifier; no successful reset claimed for them.
+- Verified no running process, no BendMe app in Applications/Downloads/Desktop, and no public/setup-preview defaults. Two protected empty diagnostic metadata folders remain with no Data directories. Latest DMG preserved; leave app uninstalled for manual testing.
