@@ -84,3 +84,6 @@ Two separate sandboxcheck container directories retain only macOS-protected meta
 ## Dock application, v0.1.1
 
 Both packaging paths use LSUIElement=false and normal execution uses regular activation. Runtime checks of the local build and installed signed app reported regular activation, one visible settings window and hidden=false. The first probe was too early in launch and was repeated after startup. Existing-app reopening kept the window visible; minimized restoration is implemented but was not separately exercised through native UI automation. Eight Swift tests and website checks passed. Apple accepted v0.1.1; ticket, signature, Gatekeeper, mounted DMG and installed-bundle checks passed. The approved app replaced the installed BendMe-2.app without resetting preferences or permissions.
+
+Public v0.1.1 DMG, ZIP and checksum manifest matched local hashes. Pages run 34667657164 succeeded; live HTML contains the new versioned DMG and Dock feature copy.
+GitHub Checks run 34667657103 passed for the 0.1.1 implementation, including native tests/archive and website checks.

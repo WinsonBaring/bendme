@@ -52,4 +52,4 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 ## Phase 8: [Issue #6] Dock application behavior
 - [x] Use regular activation and matching bundle flags; restore minimized settings on reopen.
 - [x] Verify regular Dock activation and visible settings for the built and installed apps; eight native tests passed.
-- [ ] Prepare version 0.1.1 with separate notarization artifacts and publish after approval.
+- [x] Publish approved version 0.1.1 with isolated archives; verify public artifacts and live website.
