@@ -4,16 +4,17 @@ import MetalKit
 import BendCore
 #endif
 
-private let accent = Color(red: 0.92, green: 0.61, blue: 0.36)
+private let accent = AppTheme.accent
 
 struct SettingsView: View {
     @ObservedObject var model: AppModel
     @State private var page = "Appearance"
+    @FocusState private var focusedPage: String?
 
     var body: some View {
         HStack(spacing: 0) {
             sidebar
-            Divider().overlay(Color.white.opacity(0.04))
+            Divider()
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     HStack(alignment: .top) {
@@ -28,7 +29,7 @@ struct SettingsView: View {
                         HStack(spacing: 6) {
                             Circle().fill(model.enabled ? Color.green : accent).frame(width: 6, height: 6)
                             Text(model.enabled ? "LIVE" : "PREVIEW").font(.system(size: 10, weight: .semibold, design: .monospaced))
-                        }.padding(.horizontal, 11).padding(.vertical, 7).background(.white.opacity(0.055), in: Capsule())
+                        }.padding(.horizontal, 11).padding(.vertical, 7).background(AppTheme.subtle, in: Capsule())
                     }
                     if page == "Setup" { SetupView(model: model) }
                     else if page == "Appearance" { appearance }
@@ -44,18 +45,23 @@ struct SettingsView: View {
                         }.padding(14).background(accent.opacity(0.09), in: RoundedRectangle(cornerRadius: 12))
                     }
                 }.padding(24)
-            }.background(Color(red: 0.105, green: 0.112, blue: 0.13))
+            }.background(AppTheme.background)
         }
         .frame(minWidth: 860, idealWidth: 900, minHeight: 730, idealHeight: 780)
-        .preferredColorScheme(.dark)
+        .preferredColorScheme(.light)
         .tint(accent)
-        .onAppear { if model.showSetup { page = "Setup" } }
+        .defaultFocus($focusedPage, page)
+        .onAppear {
+            if model.showSetup { page = "Setup" }
+            focusedPage = page
+        }
         .onChange(of: model.showSetup) { _, visible in
             if visible { page = "Setup" }
             else if page == "Setup" { page = "Appearance" }
         }
         .onChange(of: page) { _, value in
             model.showSetup = value == "Setup"
+            focusedPage = value
         }
     }
 
@@ -79,9 +85,17 @@ struct SettingsView: View {
                             .foregroundStyle(page == item.0 ? accent : .secondary)
                         Text(item.0).font(.system(size: 13, weight: page == item.0 ? .medium : .regular))
                         Spacer()
-                    }.padding(.horizontal, 10).padding(.vertical, 12)
-                        .background(page == item.0 ? Color.white.opacity(0.07) : .clear, in: RoundedRectangle(cornerRadius: 8))
-                }.buttonStyle(.plain).padding(.bottom, 3)
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 10).padding(.vertical, 12)
+                        .contentShape(RoundedRectangle(cornerRadius: 8))
+                        .background(page == item.0 ? AppTheme.selection : .clear, in: RoundedRectangle(cornerRadius: 8))
+                        .overlay(RoundedRectangle(cornerRadius: 8)
+                            .stroke(focusedPage == item.0 ? Color.primary.opacity(0.25) : .clear, lineWidth: 1))
+                }.buttonStyle(.plain)
+                    .focused($focusedPage, equals: item.0)
+                    .focusEffectDisabled()
+                    .accessibilityAddTraits(page == item.0 ? .isSelected : [])
+                    .padding(.bottom, 3)
             }
             Spacer()
             VStack(alignment: .leading, spacing: 10) {
@@ -95,7 +109,7 @@ struct SettingsView: View {
                 Text("On your Mac. Only your Mac.").font(.system(size: 10)).foregroundStyle(.tertiary)
             }.padding(.bottom, 22)
         }.padding(.horizontal, 18).frame(width: 188)
-            .background(Color(red: 0.08, green: 0.085, blue: 0.099))
+            .background(AppTheme.sidebar)
     }
 
     private var appearance: some View {
@@ -116,8 +130,8 @@ struct SettingsView: View {
                     Toggle("Follow lid", isOn: $model.followLid).toggleStyle(.switch).controlSize(.mini)
                         .disabled(model.angle == nil).font(.system(size: 11))
                 }.padding(.horizontal, 22).padding(.bottom, 17)
-            }.background(LinearGradient(colors: [.white.opacity(0.045), .white.opacity(0.015)], startPoint: .topLeading, endPoint: .bottomTrailing), in: RoundedRectangle(cornerRadius: 16))
-                .overlay(RoundedRectangle(cornerRadius: 16).stroke(.white.opacity(0.07)))
+            }.background(LinearGradient(colors: [AppTheme.card, AppTheme.sidebar], startPoint: .topLeading, endPoint: .bottomTrailing), in: RoundedRectangle(cornerRadius: 16))
+                .overlay(RoundedRectangle(cornerRadius: 16).stroke(AppTheme.border))
 
             VStack(alignment: .leading, spacing: 11) {
                 sectionLabel("MAKE IT FEEL LIKE YOU", trailing: "Three ways to bend")
@@ -134,8 +148,8 @@ struct SettingsView: View {
                                     }
                                 }
                                 Text(style.subtitle).font(.system(size: 9)).foregroundStyle(.secondary)
-                            }.padding(10).background(Color.white.opacity(model.settings.style == style ? 0.055 : 0.025), in: RoundedRectangle(cornerRadius: 11))
-                                .overlay(RoundedRectangle(cornerRadius: 11).stroke(model.settings.style == style ? accent.opacity(0.8) : .white.opacity(0.06), lineWidth: 1))
+                            }.padding(10).background(model.settings.style == style ? accent.opacity(0.06) : AppTheme.card, in: RoundedRectangle(cornerRadius: 11))
+                                .overlay(RoundedRectangle(cornerRadius: 11).stroke(model.settings.style == style ? accent.opacity(0.8) : AppTheme.border, lineWidth: 1))
                         }.buttonStyle(.plain).accessibilityLabel("\(style.title): \(style.subtitle)")
                     }
                 }
@@ -146,8 +160,8 @@ struct SettingsView: View {
                 settingSlider("Variable blur", icon: "drop.halffull", value: $model.settings.blur)
                 Divider().padding(.leading, 43)
                 settingSlider("Shadow", icon: "circle.bottomhalf.filled", value: $model.settings.shadow)
-            }.background(.white.opacity(0.025), in: RoundedRectangle(cornerRadius: 12))
-                .overlay(RoundedRectangle(cornerRadius: 12).stroke(.white.opacity(0.055)))
+            }.background(AppTheme.card, in: RoundedRectangle(cornerRadius: 12))
+                .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppTheme.border))
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(model.enabled ? "Your desktop is ready to bend." : "Ready when you are.").font(.system(size: 12, weight: .medium))
@@ -160,7 +174,7 @@ struct SettingsView: View {
                         Text(model.starting ? "Cancel" : model.enabled ? "Pause BendMe" : "Enable BendMe")
                         if !model.starting { Image(systemName: model.enabled ? "pause.fill" : "arrow.up.right") }
                     }.font(.system(size: 11, weight: .semibold)).padding(.horizontal, 15).padding(.vertical, 10)
-                        .foregroundStyle(Color.black.opacity(0.85)).background(accent, in: Capsule())
+                        .foregroundStyle(.white).background(accent, in: Capsule())
                 }.buttonStyle(.plain)
             }
         }
@@ -260,7 +274,7 @@ struct LaptopPreview: View {
                 .fill(LinearGradient(colors: [Color(white: 0.43), Color(white: 0.23)], startPoint: .top, endPoint: .bottom))
                 .frame(height: 10)
                 .overlay(alignment: .top) { Capsule().fill(.black.opacity(0.5)).frame(width: 80, height: 3) }
-        }.shadow(color: .black.opacity(0.35), radius: 16, y: 12)
+        }.shadow(color: .black.opacity(0.12), radius: 16, y: 12)
     }
 }
 

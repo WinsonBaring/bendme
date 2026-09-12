@@ -25,3 +25,10 @@ The user's fresh-install screenshot shows no BendMe row after the v0.1.2 button.
 
 ## Simple native consent, 2026-09-12 [Issue #9]
 User explicitly rejected the floating guide and verbose instructions. Remove that design rather than extending it. Native ScreenCaptureKit request remains the approval route; macOS owns permission. Settings and reopen controls appear only as concise recovery. Preserve the user's existing installation for manual testing.
+
+## Archived progress summary — 2026-09-12
+- Native app, free website and DMG delivery completed; 0.1.0 through 0.1.4 were notarized with Xcode-managed Developer ID signing. App Store submission remains separate (#2).
+- User then paused all versioning/Apple/public releases. Work now stays local under #10 and the user manually rebuilds via BENDME_OUTPUT_DIR="$HOME/Applications". Do not launch, replace installation or reset permissions unless asked.
+- Simplified onboarding: no floating guide, no automatic Settings redirect, compact Try BendMe and All set stages. Real macOS consent remains user-controlled.
+- Latest UI uses white/light surfaces, gray sidebar, blue accents and a shared full-row focus treatment; default focus follows the selected page. Tests and synthetic renders pass, but bitmap snapshots omit Metal surfaces and do not prove physical-lid/OS-consent behavior.
+- Previous cleanup removed installed/extracted apps and reset public state; two empty protected diagnostic metadata folders remain (#5). Source and packaged release/archive artifacts preserved. Raw history is in archive/progress_2026-09-12.md.

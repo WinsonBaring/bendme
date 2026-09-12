@@ -120,7 +120,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             window.titlebarAppearsTransparent = true
             window.titleVisibility = .hidden
             window.toolbarStyle = .unified
-            window.backgroundColor = NSColor(red: 0.08, green: 0.085, blue: 0.099, alpha: 1)
+            window.appearance = NSAppearance(named: .aqua)
+            window.backgroundColor = NSColor(white: 0.95, alpha: 1)
             window.contentView = NSHostingView(rootView: SettingsView(model: model))
             window.isReleasedWhenClosed = false
             window.center()

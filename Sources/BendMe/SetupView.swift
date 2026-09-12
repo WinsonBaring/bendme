@@ -3,7 +3,7 @@ import SwiftUI
 import BendCore
 #endif
 
-private let setupAccent = Color(red: 0.92, green: 0.61, blue: 0.36)
+private let setupAccent = AppTheme.accent
 
 struct SetupView: View {
     @ObservedObject var model: AppModel
@@ -34,8 +34,8 @@ struct SetupView: View {
             }
             .padding(22)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(.white.opacity(0.035), in: RoundedRectangle(cornerRadius: 16))
-            .overlay(RoundedRectangle(cornerRadius: 16).stroke(.white.opacity(0.07)))
+            .background(AppTheme.card, in: RoundedRectangle(cornerRadius: 16))
+            .overlay(RoundedRectangle(cornerRadius: 16).stroke(AppTheme.border))
 
             if model.setupProgress.step != .ready {
                 Button("Use preview") { model.finishSetup(previewOnly: true) }

@@ -91,3 +91,7 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 ## Phase 16: [Issue #10] Compact post-permission setup
 - [x] Simplify first-effect and completion views; show only relevant progress/error recovery.
 - [x] Compile and render ten local fixtures; review compact layouts; leave installed-app rebuild/launch to user.
+
+## Phase 17: [Issue #10] Light theme and consistent sidebar
+- [x] Share light colors across Setup/Settings and Aqua window; use uniform full-row sidebar focus styling.
+- [x] 17 tests passed; compile/render eleven fixtures and inspect Setup/Appearance, including initial focus alignment. Installed app and release pause preserved.

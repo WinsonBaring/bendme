@@ -82,6 +82,24 @@
 			<key>fileRef</key>
 			<string>DEF8AAF95F6054D25910EF49</string>
 		</dict>
+		<key>0B4BC561B0E4296974DEA291</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Sources/BendMe/AppTheme.swift</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>8AB01B2A4A96DFBC63FD8BD5</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>fileRef</key>
+			<string>0B4BC561B0E4296974DEA291</string>
+		</dict>
 		<key>32DCA9BF4A01A12E82F5FDFD</key>
 		<dict>
 			<key>isa</key>
@@ -280,6 +298,7 @@
 				<string>098B1739F8FB0B13160B14A1</string>
 				<string>AB03FA7FC144778EE1524009</string>
 				<string>DEF8AAF95F6054D25910EF49</string>
+				<string>0B4BC561B0E4296974DEA291</string>
 				<string>32DCA9BF4A01A12E82F5FDFD</string>
 				<string>F623D9BCDD7C035800EA6384</string>
 				<string>6E59BDE8E76B95594C2387EE</string>
@@ -332,6 +351,7 @@
 				<string>60FB2EEBB7A115210876E94B</string>
 				<string>3988003BAF2D8EFB794C4ACA</string>
 				<string>3D3B57141F26EA3D2F734C1A</string>
+				<string>8AB01B2A4A96DFBC63FD8BD5</string>
 				<string>56F1A7E92C608ABDAC41C53E</string>
 				<string>496EC56761E9AAC01911C1C7</string>
 				<string>D1CD2D95F0240B754C7742B9</string>

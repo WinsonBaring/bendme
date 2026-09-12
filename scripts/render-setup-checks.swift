@@ -9,10 +9,11 @@ struct RenderSetup {
         app.setActivationPolicy(.accessory)
         let output = URL(fileURLWithPath: CommandLine.arguments.count > 1 ? CommandLine.arguments[1] : "dist/SetupVerification")
         try FileManager.default.createDirectory(at: output, withIntermediateDirectories: true)
-        for name in ["install", "permission", "try-effect", "unsupported", "ready", "capture-error", "permission-settings", "permission-requesting", "try-starting", "try-enabled"] {
+        for name in ["install", "permission", "try-effect", "unsupported", "ready", "capture-error", "permission-settings", "permission-requesting", "try-starting", "try-enabled", "appearance"] {
             let suite = "local.bendme.layout." + UUID().uuidString
             let defaults = UserDefaults(suiteName: suite)!
             let model = AppModel(defaults: defaults, servicesEnabled: false)
+            if name == "appearance" { model.showSetup = false }
             model.installedInApplications = name != "install"
             model.permissionGranted = !["install", "permission", "permission-settings", "permission-requesting"].contains(name)
             model.needsScreenSettings = name == "permission-settings"
