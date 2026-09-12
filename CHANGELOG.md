@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Recorded local uninstall and permission reset for a fresh manual test of the notarized DMG; source and release artifacts are preserved.
+
 - Published Developer ID signed, Apple-notarized app downloads with attached approval tickets; replaced the earlier unsigned preview packages.
 
 - Added Xcode-managed Developer ID upload/export and notarization verification for direct distribution; packaging refuses to claim notarization without a valid app ticket and Gatekeeper acceptance.

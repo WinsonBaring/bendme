@@ -80,3 +80,7 @@ Notarization, hardened-runtime release configuration, and a distribution account
 - App Store archive and account requirements: [distribution/SETUP.md](distribution/SETUP.md).
 
 - Direct Developer ID signing and Apple notarization through an existing paid Xcode account: [distribution/SETUP.md](distribution/SETUP.md#direct-github-distribution-with-apple-notarization). Local identity listings do not include all Xcode-managed signing capabilities.
+
+## Fresh-install testing after uninstall
+
+Quit BendMe, remove its installed app and eject any mounted installer disks before testing a freshly downloaded DMG. The public app identifier is `com.winsonbaring.bendme`; the original source-build identifier is `local.bendme.mac`. Resetting BendMe-only privacy grants and preferences causes the next installation to request permission and use default settings again. Release archives and source files can be retained independently of the installed app. The local uninstall verification and any remaining OS-protected test metadata are recorded in [docs/VERIFICATION.md](docs/VERIFICATION.md).

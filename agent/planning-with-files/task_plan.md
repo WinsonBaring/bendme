@@ -42,3 +42,9 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 - [x] Obtain Developer ID signing through Xcode-managed signing with the configured paid team.
 - [x] Sign with hardened runtime, submit to Apple, staple and assess the accepted artifact.
 - [x] Publish only verified notarized downloads and update public disclosures.
+
+## Phase 7: [Issue #5] Fresh-install cleanup
+- [x] Stop all BendMe processes and eject three mounted installers.
+- [x] Remove installed and local development app bundles, defaults and privacy grants.
+- [ ] Remove two remaining protected diagnostic metadata files (macOS denied command-line removal; Finder timed out). All diagnostic app data is removed.
+- [x] Record verified cleanup and remaining protected metadata; commit.

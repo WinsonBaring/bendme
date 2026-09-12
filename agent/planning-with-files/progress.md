@@ -37,3 +37,11 @@
 - Apple remained processing after repeated checks; added a bounded resumable finisher. Publication mode verifies artifacts, checks remote source consistency, builds and publishes the updated website, validates public hashes/live copy, then records completion. It stops on rejection or any verification failure.
 
 Issue #4 complete: Apple accepted the app; signature, ticket, Gatekeeper, mounted DMG and public checksum checks passed. DMG/ZIP replaced and live Pages copy verified. App Store release remains separate under #2.
+
+## 2026-09-12 fresh-install cleanup [Issue #5]
+- Confirmed notarization finisher completed and published approved artifacts; fast-forwarded local main to the release commits.
+- Stopped two BendMe processes, including a translocated downloaded copy, and ejected all three mounted BendMe installers.
+- Reset all BendMe-only privacy grants for public, development and diagnostic bundle identifiers; cleared defaults and unregistered local build copies from Launch Services.
+- Removed /Applications/BendMe.app and dist/BendMe.app while preserving source and release artifacts.
+- Two diagnostic sandbox containers have protected macOS metadata; Finder removal is pending local OS approval. Main app and preferences are already absent.
+- Removed both diagnostic Data directories; only the protected container metadata remains. Finder deletion timed out. Full diagnostic-container removal remains unresolved, but installed app, processes, preferences, permissions and mounted installers are absent.

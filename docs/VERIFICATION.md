@@ -74,3 +74,9 @@ Public DMG and its checksum were downloaded from GitHub Releases and matched loc
 Paid Xcode team verified. Automatic archive and Developer ID upload succeeded through the existing account session. Submitted app has hardened runtime and secure timestamp; all 15 GPU self-test renders passed on Apple M3 Pro. Invalid script commands fail, and notarized-mode packaging rejects the old ad-hoc app. Upload success is not Apple acceptance; approval/export and Gatekeeper checks are pending.
 
 Apple accepted the direct-distribution app. Xcode exported the approved app; strict signature, stapled ticket, Gatekeeper assessment and mounted DMG checks passed. Public release downloads were checked against local SHA-256 hashes before deployment.
+
+## Fresh-install preparation
+
+Removed the installed public app and the original local development app, stopped both running instances, and ejected three installer volumes. Reset privacy grants for the public/development/diagnostic identifiers and cleared defaults. Process, app-path and mounted-volume checks confirmed none remain. Source and release artifacts are preserved. This supersedes earlier notes that dist/BendMe.app is running or authorized; the next installation must receive a fresh Screen Recording grant.
+
+Two separate sandboxcheck container directories retain only macOS-protected metadata; both Data directories were removed. Direct metadata removal was denied and Finder deletion timed out. These are not the public app container and hold no remaining BendMe preferences. Full removal of those metadata remnants remains open under issue #5.
