@@ -16,4 +16,4 @@ After permission is confirmed, Setup shows a short Try BendMe card with one star
 
 `AppTheme.swift` shares the light palette across Setup and Settings. The AppKit window uses Aqua so native controls and title bar agree. Every sidebar row uses the same full-width selection and keyboard-focus treatment, replacing the label-sized system focus halo while preserving keyboard focus and selected accessibility state.
 
-A small sidebar and About credit links to Winson Baring’s GitHub profile. About also links to the public repository, website and issue tracker using native external links. No embedded browser or analytics is added.
+A small “Made by” credit with a GitHub icon links to the developer profile in the sidebar and About; no personal name is displayed. About also links to the public repository, website and issue tracker using native external links. No embedded browser or analytics is added.

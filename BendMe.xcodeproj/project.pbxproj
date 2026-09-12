@@ -397,14 +397,16 @@
 			<key>files</key>
 			<array/>
 			<key>name</key>
-			<string>Bundle Metal shader</string>
+			<string>Bundle app resources</string>
 			<key>inputPaths</key>
 			<array>
 				<string>$(SRCROOT)/Sources/BendMe/Resources/Fold.metal</string>
+				<string>$(SRCROOT)/Sources/BendMe/Resources/GitHub-Mark.png</string>
 			</array>
 			<key>outputPaths</key>
 			<array>
 				<string>$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/BendMe_BendMe.bundle/Resources/Fold.metal</string>
+				<string>$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/BendMe_BendMe.bundle/Resources/GitHub-Mark.png</string>
 			</array>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
@@ -415,6 +417,7 @@
 destination="${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BendMe_BendMe.bundle/Resources"
 mkdir -p "$destination"
 cp "${SRCROOT}/Sources/BendMe/Resources/Fold.metal" "$destination/Fold.metal"
+cp "${SRCROOT}/Sources/BendMe/Resources/GitHub-Mark.png" "$destination/GitHub-Mark.png"
 </string>
 		</dict>
 		<key>7607E060366236497909AD63</key>

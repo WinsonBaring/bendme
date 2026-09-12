@@ -1,6 +1,6 @@
 # Current state — local development only
 
-Latest #10 update: subtle Made by Winson Baring profile link in sidebar/footer and a compact About row with GitHub, Website and Report an issue. Local build passed with warnings-as-errors; About fixture compiled/rendered and credit/link placement reviewed. All four destinations returned HTTP 200. Installed app and permissions untouched; no release.
+Latest #10 update: Made by + a small GitHub mark links to the developer profile in sidebar/About. No personal name appears in the credit or tooltip. About retains GitHub, Website and Report an issue links. Local build passed with warnings-as-errors; About fixture compiled/rendered and credit/link placement reviewed. Profile destination is unchanged from the verified link. Official transparent GitHub favicon is bundled in SwiftPM/Xcode and rendered as a gray template icon. Installed app and permissions untouched; no release.
 
 Issue #10: app now uses a white/light theme, light-gray sidebar, blue accents, white cards and Aqua native controls/title bar. AppTheme.swift shares colors. All sidebar items use the same full-width selection and subtle keyboard-focus outline. Default/programmatic focus follows the selected page, so Setup does not retain the old label-sized blue focus box while Appearance is selected. Keyboard focusability and selected accessibility traits remain.
 

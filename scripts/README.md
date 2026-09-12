@@ -23,3 +23,5 @@ Setup fixtures include the minimal permission screen, conditional Settings recov
 First-effect fixtures include paused, starting and enabled states for the compact post-permission flow.
 
 Appearance is included in layout fixtures; bitmap snapshots omit Metal surfaces. Use the running app to inspect the GPU artwork.
+
+Xcode resource generation and native layout fixtures include the bundled GitHub mark used by the subtle developer-profile link.

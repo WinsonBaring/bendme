@@ -99,3 +99,7 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 ## Phase 18: [Issue #10] Subtle maker credit
 - [x] Add small linked developer credit in sidebar/About and project links in About.
 - [x] Local build and About layout render passed; links returned HTTP 200. No install or release changes.
+
+## Phase 19: [Issue #10] Icon-only developer identity
+- [x] Replace personal name with subtle Made by + GitHub icon linking to profile; accessible Developer profile label and tooltip.
+- [x] Bundle official transparent mark, compile and inspect local About/sidebar placement. No install or release.

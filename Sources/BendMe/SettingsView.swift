@@ -246,9 +246,18 @@ struct SettingsView: View {
     }
 
     private var makerCredit: some View {
-        Link("Made by Winson Baring", destination: URL(string: "https://github.com/WinsonBaring")!)
-            .font(.system(size: 10)).foregroundStyle(.secondary)
-            .help("View Winson Baring on GitHub")
+        Link(destination: URL(string: "https://github.com/WinsonBaring")!) {
+            HStack(spacing: 5) {
+                Text("Made by").font(.system(size: 10))
+                if let mark = developerProfileMark {
+                    Image(nsImage: mark).renderingMode(.template).resizable().frame(width: 13, height: 13)
+                } else {
+                    Image(systemName: "person.crop.circle").font(.system(size: 13))
+                }
+            }.padding(.vertical, 3).contentShape(Rectangle())
+        }.foregroundStyle(.secondary)
+            .accessibilityLabel("Developer profile on GitHub")
+            .help("Developer profile")
     }
 
     private func sectionLabel(_ title: String, trailing: String) -> some View {
@@ -338,3 +347,17 @@ struct MiniStylePreview: View {
         return MetalPreview(progress: 0.45, settings: settings)
     }
 }
+
+private let developerProfileMark: NSImage? = {
+    var bundles = [Bundle.main]
+    if let url = Bundle.main.resourceURL?.appendingPathComponent("BendMe_BendMe.bundle"),
+       let bundle = Bundle(url: url) { bundles.insert(bundle, at: 0) }
+    #if SWIFT_PACKAGE
+    bundles.append(Bundle.module)
+    #endif
+    for bundle in bundles {
+        if let url = bundle.url(forResource: "GitHub-Mark", withExtension: "png", subdirectory: "Resources"),
+           let image = NSImage(contentsOf: url) { return image }
+    }
+    return nil
+}()

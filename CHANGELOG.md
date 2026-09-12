@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Replace the visible developer name with a subtle Made by + GitHub profile icon.
+
 - Add a subtle Winson Baring credit and GitHub/profile, website and issue links in the native app.
 
 - Use a white/light native theme with blue accents and consistent full-row sidebar selection/focus styling, including Setup.

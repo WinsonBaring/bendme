@@ -10,7 +10,8 @@ root = Path.cwd()
 output = root / 'dist/SetupVerification'
 output.mkdir(parents=True, exist_ok=True)
 (output / 'Resources').mkdir(exist_ok=True)
-shutil.copyfile(root / 'Sources/BendMe/Resources/Fold.metal', output / 'Resources/Fold.metal')
+for name in ['Fold.metal', 'GitHub-Mark.png']:
+    shutil.copyfile(root / 'Sources/BendMe/Resources' / name, output / 'Resources' / name)
 files = [str(p) for p in (root / 'Sources').rglob('*.swift') if p.name != 'BendMeMain.swift']
 binary = output / 'render-setup'
 subprocess.run(['swiftc', '-parse-as-library', '-swift-version', '5', '-target',
