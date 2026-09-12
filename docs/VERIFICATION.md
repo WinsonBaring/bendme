@@ -114,3 +114,6 @@ GitHub Checks run 34667657103 passed for the 0.1.1 implementation, including nat
 - Removed floating permission panel and verbose help views/state after user feedback. One primary button requests native consent; unavailable access switches to Settings with concise reopen recovery. Actual permission checks remain authoritative.
 - Initial compile identified one leftover companion reference in SettingsView; removed it. Final `swift test -Xswiftc -warnings-as-errors` passed all 17 tests. Eight synthetic layouts rendered; minimal permission, requesting and Settings-recovery states reviewed. Website checks passed.
 - No change to the user's installed app or privacy grants. Real native consent and automatic Settings registration remain unverified in this manual-test session; this UI change does not bypass or guarantee macOS approval.
+- Apple accepted 0.1.4/build 5. Signature, stapled ticket, Gatekeeper and mounted DMG checks passed; no app was launched or installed during packaging checks.
+- All four public asset hashes match local artifacts. Pages run 34669954828 passed; live HTML contains the 0.1.4 link and concise consent copy without companion guidance.
+- GitHub Checks 34669954841 passed (native tests/archive and website checks/audit). Issue #9 implementation/release complete; real first-use consent remains manual acceptance.

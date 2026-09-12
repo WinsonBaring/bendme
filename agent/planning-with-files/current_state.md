@@ -1,7 +1,9 @@
 # Current state
 
-Issue #9: user rejected the floating guide and verbose permission instructions. Removed companion window and help/copy state. Setup now uses one native ScreenCaptureKit consent action and concise conditional Settings/reopen recovery. Version 0.1.4/build 5 is being verified and prepared for release. macOS retains consent; no custom approval bypass or Accessibility access added.
+Issue #9 complete: v0.1.4/build 5 removes the floating guide, imitation controls and verbose permission help. Setup uses one native ScreenCaptureKit consent button and concise conditional Settings/reopen recovery. macOS retains approval authority. User prefers this simple flow.
 
-Preserve the user's current installed app, running session and privacy state for manual testing. Do not install, launch or reset automatically. Prior v0.1.3 remains published until new release verification.
+Published and Apple-notarized. Signature/ticket/Gatekeeper/mounted DMG and all public hashes verified. Seventeen tests, eight rendered layout fixtures, website checks, Pages 34669954828 and GitHub Checks 34669954841 passed. Live site points to 0.1.4 with concise consent copy.
+
+User's installed app, running session and privacy state remain unchanged. Do not install/launch/reset automatically; user will test manually. Actual native first-use consent and automatic Settings registration are not verified by synthetic fixtures.
 
 App Store submission remains #2; protected empty diagnostic metadata remains #5.
