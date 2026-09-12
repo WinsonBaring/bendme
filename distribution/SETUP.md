@@ -60,3 +60,7 @@ BENDME_DEVELOPMENT_TEAM=YOUR_TEAM_ID ./scripts/notarize-direct.sh submit
 The direct app uses public HID access outside App Sandbox; the App Store target retains its separate sandbox entitlements. This workflow preserves `dist/BendMe.app` and the published preview until replacement artifacts are verified.
 
 After successful export, copy the complete approved app without modification to an isolated release directory, then run `BENDME_RELEASE_DIR=/absolute/release/directory BENDME_NOTARIZED=1 ./scripts/package-dmg.sh`. This verifies the app ticket before creating installation copy that states notarization. The DMG is a transport container for the notarized app; the app's ticket is what this workflow verifies.
+
+For the standard release paths, run `./scripts/package-notarized.sh` after successful export. Verified DMG, ZIP and checksums are written to `dist/NotarizedRelease`; uploading remains a separate action after inspecting the mounted DMG.
+
+For an existing pending submission, `python3 scripts/finish-notarization.py` waits up to 24 hours, verifies acceptance and packages automatically. Publishing mode (`--publish`) must run in a dedicated clean checkout at the current remote main with access to the submitted archive in `dist/DeveloperID`. It checks remote source consistency, mounted artifacts, public hashes and live website copy before marking issue #4 complete. Progress and failures are recorded in `dist/DeveloperID/notarization-status.json`; no failure is treated as approval.

@@ -34,3 +34,4 @@
 - Native UI automation was unavailable (assistive access denied), so used Xcode's supported CLI account/provisioning workflow without plugins or browser tools.
 - Development archive succeeded; automatic Developer ID export with destination upload succeeded using Xcode-managed signing. Submitted app has secure timestamp, paid team identifier and hardened runtime.
 - Apple reports processing. Added submit/export script and notarized-app packaging guard; approval and public replacement still pending.
+- Apple remained processing after repeated checks; added a bounded resumable finisher. Publication mode verifies artifacts, checks remote source consistency, builds and publishes the updated website, validates public hashes/live copy, then records completion. It stops on rejection or any verification failure.
