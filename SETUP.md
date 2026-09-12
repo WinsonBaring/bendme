@@ -12,12 +12,15 @@ Download the DMG from [GitHub Releases](https://github.com/WinsonBaring/bendme/r
 
 ## Build and run
 
-From this directory:
+For local development, build directly into your user Applications folder:
 
 ```sh
-./scripts/build-app.sh
-open dist/BendMe.app
+cd /Users/winsonbaring/Documents/GitHub/bendme
+BENDME_OUTPUT_DIR="$HOME/Applications" ./scripts/build-app.sh
+open "$HOME/Applications/BendMe.app"
 ```
+
+This builds from the current source with local signing and opens the development app. It does not submit to Apple or publish a release. Repeat after changing source. The user Applications folder is recognized by Setup, so no drag-to-install step is needed. Omit `BENDME_OUTPUT_DIR` to build into `dist` instead.
 
 The script builds a release executable, bundles its Metal resource, and signs it locally. Launch the app bundle rather than `swift run` for a stable macOS permission identity. Keep the app in the same location when granting permissions.
 

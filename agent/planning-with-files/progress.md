@@ -84,3 +84,7 @@ Issue #4 complete: Apple accepted the app; signature, ticket, Gatekeeper, mounte
 ## 2026-09-12 local review pause
 - User paused upgrades and Apple/public releases to review the app first. Confirmed no notarization/submission worker is running. Displayed the current app-owned setup fixture; preserving installation and permissions.
 - [Issue #10] Rendered current Appearance layout using a temporary isolated harness in dist/UIReview. Bitmap rendering omits Metal surfaces, so preview areas are black in this snapshot; do not report an app rendering failure. No product code, version, installation or permission state changed.
+
+## 2026-09-12 manual development startup [Issue #5 / #10]
+- Removed installed app and all standalone extracted app bundles, preserving xcarchives, packages and source. Ejected mounted installer and reset public privacy approvals before unregistering. Cleared public/development preferences.
+- Verified no running/installed BendMe and absent preferences. Documented BENDME_OUTPUT_DIR="$HOME/Applications" build/open commands; bash syntax check passed. User explicitly wants to run manually, so no build/launch performed. Release pause remains active.

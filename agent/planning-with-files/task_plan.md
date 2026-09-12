@@ -78,3 +78,8 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 - [x] Render the main Appearance layout locally (GPU surfaces are not included in the bitmap snapshot).
 - [ ] Iterate locally from user feedback.
 - Release gate: no version bump, Apple submission or publishing until explicitly resumed.
+
+## Phase 14: [Issue #5 / #10] Manual development startup
+- [x] Remove installed/extracted apps, eject installer, reset public permission and clear preferences.
+- [x] Verify no running app and document manual build/open in user Applications.
+- [ ] User manually builds and reviews the development app; releases remain paused.

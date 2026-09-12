@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Document manual local development startup in the user Applications folder after clearing installed app copies and state.
+
 - Pause version upgrades, Apple submissions and public releases while the app interface is reviewed locally.
 
 - BendMe 0.1.4 removes the floating permission guide and lengthy instructions. Setup now offers one native Screen Recording action, with brief Settings/reopen recovery only when needed.
