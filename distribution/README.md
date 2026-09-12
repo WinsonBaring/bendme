@@ -17,3 +17,5 @@ Direct distribution notarization completed through the configured paid Xcode tea
 Version 0.1.4 uses a regular Dock application configuration (LSUIElement false), retaining menu-bar controls. Both the Xcode and SwiftPM packaging paths agree.
 
 Version 0.1.4/build 5 adds interactive setup and native Screen Recording consent. Direct distribution is Developer ID signed and Apple-notarized; no additional Accessibility permission is requested.
+
+Release 0.1.5/build 6 refreshes the interface and setup navigation. Apple accepted this build; the exported app passed signature, stapled-ticket and Gatekeeper checks.

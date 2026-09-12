@@ -115,3 +115,8 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 ## Phase 22: [Issue #10] Start into Appearance
 - [x] Navigate to Appearance when Try BendMe starts; retain failed-start recovery and Pause/Cancel behavior.
 - [x] Build passed with warnings-as-errors; reviewed navigation and failure paths. No install or release.
+
+## Phase 23: [Issue #10] Resume direct release 0.1.5
+- [x] User resumed notarization/publication; align website and app guidance with visible pause controls.
+- [ ] Verify app/site, notarize isolated build 6, validate packages.
+- [ ] Publish versioned downloads and deploy/verify Pages. Global shortcut failure not yet reproduced.

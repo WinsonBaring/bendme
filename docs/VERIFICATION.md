@@ -117,3 +117,7 @@ GitHub Checks run 34667657103 passed for the 0.1.1 implementation, including nat
 - Apple accepted 0.1.4/build 5. Signature, stapled ticket, Gatekeeper and mounted DMG checks passed; no app was launched or installed during packaging checks.
 - All four public asset hashes match local artifacts. Pages run 34669954828 passed; live HTML contains the 0.1.4 link and concise consent copy without companion guidance.
 - GitHub Checks 34669954841 passed (native tests/archive and website checks/audit). Issue #9 implementation/release complete; real first-use consent remains manual acceptance.
+
+## 0.1.5/build 6 release verification
+
+Swift 17 tests and website lint/3 tests/production build passed. Apple accepted the direct Developer ID archive; exported app passed strict signature, stapled-ticket and Gatekeeper checks. GPU self-test of that signed executable passed with 15 renders on Apple M3 Pro. No installed app or privacy grants were changed. Physical interaction and keyboard shortcut reliability were not verified; issue #11 tracks the reported shortcut failure. The site and native hints recommend visible pause controls.

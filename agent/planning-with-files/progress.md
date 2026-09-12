@@ -22,3 +22,7 @@
 ## 2026-09-12 Start into Appearance [Issue #10]
 - Updated Try BendMe Start action to navigate through existing showSetup state after startup begins. Kept immediate failure recovery and Pause/Cancel behavior.
 - Build passed with warnings-as-errors and diff check passed. Reviewed existing page binding and shared error banner; no live app launch, install or release.
+
+## 2026-09-12 release 0.1.5 [Issue #10 / #11]
+- User resumed direct notarization and website publication. Updated visible pause guidance and setup copy; bumped release to 0.1.5/build 6. Tracked un-reproduced shortcut failure in #11.
+- Swift 17 tests and website lint/3 tests/build passed. Apple accepted isolated archive; exported app passed strict signature, ticket and Gatekeeper checks. Signed-app GPU self-test passed with 15 renders. Packaging/public verification underway.

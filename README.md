@@ -2,7 +2,7 @@
 
 **A little less flat.** A free, open-source MacBook utility by [Winson Baring](https://github.com/WinsonBaring).
 
-[Website](https://winsonbaring.github.io/bendme/) · [Download development preview](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.4) · [Report an issue](https://github.com/WinsonBaring/bendme/issues)
+[Website](https://winsonbaring.github.io/bendme/) · [Download development preview](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.5) · [Report an issue](https://github.com/WinsonBaring/bendme/issues)
 
 > The direct download now contains a Developer ID signed app notarized by Apple, with its approval ticket attached. It remains a development preview distributed through GitHub, not a Mac App Store release. Re-download the DMG if you previously downloaded the unsigned preview.
 
@@ -13,7 +13,7 @@ Built with SwiftUI, AppKit, ScreenCaptureKit, Metal, and IOKit. No third-party r
 - **Silk, Shade, and Frost** appearances with perspective, blur, and shadow controls.
 - **Real lid-angle input** on compatible MacBooks, plus a manual preview without permissions.
 - **Live desktop effect** on the built-in display; external monitors remain unchanged.
-- **Menu-bar pause**, global **Control–Option–Command–B**, and Escape while BendMe is focused.
+- **Pause controls** in Appearance and the menu bar.
 - **Graceful failure** for missing hardware, permission denial, capture errors, sleep, and display changes.
 
 ## Build from source

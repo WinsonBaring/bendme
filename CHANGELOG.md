@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## 0.1.5
+
+- Refresh the light interface, branding and source links; simplify setup and open Appearance on Start.
+- Use visible pause controls in app and website guidance; global shortcut reliability remains unverified on affected configurations.
+
 - Navigate from Try BendMe to Appearance when Start BendMe begins startup.
 
 - Add a subtle Source on GitHub link below the sidebar developer credit, visible from every screen.

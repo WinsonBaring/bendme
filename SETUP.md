@@ -8,7 +8,7 @@
 
 ## Install the public preview
 
-Download the DMG from [GitHub Releases](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.4), open it, and open BendMe to begin its interactive **Setup** guide. Follow its buttons to install in Applications, open the right permission settings, and try the first live effect. Choose **Allow Screen Recording** and approve the native macOS request. Settings/reopen recovery appears only if needed. Eject the disk after the installed copy opens. The public app is Developer ID signed and Apple-notarized. Re-download the current DMG if you have the earlier unsigned preview. Source builds remain available. The ZIP is retained as an alternative download.
+Download the DMG from [GitHub Releases](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.5), open it, and open BendMe to begin its interactive **Setup** guide. Follow its buttons to install in Applications, open the right permission settings, and try the first live effect. Choose **Allow Screen Recording** and approve the native macOS request. Settings/reopen recovery appears only if needed. Eject the disk after the installed copy opens. The public app is Developer ID signed and Apple-notarized. Re-download the current DMG if you have the earlier unsigned preview. Source builds remain available. The ZIP is retained as an alternative download.
 
 ## Build and run
 
@@ -32,8 +32,8 @@ The app starts paused each time. Closing settings leaves the menu-bar app runnin
 
 - **Appearance:** Silk / Shade / Frost, manual angle, Follow lid, perspective, blur, shadow, Enable/Pause.
 - **General:** permission controls, sensor retry, clear angle (60–135°), optional opening sound, 30/60 fps, reset appearance.
-- **Global pause:** Control–Option–Command–B, without Accessibility permission.
-- **Escape:** pauses when BendMe itself is focused. The menu-bar Pause command works while other apps are focused.
+- **Pause:** click Pause BendMe in Appearance or choose Pause effect from the menu-bar icon.
+- **Optional shortcuts:** Control–Option–Command–B is registered as a global shortcut; Escape is handled only while BendMe is focused. Shortcut behavior is not verified on every configuration. If a shortcut does not respond, use the visible pause controls.
 
 BendMe never prevents ordinary closed-lid sleep. It pauses on display changes and session deactivation; re-enable after displays settle. Sleep stops capture and sensor reads; wake retries the sensor and restores a previously enabled session.
 
@@ -58,7 +58,7 @@ Expected: passing unit tests; a valid signed bundle; diagnostics reporting GPU, 
 - **Permission denied:** use General → Open System Settings. After a rebuild macOS can require permission again because this is an ad-hoc signed development app.
 - **Permission is on but the app still says denied:** quit BendMe, reset only its stale authorization with `tccutil reset ScreenCapture local.bendme.mac`, then use the **+** button in Screen Recording settings to add the exact current `dist/BendMe.app`. Choose Quit & Reopen, then Enable BendMe. This removes only BendMe's screen permission; other apps are unaffected. Do this only when re-authorizing BendMe is intended.
 - **CLI says denied but the GUI is LIVE:** run the smoke test using `open` as shown above. macOS can attribute a directly executed CLI to its parent shell instead of the GUI app.
-- **Black or stopped capture:** pause with the menu or Control–Option–Command–B; retry after checking permissions. Protected video and secure system surfaces may not be capturable.
+- **Black or stopped capture:** use Pause effect in the menu bar; retry after checking permissions. Protected video and secure system surfaces may not be capturable.
 - **Display configuration changed:** reopen the MacBook and enable again. Only the built-in display is supported.
 - **Energy use:** choose 30 fps and pause when unused. Capture stays ready while enabled; GPU effect rendering stops when the lid is above the clear angle.
 

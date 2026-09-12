@@ -462,7 +462,7 @@ cp "${SRCROOT}/Sources/BendMe/Resources/BendMeLogo.png" "$destination/BendMeLogo
 				<key>CODE_SIGN_STYLE</key>
 				<string>Automatic</string>
 				<key>CURRENT_PROJECT_VERSION</key>
-				<string>5</string>
+				<string>6</string>
 				<key>ENABLE_APP_SANDBOX</key>
 				<string>YES</string>
 				<key>ENABLE_HARDENED_RUNTIME</key>
@@ -474,7 +474,7 @@ cp "${SRCROOT}/Sources/BendMe/Resources/BendMeLogo.png" "$destination/BendMeLogo
 				<key>INFOPLIST_FILE</key>
 				<string>distribution/Info.plist</string>
 				<key>MARKETING_VERSION</key>
-				<string>0.1.4</string>
+				<string>0.1.5</string>
 				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
 				<string>com.winsonbaring.bendme</string>
 				<key>PRODUCT_NAME</key>
@@ -535,7 +535,7 @@ cp "${SRCROOT}/Sources/BendMe/Resources/BendMeLogo.png" "$destination/BendMeLogo
 				<key>CODE_SIGN_STYLE</key>
 				<string>Automatic</string>
 				<key>CURRENT_PROJECT_VERSION</key>
-				<string>5</string>
+				<string>6</string>
 				<key>ENABLE_APP_SANDBOX</key>
 				<string>YES</string>
 				<key>ENABLE_HARDENED_RUNTIME</key>
@@ -547,7 +547,7 @@ cp "${SRCROOT}/Sources/BendMe/Resources/BendMeLogo.png" "$destination/BendMeLogo
 				<key>INFOPLIST_FILE</key>
 				<string>distribution/Info.plist</string>
 				<key>MARKETING_VERSION</key>
-				<string>0.1.4</string>
+				<string>0.1.5</string>
 				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
 				<string>com.winsonbaring.bendme</string>
 				<key>PRODUCT_NAME</key>

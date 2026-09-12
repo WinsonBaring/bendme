@@ -27,3 +27,5 @@ Appearance is included in layout fixtures; bitmap snapshots omit Metal surfaces.
 Xcode resource generation and native layout fixtures include the bundled GitHub mark used by the subtle developer-profile link.
 
 Resource-copy paths also include BendMeLogo.png, the unchanged app icon reused by the sidebar header.
+
+Current release packaging version is 0.1.5/build 6.

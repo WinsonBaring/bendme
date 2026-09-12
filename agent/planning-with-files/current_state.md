@@ -1,15 +1,7 @@
-# Current state — local development only
+# Current state — release 0.1.5
 
-Latest start-navigation update (#10): Try BendMe Start now selects Appearance as soon as startup begins, using existing showSetup navigation. Immediate failed starts stay in Setup; Pause/Cancel do not navigate. Effect verification is unchanged. Build passed with warnings-as-errors; live click testing left to manual app review. No install or release.
+User resumed direct Developer ID notarization and website publication. Apple accepted 0.1.5/build 6; strict signature, stapled ticket and Gatekeeper passed. Signed-app GPU self-test passed (15 renders). Swift 17 tests and website lint/3 tests/build passed. Packaging and public deployment verification remain in progress.
 
-Latest source-link update (#10): added Source on GitHub beneath the sidebar developer credit, visible on every page and pointing to the public BendMe repository. Build passed with warnings-as-errors; eleven fixtures rendered and footer placement reviewed. Installed app untouched; local commit only.
+The release includes the light interface, branded header, subtle developer/profile and public-source links, compact native consent, and Start → Appearance navigation. Pause guidance uses Appearance → Pause BendMe and menu-bar → Pause effect. Keyboard shortcut failure is not reproduced or fixed; tracked in #11. #10 tracks release/UI review. App Store submission is separate under #2; this is a notarized direct download.
 
-Latest header update (#10): replaced generic macbook SF Symbol with the existing full-color BendMe app logo at 32 points. Wordmark/tagline unchanged. Logo is byte-identical to the existing 128px app icon and bundled in both packaging paths. Local build with warnings-as-errors and eleven fixture renders passed; logo placement reviewed. No installed-app or release changes.
-
-Latest #10 update: Made by + a small GitHub mark links to the developer profile in sidebar/About. No personal name appears in the credit or tooltip. About retains GitHub, Website and Report an issue links. Local build passed with warnings-as-errors; About fixture compiled/rendered and credit/link placement reviewed. Profile destination is unchanged from the verified link. Official transparent GitHub favicon is bundled in SwiftPM/Xcode and rendered as a gray template icon. Installed app and permissions untouched; no release.
-
-Issue #10: app now uses a white/light theme, light-gray sidebar, blue accents, white cards and Aqua native controls/title bar. AppTheme.swift shares colors. All sidebar items use the same full-width selection and subtle keyboard-focus outline. Default/programmatic focus follows the selected page, so Setup does not retain the old label-sized blue focus box while Appearance is selected. Keyboard focusability and selected accessibility traits remain.
-
-Validation: 17 tests passed with warnings-as-errors; after final focus alignment, the native view harness compiled and rendered eleven fixtures. Reviewed Setup and Appearance. Added shader resource to fixture harness so Appearance layout loads normally; bitmap snapshots still omit GPU surfaces. Full manual keyboard interaction and live GPU appearance were not automated. Xcode target regenerated with AppTheme.swift; version unchanged.
-
-User's installed app and permissions are untouched. User manually rebuilds/reopens via SETUP.md. Keep simple onboarding and no automatic Settings redirect. Releases remain paused: no version bumps, Apple submissions/notarization, tags, releases or website deployment until explicitly resumed. Local commits only. #10 ongoing review; #5 protected empty diagnostic metadata; #2 App Store separate.
+Installed app and permission state remain untouched. User can manually install the new download for live GUI and physical-lid review. #5 retains previously noted protected empty diagnostic metadata.

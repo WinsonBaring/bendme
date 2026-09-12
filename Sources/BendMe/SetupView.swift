@@ -102,7 +102,7 @@ struct SetupView: View {
                     }
                 }
                     .buttonStyle(.borderedProminent).controlSize(.large)
-                    .help("Pause anytime with Control + Option + Command + B")
+                    .help("Pause in Appearance or from the menu bar")
                 if model.starting {
                     ProgressView("Starting…").controlSize(.small)
                 } else if model.enabled {

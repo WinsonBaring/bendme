@@ -8,4 +8,4 @@ No team, distribution certificate, provisioning profile, API private key, or App
 
 Direct distribution uses `scripts/notarize-direct.sh` and Xcode's existing paid-team session. Automatic Developer ID export can use managed signing without a locally listed Developer ID identity. The direct archive disables App Sandbox, retains hardened runtime and avoids App Store-only entitlements. Artifact publication requires successful Apple acceptance, ticket validation and Gatekeeper assessment.
 
-Current app version is 0.1.4/build 5. Dock activation is enabled in distribution/Info.plist and the app lifecycle; archives can be isolated with BENDME_NOTARIZATION_DIR.
+Current app version is 0.1.5/build 6. Dock activation is enabled in distribution/Info.plist and the app lifecycle; archives can be isolated with BENDME_NOTARIZATION_DIR.

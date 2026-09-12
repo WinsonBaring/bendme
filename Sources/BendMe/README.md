@@ -21,3 +21,5 @@ A small “Made by” credit with a GitHub icon links to the developer profile i
 The sidebar header reuses the actual BendMe app icon in full color instead of a generic laptop symbol. Brand images share resource resolution across SwiftPM and the packaged Xcode app.
 
 Starting BendMe from the Try card navigates directly to Appearance once startup begins. Immediate permission/hardware failures stay in Setup; asynchronous errors remain visible on Appearance. Navigation does not mark the effect verification complete. Pause and Cancel keep their existing behavior.
+
+Pause guidance now points to Appearance and the menu-bar Pause effect action; optional keyboard handlers remain available without a universal reliability claim.

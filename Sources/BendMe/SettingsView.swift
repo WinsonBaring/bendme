@@ -226,7 +226,7 @@ struct SettingsView: View {
                     Text("Frame rate changes apply the next time you enable BendMe.").font(.caption).foregroundStyle(.secondary)
                 }.padding(12)
             }
-            Label("Pause from anywhere with ⌃⌥⌘B. Escape pauses while BendMe is focused.", systemImage: "keyboard")
+            Label("Pause in Appearance or choose Pause effect in the menu bar.", systemImage: "keyboard")
                 .font(.system(size: 12)).foregroundStyle(.secondary)
             Button("Reset appearance") { model.settings = FoldSettings() }
         }.font(.system(size: 13))
