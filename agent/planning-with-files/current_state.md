@@ -1,5 +1,7 @@
 # Current state — local development only
 
+Latest header update (#10): replaced generic macbook SF Symbol with the existing full-color BendMe app logo at 32 points. Wordmark/tagline unchanged. Logo is byte-identical to the existing 128px app icon and bundled in both packaging paths. Local build with warnings-as-errors and eleven fixture renders passed; logo placement reviewed. No installed-app or release changes.
+
 Latest #10 update: Made by + a small GitHub mark links to the developer profile in sidebar/About. No personal name appears in the credit or tooltip. About retains GitHub, Website and Report an issue links. Local build passed with warnings-as-errors; About fixture compiled/rendered and credit/link placement reviewed. Profile destination is unchanged from the verified link. Official transparent GitHub favicon is bundled in SwiftPM/Xcode and rendered as a gray template icon. Installed app and permissions untouched; no release.
 
 Issue #10: app now uses a white/light theme, light-gray sidebar, blue accents, white cards and Aqua native controls/title bar. AppTheme.swift shares colors. All sidebar items use the same full-width selection and subtle keyboard-focus outline. Default/programmatic focus follows the selected page, so Setup does not retain the old label-sized blue focus box while Appearance is selected. Keyboard focusability and selected accessibility traits remain.

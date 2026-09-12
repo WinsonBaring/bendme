@@ -7,3 +7,5 @@ Version 0.1.4/build 5 is a regular Dock application. The distribution Info.plist
 The target includes AppTheme.swift, the shared light palette used by native Setup and Settings. Version and signing configuration are unchanged during local UI review.
 
 The declared resource-copy phase includes the developer-profile GitHub mark alongside the Metal shader.
+
+BendMeLogo.png is included for the branded sidebar header, alongside the app icon asset catalog.

@@ -103,3 +103,7 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 ## Phase 19: [Issue #10] Icon-only developer identity
 - [x] Replace personal name with subtle Made by + GitHub icon linking to profile; accessible Developer profile label and tooltip.
 - [x] Bundle official transparent mark, compile and inspect local About/sidebar placement. No install or release.
+
+## Phase 20: [Issue #10] Branded sidebar header
+- [x] Reuse the existing BendMe logo in the header and package the asset for both builds.
+- [x] Verify byte-identical source image, local compile and rendered header; no install/release.

@@ -10,3 +10,7 @@
 ## 2026-09-12 subtle profile icon [Issue #10]
 - Replaced visible name with Made by + small gray GitHub mark in sidebar/About; Developer profile tooltip and accessible link label. Existing profile destination retained.
 - Bundled official transparent favicon; updated SwiftPM/Xcode resource handling and third-party notice. Build passed with warnings-as-errors; About fixture compiled/rendered and icon placement reviewed. No install/release/version changes.
+
+## 2026-09-12 branded header [Issue #10]
+- Replaced generic laptop header icon with the unchanged BendMe app logo. Shared brand resource lookup; included logo in SwiftPM/Xcode/fixture resources.
+- Image matches existing icon bytes; build passed with warnings-as-errors and eleven fixtures rendered. Reviewed header placement. No installed-app, permission, version or release change.

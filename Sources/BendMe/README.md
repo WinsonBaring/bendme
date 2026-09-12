@@ -17,3 +17,5 @@ After permission is confirmed, Setup shows a short Try BendMe card with one star
 `AppTheme.swift` shares the light palette across Setup and Settings. The AppKit window uses Aqua so native controls and title bar agree. Every sidebar row uses the same full-width selection and keyboard-focus treatment, replacing the label-sized system focus halo while preserving keyboard focus and selected accessibility state.
 
 A small “Made by” credit with a GitHub icon links to the developer profile in the sidebar and About; no personal name is displayed. About also links to the public repository, website and issue tracker using native external links. No embedded browser or analytics is added.
+
+The sidebar header reuses the actual BendMe app icon in full color instead of a generic laptop symbol. Brand images share resource resolution across SwiftPM and the packaged Xcode app.

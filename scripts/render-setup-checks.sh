@@ -10,7 +10,7 @@ root = Path.cwd()
 output = root / 'dist/SetupVerification'
 output.mkdir(parents=True, exist_ok=True)
 (output / 'Resources').mkdir(exist_ok=True)
-for name in ['Fold.metal', 'GitHub-Mark.png']:
+for name in ['Fold.metal', 'GitHub-Mark.png', 'BendMeLogo.png']:
     shutil.copyfile(root / 'Sources/BendMe/Resources' / name, output / 'Resources' / name)
 files = [str(p) for p in (root / 'Sources').rglob('*.swift') if p.name != 'BendMeMain.swift']
 binary = output / 'render-setup'

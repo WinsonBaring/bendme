@@ -68,7 +68,10 @@ struct SettingsView: View {
     private var sidebar: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 10) {
-                Image(systemName: "macbook").font(.system(size: 24)).foregroundStyle(accent)
+                if let logo = bendMeLogo {
+                    Image(nsImage: logo).resizable().renderingMode(.original)
+                        .scaledToFit().frame(width: 32, height: 32).accessibilityHidden(true)
+                }
                 Text("bendme").font(.system(size: 23, weight: .semibold, design: .rounded))
             }.padding(.top, 32).padding(.bottom, 7)
             Text("A LITTLE LESS FLAT").font(.system(size: 8, weight: .medium, design: .monospaced))
@@ -348,7 +351,10 @@ struct MiniStylePreview: View {
     }
 }
 
-private let developerProfileMark: NSImage? = {
+private let developerProfileMark = bundledBrandImage("GitHub-Mark")
+private let bendMeLogo = bundledBrandImage("BendMeLogo")
+
+private func bundledBrandImage(_ name: String) -> NSImage? {
     var bundles = [Bundle.main]
     if let url = Bundle.main.resourceURL?.appendingPathComponent("BendMe_BendMe.bundle"),
        let bundle = Bundle(url: url) { bundles.insert(bundle, at: 0) }
@@ -356,8 +362,8 @@ private let developerProfileMark: NSImage? = {
     bundles.append(Bundle.module)
     #endif
     for bundle in bundles {
-        if let url = bundle.url(forResource: "GitHub-Mark", withExtension: "png", subdirectory: "Resources"),
+        if let url = bundle.url(forResource: name, withExtension: "png", subdirectory: "Resources"),
            let image = NSImage(contentsOf: url) { return image }
     }
     return nil
-}()
+}
