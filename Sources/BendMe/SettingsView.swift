@@ -111,6 +111,10 @@ struct SettingsView: View {
                 Divider().padding(.vertical, 3)
                 Text("On your Mac. Only your Mac.").font(.system(size: 10)).foregroundStyle(.tertiary)
                 makerCredit
+                Link("Source on GitHub", destination: URL(string: "https://github.com/WinsonBaring/bendme")!)
+                    .font(.system(size: 10))
+                    .foregroundStyle(.secondary)
+                    .help("View BendMe’s public repository")
             }.padding(.bottom, 22)
         }.padding(.horizontal, 18).frame(width: 188)
             .background(AppTheme.sidebar)

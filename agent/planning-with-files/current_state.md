@@ -1,5 +1,7 @@
 # Current state — local development only
 
+Latest source-link update (#10): added Source on GitHub beneath the sidebar developer credit, visible on every page and pointing to the public BendMe repository. Build passed with warnings-as-errors; eleven fixtures rendered and footer placement reviewed. Installed app untouched; local commit only.
+
 Latest header update (#10): replaced generic macbook SF Symbol with the existing full-color BendMe app logo at 32 points. Wordmark/tagline unchanged. Logo is byte-identical to the existing 128px app icon and bundled in both packaging paths. Local build with warnings-as-errors and eleven fixture renders passed; logo placement reviewed. No installed-app or release changes.
 
 Latest #10 update: Made by + a small GitHub mark links to the developer profile in sidebar/About. No personal name appears in the credit or tooltip. About retains GitHub, Website and Report an issue links. Local build passed with warnings-as-errors; About fixture compiled/rendered and credit/link placement reviewed. Profile destination is unchanged from the verified link. Official transparent GitHub favicon is bundled in SwiftPM/Xcode and rendered as a gray template icon. Installed app and permissions untouched; no release.

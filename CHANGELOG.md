@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add a subtle Source on GitHub link below the sidebar developer credit, visible from every screen.
+
 - Use the existing BendMe app logo in the sidebar header instead of the generic laptop symbol.
 
 - Replace the visible developer name with a subtle Made by + GitHub profile icon.

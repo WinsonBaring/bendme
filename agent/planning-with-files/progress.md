@@ -14,3 +14,7 @@
 ## 2026-09-12 branded header [Issue #10]
 - Replaced generic laptop header icon with the unchanged BendMe app logo. Shared brand resource lookup; included logo in SwiftPM/Xcode/fixture resources.
 - Image matches existing icon bytes; build passed with warnings-as-errors and eleven fixtures rendered. Reviewed header placement. No installed-app, permission, version or release change.
+
+## 2026-09-12 public repository link [Issue #10]
+- Added subtle Source on GitHub beneath sidebar Made by credit; existing developer profile destination preserved. Updated source README and changelog.
+- Build passed with warnings-as-errors; eleven fixtures rendered and sidebar placement reviewed. No installed-app or release changes.

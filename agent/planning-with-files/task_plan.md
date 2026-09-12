@@ -107,3 +107,7 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 ## Phase 20: [Issue #10] Branded sidebar header
 - [x] Reuse the existing BendMe logo in the header and package the asset for both builds.
 - [x] Verify byte-identical source image, local compile and rendered header; no install/release.
+
+## Phase 21: [Issue #10] Discoverable public source
+- [x] Add a subtle public repository link below the sidebar developer credit.
+- [x] Build passed with warnings-as-errors; eleven fixtures rendered and sidebar reviewed. Release pause preserved.
