@@ -1,11 +1,17 @@
 #!/bin/bash
 set -euo pipefail
 cd "$(dirname "$0")/.."
-RELEASE_DIR="$PWD/dist/Release"
+RELEASE_DIR="${BENDME_RELEASE_DIR:-$PWD/dist/Release}"
 APP="$RELEASE_DIR/BendMe.app"
 DMG="$RELEASE_DIR/BendMe-macOS-arm64.dmg"
 [[ -d "$APP" ]] || { echo "Build the preview first with scripts/package-preview.sh" >&2; exit 1; }
 codesign --verify --deep --strict "$APP"
+if [[ "${BENDME_NOTARIZED:-0}" == 1 ]]; then
+  xcrun stapler validate "$APP"
+  spctl --assess --type execute --verbose=2 "$APP"
+elif [[ "${BENDME_NOTARIZED:-0}" != 0 ]]; then
+  echo 'BENDME_NOTARIZED must be 0 or 1' >&2; exit 1
+fi
 STAGING=$(mktemp -d "${TMPDIR:-/tmp}/bendme-dmg.XXXXXX")
 trap 'rm -rf "$STAGING"' EXIT
 mkdir "$STAGING/volume"
@@ -21,13 +27,24 @@ in System Settings when requested.
 Requires Apple silicon and macOS 14 or later. The live effect requires
 a compatible MacBook lid sensor. Manual preview works without it.
 
-This preview is ad-hoc signed, not Apple-notarized. macOS may block it.
-Build from source or wait for a signed release if you prefer.
-Do not disable macOS security globally.
-
 Source and setup: https://github.com/WinsonBaring/bendme
 Website: https://winsonbaring.github.io/bendme/
 EOF
+if [[ "${BENDME_NOTARIZED:-0}" == 1 ]]; then
+  cat >> "$STAGING/volume/Read Me.txt" <<'EOF'
+
+The included app is Developer ID signed and notarized by Apple, with
+its approval ticket attached. It is distributed independently from
+the Mac App Store. macOS may still ask you to confirm the first launch.
+EOF
+else
+  cat >> "$STAGING/volume/Read Me.txt" <<'EOF'
+
+This preview is ad-hoc signed, not Apple-notarized. macOS may block it.
+Build from source or wait for a signed release if you prefer.
+Do not disable macOS security globally.
+EOF
+fi
 hdiutil create -volname BendMe -srcfolder "$STAGING/volume" -format UDZO -ov "$STAGING/BendMe.dmg"
 hdiutil verify "$STAGING/BendMe.dmg"
 mv "$STAGING/BendMe.dmg" "$DMG"

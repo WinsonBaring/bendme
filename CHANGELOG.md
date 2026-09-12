@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Added Xcode-managed Developer ID upload/export and notarization verification for direct distribution; packaging refuses to claim notarization without a valid app ticket and Gatekeeper acceptance.
+
 - Added a verified DMG download with Applications shortcut and installation notes; website now downloads the DMG from GitHub Releases.
 
 - Publish a free MIT-licensed development preview and maker landing page for Winson Baring, with GitHub Pages automation.

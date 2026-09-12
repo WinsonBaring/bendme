@@ -78,3 +78,5 @@ Notarization, hardened-runtime release configuration, and a distribution account
 - `BENDME_OUTPUT_DIR` and `BENDME_BUNDLE_ID` select a separate output directory and bundle identity for `build-app.sh`. Defaults preserve the original local development identity.
 - Website commands, public URLs and Pages setup: [website/SETUP.md](website/SETUP.md).
 - App Store archive and account requirements: [distribution/SETUP.md](distribution/SETUP.md).
+
+- Direct Developer ID signing and Apple notarization through an existing paid Xcode account: [distribution/SETUP.md](distribution/SETUP.md#direct-github-distribution-with-apple-notarization). Local identity listings do not include all Xcode-managed signing capabilities.

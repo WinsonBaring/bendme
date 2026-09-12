@@ -36,3 +36,9 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 - [x] Package the existing verified preview as a compressed DMG with Applications shortcut.
 - [x] Verify mounted contents/signature, publish DMG/checksum, and update website/docs.
 - [x] Verify deployed download, update issue/state and commit.
+
+## Phase 6: [Issue #4] Developer ID notarization
+- [x] Confirm Xcode has a paid individual team configured.
+- [x] Obtain Developer ID signing through Xcode-managed signing with the configured paid team.
+- [ ] Sign with hardened runtime, submit to Apple, staple and assess the accepted artifact.
+- [ ] Publish only verified notarized downloads and update public disclosures.

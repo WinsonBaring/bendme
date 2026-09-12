@@ -28,3 +28,9 @@
 - Mounted the DMG read-only, verified its app signature and shortcut, and compared app contents with the existing release ZIP: identical. Ejected cleanly.
 - Website lint/tests/typecheck/build passed with the DMG URL and installation copy; retained preview signing disclosures and ZIP alternative.
 - Published the DMG and dedicated checksum to v0.1.0. Public download byte comparison and hdiutil verification passed. Live GitHub Pages HTML contains the direct DMG link. Issue #3 complete.
+
+## 2026-09-12 Developer ID notarization [Issue #4]
+- User confirmed paid membership and authorized setup. Xcode's configured team is a paid individual team; the local identity inventory alone was incomplete evidence.
+- Native UI automation was unavailable (assistive access denied), so used Xcode's supported CLI account/provisioning workflow without plugins or browser tools.
+- Development archive succeeded; automatic Developer ID export with destination upload succeeded using Xcode-managed signing. Submitted app has secure timestamp, paid team identifier and hardened runtime.
+- Apple reports processing. Added submit/export script and notarized-app packaging guard; approval and public replacement still pending.

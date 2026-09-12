@@ -36,3 +36,5 @@ The original wallpaper is drawn with Core Graphics; all preview and live effects
 Exact physical perspective depends on viewer position; this is a configurable visual illusion, not camera-based head tracking. Input coordinates are not remapped. Screen Recording permission, compatible hardware, and an open built-in display are required for the live effect. OS sleep and protected content restrictions remain in place.
 
 Direct desktop distribution supports DMG and ZIP. The DMG wraps the same app with an Applications shortcut; see [packaging scripts](scripts/README.md).
+
+Developer ID notarization uses the configured paid Xcode team through [distribution setup](distribution/SETUP.md), with a separate direct-distribution archive and guarded packaging.

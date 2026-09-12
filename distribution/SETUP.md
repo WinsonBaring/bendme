@@ -45,3 +45,18 @@ Use Xcode Organizer to validate and distribute the archive to App Store Connect.
 - [Mac screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications/)
 
 The working local app in `dist/BendMe.app` is not overwritten by archive or preview packaging. Public direct previews go to `dist/Release/`.
+
+## Direct GitHub distribution with Apple notarization
+
+A configured paid team in Xcode can use automatic Developer ID export and notarization, including Xcode-managed signing. An empty local Developer ID identity list alone does not prove the account cannot distribute.
+
+```sh
+BENDME_DEVELOPMENT_TEAM=YOUR_TEAM_ID ./scripts/notarize-direct.sh submit
+./scripts/notarize-direct.sh export
+```
+
+`submit` archives with hardened runtime and uploads through Xcode's account session. `export` checks Apple's result and exports only an accepted app, then validates its attached ticket and Gatekeeper assessment. If Apple reports processing, wait and retry **export**, not submit. If rejected, inspect the notarization report in Xcode before retrying a corrected build. No Apple password or private key belongs in repository files.
+
+The direct app uses public HID access outside App Sandbox; the App Store target retains its separate sandbox entitlements. This workflow preserves `dist/BendMe.app` and the published preview until replacement artifacts are verified.
+
+After successful export, copy the complete approved app without modification to an isolated release directory, then run `BENDME_RELEASE_DIR=/absolute/release/directory BENDME_NOTARIZED=1 ./scripts/package-dmg.sh`. This verifies the app ticket before creating installation copy that states notarization. The DMG is a transport container for the notarized app; the app's ticket is what this workflow verifies.
