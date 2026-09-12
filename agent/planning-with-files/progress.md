@@ -72,3 +72,8 @@ Issue #4 complete: Apple accepted the app; signature, ticket, Gatekeeper, mounte
 - Apple accepted 0.1.3/build 4; signature, stapled ticket, Gatekeeper and mounted DMG passed. Published v0.1.3 and verified all four public asset hashes. No installed app or user permission state changed.
 - Pages run 34669618518 passed; live HTML contains the v0.1.3 DMG URL and missing-app guidance.
 - GitHub Checks 34669618513 passed (native tests/archive, website checks/audit). Issue #8 implementation and release complete; automatic first-use permission registration remains unverified.
+
+## 2026-09-12 simple native consent [Issue #9]
+- User rejected the extra floating guide and lengthy instructions. Removed companion window, imitation switch/plus examples, missing-app helper and clipboard state.
+- Kept native ScreenCaptureKit consent and actual permission polling. Primary button becomes Open System Settings only if access remains unavailable; short reopen action appears conditionally. No Accessibility or custom permission bypass.
+- Removed a leftover companion reference identified by compilation; final 17 tests and website checks passed. Eight layouts rendered and minimal permission/recovery views reviewed. Submitted separate 0.1.4/build 5 archive for Apple notarization.

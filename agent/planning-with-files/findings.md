@@ -22,3 +22,6 @@ User declined plugins; authenticated gh CLI created WinsonBaring/bendme and issu
 
 ## Missing Screen Recording row, 2026-09-12 [Issue #8]
 The user's fresh-install screenshot shows no BendMe row after the v0.1.2 button. Opening Settings alone cannot establish consent. Reviewed Apple's ScreenCaptureKit sample via its documentation JSON over HTTP (no browser): https://developer.apple.com/documentation/screencapturekit/capturing-screen-content-in-macos . It describes first-use Screen Recording consent and restarting after granting it. The revised button uses shareable-content enumeration without creating a stream, and manual + guidance remains necessary when no row appears. Exact cause of the user's missing row is not proven from the screenshot; do not claim the API change guarantees listing or permission.
+
+## Simple native consent, 2026-09-12 [Issue #9]
+User explicitly rejected the floating guide and verbose instructions. Remove that design rather than extending it. Native ScreenCaptureKit request remains the approval route; macOS owns permission. Settings and reopen controls appear only as concise recovery. Preserve the user's existing installation for manual testing.

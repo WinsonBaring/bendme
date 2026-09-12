@@ -22,8 +22,8 @@ BendMe development preview
 
 Open BendMe to start its interactive Setup guide. It helps you place
 BendMe in Applications, open the correct Screen Recording settings,
-and try your first live effect. Follow the buttons in the app; a small
-companion guide stays visible while you use System Settings.
+and try your first live effect. Choose Allow Screen Recording and
+approve the native macOS request.
 
 Eject this disk after opening your installed copy from Applications.
 

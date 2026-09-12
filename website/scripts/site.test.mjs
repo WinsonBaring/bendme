@@ -5,7 +5,7 @@ import { readFile } from 'node:fs/promises';
 test('release links point to the actual owner and one versioned download', async () => {
   const source = await readFile(new URL('../src/release.ts', import.meta.url), 'utf8');
   assert.match(source, /github\.com\/WinsonBaring\/bendme/);
-  assert.match(source, /releases\/download\/v0\.1\.3\/BendMe-macOS-arm64\.dmg/);
+  assert.match(source, /releases\/download\/v0\.1\.4\/BendMe-macOS-arm64\.dmg/);
   assert.doesNotMatch(source, /example\.com|localhost|TODO/);
 });
 

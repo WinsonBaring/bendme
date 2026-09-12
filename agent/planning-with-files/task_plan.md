@@ -68,3 +68,7 @@ Tracking: [Issue #1](https://github.com/WinsonBaring/bendme/issues/1) public rel
 ## Phase 11: [Issue #8] Missing Screen Recording row
 - [x] Use ScreenCaptureKit permission request and explicit missing-app branch with upper-list + and copy-path assistance.
 - [x] Validate native layouts/tests and publish notarized 0.1.3; preserve the user's manual-test installation.
+
+## Phase 12: [Issue #9] Simple native consent
+- [x] Remove floating guide and verbose permission instructions; use one native consent button with short conditional recovery.
+- [ ] Validate, notarize and publish 0.1.4 without altering the user's installed app or permissions.

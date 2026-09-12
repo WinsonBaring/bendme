@@ -25,15 +25,13 @@ final class AppModel: ObservableObject {
     @Published var permissionGranted = CGPreflightScreenCaptureAccess()
     @Published var overlayVisible = false
     @Published var showSetup = true { didSet { updateSetupPolling() } }
-    @Published var showPermissionGuide = false { didSet { updateSetupPolling() } }
     @Published var installedInApplications = false
     @Published var installedCopyURL: URL?
     @Published var setupHasFrames = false
     @Published var setupSawEffect = false
     @Published var reopening = false
     @Published var requestingScreenAccess = false
-    @Published var showMissingAppHelp = false
-    @Published var copiedApplicationPath = false
+    @Published var needsScreenSettings = false
     private var permissionTask: Task<Void, Never>?
     private var setupTimer: Timer?
     let sensor = LidSensor()
@@ -99,7 +97,6 @@ final class AppModel: ObservableObject {
         if previewOnly { pause(); followLid = false }
         defaults.set(true, forKey: "setupCompleted")
         defaults.set(false, forKey: "setupInProgress")
-        showPermissionGuide = false
         showSetup = false
     }
 
@@ -125,7 +122,7 @@ final class AppModel: ObservableObject {
 
     private func updateSetupPolling() {
         guard servicesEnabled else { return }
-        if showSetup || showPermissionGuide {
+        if showSetup {
             guard setupTimer == nil else { return }
             let timer = Timer(timeInterval: 2, repeats: true) { [weak self] _ in
                 MainActor.assumeIsolated { self?.refreshSetupStatus() }
@@ -165,7 +162,6 @@ final class AppModel: ObservableObject {
     func startPermissionSetup() {
         beginSetup()
         guard !requestingScreenAccess else { return }
-        showPermissionGuide = true
         requestingScreenAccess = true
         permissionTask = Task { [weak self] in
             guard let self else { return }
@@ -177,11 +173,11 @@ final class AppModel: ObservableObject {
                 _ = try await SCShareableContent.excludingDesktopWindows(false, onScreenWindowsOnly: true)
             } catch {
                 guard !Task.isCancelled else { return }
-                self.message = "Screen access is not confirmed. If BendMe is missing in Settings, choose ‘BendMe isn’t listed’ in the guide."
+                self.needsScreenSettings = true
             }
             guard !Task.isCancelled else { return }
             self.refreshSetupStatus()
-            if self.permissionGranted { self.message = nil }
+            if self.permissionGranted { self.message = nil; self.needsScreenSettings = false }
             else { self.openPrivacySettings() }
         }
     }
@@ -195,16 +191,8 @@ final class AppModel: ObservableObject {
         sensorStatus = sensor.status
     }
 
-    var applicationPathForPermission: String { (installedCopyURL ?? Bundle.main.bundleURL).path }
-
-    func copyApplicationPath() {
-        NSPasteboard.general.clearContents()
-        copiedApplicationPath = NSPasteboard.general.setString(applicationPathForPermission, forType: .string)
-        if !copiedApplicationPath { message = "The app path could not be copied. Use Show BendMe in Finder to locate it." }
-    }
-
     func openPrivacySettings() {
-        showPermissionGuide = true
+        needsScreenSettings = true
         if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture") {
             if !NSWorkspace.shared.open(url) {
                 message = "System Settings could not open. Choose Privacy & Security → Screen & System Audio Recording in System Settings."

@@ -42,13 +42,12 @@ enum BendMeMain {
 }
 
 @MainActor
-final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
+final class AppDelegate: NSObject, NSApplicationDelegate {
     private var model: AppModel?
     private var statusItem: NSStatusItem?
     private var window: NSWindow?
     private var subscription: AnyCancellable?
     private var setupSubscription: AnyCancellable?
-    private var permissionPanel: NSPanel?
     private var toggleItem: NSMenuItem?
     private var sensorItem: NSMenuItem?
 
@@ -97,49 +96,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         mainMenu.addItem(windowMenuItem)
         NSApp.mainMenu = mainMenu
         subscription = model.objectWillChange.sink { [weak self] in
-            DispatchQueue.main.async { self?.refreshMenu(); self?.refreshSetupGuide() }
+            DispatchQueue.main.async { self?.refreshMenu() }
         }
         setupSubscription = model.$showSetup.dropFirst().removeDuplicates().sink { [weak self] visible in
             if visible { DispatchQueue.main.async { self?.showSettings() } }
         }
         refreshMenu()
         showSettings()
-    }
-
-    private func refreshSetupGuide() {
-        guard let model else { return }
-        guard model.showPermissionGuide else {
-            permissionPanel?.close()
-            permissionPanel = nil
-            return
-        }
-        guard permissionPanel == nil else { return }
-        let panel = SetupGuidePanel(contentRect: NSRect(x: 0, y: 0, width: 330, height: 620),
-                                   styleMask: [.titled, .closable, .utilityWindow, .nonactivatingPanel],
-                                   backing: .buffered, defer: false)
-        panel.title = "BendMe setup guide"
-        panel.appearance = NSAppearance(named: .darkAqua)
-        panel.hidesOnDeactivate = false
-        panel.isFloatingPanel = true
-        panel.level = .floating
-        panel.isReleasedWhenClosed = false
-        panel.delegate = self
-        panel.contentView = NSHostingView(rootView: PermissionCompanionView(model: model) { [weak self] in
-            model.showPermissionGuide = false
-            model.beginSetup()
-            self?.showSettings()
-        })
-        let frame = (window?.screen ?? NSScreen.main)?.visibleFrame ?? NSRect(x: 0, y: 0, width: 900, height: 780)
-        panel.setFrameTopLeftPoint(NSPoint(x: max(frame.minX, frame.maxX - panel.frame.width - 18), y: frame.maxY - 18))
-        permissionPanel = panel
-        panel.orderFrontRegardless()
-    }
-
-    func windowWillClose(_ notification: Notification) {
-        if let closing = notification.object as? NSWindow, closing === permissionPanel {
-            permissionPanel = nil
-            model?.showPermissionGuide = false
-        }
     }
 
     private func refreshMenu() {
@@ -175,10 +138,4 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         showSettings(); return true
     }
-}
-
-@MainActor
-private final class SetupGuidePanel: NSPanel {
-    override var canBecomeKey: Bool { true }
-    override var canBecomeMain: Bool { false }
 }

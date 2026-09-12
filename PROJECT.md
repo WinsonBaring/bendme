@@ -41,4 +41,4 @@ Developer ID notarization uses the configured paid Xcode team through [distribut
 
 Version 0.1.1 uses regular AppKit activation and LSUIElement=false in both build paths, showing a Dock icon while retaining menu-bar controls. Reopening restores the settings window.
 
-Setup uses `SetupProgress → AppModel → SetupView` to guide installation, Screen Recording consent and the first live effect. A floating native companion remains visible alongside System Settings. See [application documentation](Sources/BendMe/README.md) and [layout checks](scripts/README.md).
+Setup uses `SetupProgress → AppModel → SetupView` to guide installation, Screen Recording consent and the first live effect. Permission setup uses native macOS consent with a brief conditional Settings/reopen fallback. See [application documentation](Sources/BendMe/README.md) and [layout checks](scripts/README.md).

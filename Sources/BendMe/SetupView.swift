@@ -72,24 +72,18 @@ struct SetupView: View {
 
     private var permission: some View {
         Group {
-            heading("Let BendMe see your desktop.", detail: "Screen Recording access lets BendMe draw the live effect. Frames stay in memory on your Mac; they are never saved or uploaded.")
-            Button(action: model.startPermissionSetup) {
-                Label(model.requestingScreenAccess ? "Waiting for macOS…" : "Allow screen access", systemImage: "rectangle.dashed.badge.record")
+            heading("Allow Screen Recording", detail: "BendMe needs screen access for the live effect. Nothing is saved or uploaded.")
+            Button(action: model.needsScreenSettings ? model.openPrivacySettings : model.startPermissionSetup) {
+                Label(model.requestingScreenAccess ? "Waiting for macOS…" : model.needsScreenSettings ? "Open System Settings" : "Allow Screen Recording",
+                      systemImage: "rectangle.dashed.badge.record")
             }.buttonStyle(.borderedProminent).controlSize(.large).disabled(model.requestingScreenAccess)
-            Text("Answer Apple's permission prompt first. If Settings opens without a BendMe row, use the missing-app guide below.")
-                .font(.system(size: 12)).foregroundStyle(.secondary)
-            PermissionInstructions(model: model)
-            HStack {
-                Button("Open Screen Recording settings", action: model.openPrivacySettings)
-                Button("Check access", action: model.refreshSetupStatus)
+            if model.requestingScreenAccess {
+                Text("Approve access in the macOS window.").font(.system(size: 12)).foregroundStyle(.secondary)
+            } else if model.needsScreenSettings {
+                Text("Enable BendMe in Settings, then reopen it.").font(.system(size: 12)).foregroundStyle(.secondary)
+                Button(model.reopening ? "Reopening…" : "Reopen BendMe") { model.reopenApplication() }
+                    .disabled(model.reopening)
             }
-            Divider()
-            Label("Only Screen Recording is needed. Accessibility access is not required.", systemImage: "checkmark.shield")
-                .font(.system(size: 12)).foregroundStyle(.secondary)
-            Text("Already switched it on? Choose Quit & Reopen if macOS offers it, or use the button below. Setup will resume when BendMe opens.")
-                .font(.system(size: 12)).foregroundStyle(.secondary)
-            Button(model.reopening ? "Reopening…" : "Reopen BendMe") { model.reopenApplication() }
-                .disabled(model.reopening)
         }
     }
 
@@ -161,80 +155,5 @@ struct SetupView: View {
                 Text(detail).font(.system(size: 12)).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
             }
         }
-    }
-}
-
-private struct PermissionInstructions: View {
-    @ObservedObject var model: AppModel
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            if model.showMissingAppHelp {
-                Text("ADD BENDME TO THE UPPER LIST")
-                    .font(.system(size: 9, weight: .semibold)).tracking(1).foregroundStyle(.secondary)
-                HStack(spacing: 10) {
-                    Image(systemName: "plus").font(.system(size: 20, weight: .bold))
-                        .frame(width: 34, height: 34).background(setupAccent.opacity(0.2), in: RoundedRectangle(cornerRadius: 6))
-                    Image(systemName: "arrow.left").foregroundStyle(setupAccent)
-                    Text("Click this + in Settings").font(.system(size: 12, weight: .medium))
-                }.accessibilityElement(children: .combine)
-                Text("1. Click + under the upper Screen & System Audio Recording list.")
-                Text("2. In the file chooser, select Applications → BendMe, then click Open.")
-                Button(model.copiedApplicationPath ? "App path copied — copy again" : "Copy BendMe’s app path", action: model.copyApplicationPath)
-                Text("Can't find it? Copy the app path, then press Shift + Command + G in the chooser. Paste, press Return, then Open.")
-                    .foregroundStyle(.secondary)
-                Text("3. Turn on BendMe's switch. Choose Quit & Reopen if macOS asks, or use Reopen BendMe below.")
-                Button("Show switch instructions") { model.showMissingAppHelp = false }
-                    .buttonStyle(.bordered)
-            } else {
-                Button("BendMe isn’t listed — help me add it") { model.showMissingAppHelp = true }
-                    .buttonStyle(.borderedProminent)
-                Text("If BendMe is already listed, turn on its switch:")
-                HStack {
-                    Image(systemName: "macbook").foregroundStyle(setupAccent)
-                    Text("BendMe").fontWeight(.medium)
-                    Spacer()
-                    Image(systemName: "arrow.right").foregroundStyle(setupAccent)
-                    Capsule().fill(.green).frame(width: 32, height: 19)
-                        .overlay(alignment: .trailing) { Circle().fill(.white).frame(width: 15, height: 15).padding(2) }
-                }.padding(12).background(.white.opacity(0.06), in: RoundedRectangle(cornerRadius: 9))
-                    .accessibilityElement(children: .ignore).accessibilityLabel("Example: find the BendMe row in System Settings and turn its switch on")
-                Text("Example only. Change the actual switch in System Settings.")
-                    .foregroundStyle(.secondary)
-            }
-        }.font(.system(size: 12)).fixedSize(horizontal: false, vertical: true)
-    }
-}
-
-struct PermissionCompanionView: View {
-    @ObservedObject var model: AppModel
-    var returnToSetup: () -> Void
-
-    var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                Label("BendMe setup", systemImage: "macbook").font(.headline).foregroundStyle(setupAccent)
-                if model.permissionGranted {
-                    Label("Access confirmed", systemImage: "checkmark.circle.fill").foregroundStyle(.green)
-                    Text("Return to BendMe to try the live effect.").font(.system(size: 13))
-                    Button("Return to BendMe", action: returnToSetup).buttonStyle(.borderedProminent)
-                } else {
-                    Text(model.showMissingAppHelp ? "Add BendMe first." : "Is BendMe in the list?").font(.system(size: 21, weight: .semibold))
-                    PermissionInstructions(model: model)
-                    Button("Open the right settings page", action: model.openPrivacySettings)
-                    if !model.showMissingAppHelp {
-                        Text("After switching it on, choose Quit & Reopen if macOS asks, or reopen below.")
-                            .font(.system(size: 12)).foregroundStyle(.secondary)
-                    }
-                    Button(model.reopening ? "Reopening…" : "Reopen BendMe") { model.reopenApplication() }
-                        .buttonStyle(.borderedProminent).disabled(model.reopening)
-                    Button("Check access again", action: model.refreshSetupStatus)
-                    Text("Waiting for macOS to confirm access…").font(.caption).foregroundStyle(.secondary)
-                    Button("Back to setup", action: returnToSetup)
-                }
-            }.padding(20).frame(maxWidth: .infinity, alignment: .leading)
-        }.frame(width: 330, height: 620)
-            .background(Color(red: 0.105, green: 0.112, blue: 0.13))
-            .preferredColorScheme(.dark).tint(setupAccent)
     }
 }

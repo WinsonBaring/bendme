@@ -54,7 +54,6 @@ struct SettingsView: View {
         }
         .onChange(of: page) { _, value in
             model.showSetup = value == "Setup"
-            if value != "Setup" { model.showPermissionGuide = false }
         }
     }
 

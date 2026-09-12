@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- BendMe 0.1.4 removes the floating permission guide and lengthy instructions. Setup now offers one native Screen Recording action, with brief Settings/reopen recovery only when needed.
+
 - BendMe 0.1.3 requests screen access through ScreenCaptureKit and adds prominent missing-app guidance, the correct + button illustration and installed-app path copying when BendMe is absent from permission settings.
 
 - Removed local BendMe installation and reset public setup/privacy state for manual testing of v0.1.2 onboarding; published downloads and source are preserved.

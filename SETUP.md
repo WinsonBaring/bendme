@@ -8,7 +8,7 @@
 
 ## Install the public preview
 
-Download the DMG from [GitHub Releases](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.3), open it, and open BendMe to begin its interactive **Setup** guide. Follow its buttons to install in Applications, open the right permission settings, and try the first live effect. A floating companion points out the switch to use in System Settings. If BendMe is absent, choose **BendMe isn’t listed — help me add it** for the upper-list + button and app-path assistance. Eject the disk after the installed copy opens. The public app is Developer ID signed and Apple-notarized. Re-download the current DMG if you have the earlier unsigned preview. Source builds remain available. The ZIP is retained as an alternative download.
+Download the DMG from [GitHub Releases](https://github.com/WinsonBaring/bendme/releases/tag/v0.1.4), open it, and open BendMe to begin its interactive **Setup** guide. Follow its buttons to install in Applications, open the right permission settings, and try the first live effect. Choose **Allow Screen Recording** and approve the native macOS request. Settings/reopen recovery appears only if needed. Eject the disk after the installed copy opens. The public app is Developer ID signed and Apple-notarized. Re-download the current DMG if you have the earlier unsigned preview. Source builds remain available. The ZIP is retained as an alternative download.
 
 ## Build and run
 
