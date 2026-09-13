@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:bendme}",
+            "name": "Debug BendMe",
+            "target": "BendMe",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug BendMe"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:bendme}",
+            "name": "Release BendMe",
+            "target": "BendMe",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release BendMe"
+        }
+    ]
+}
